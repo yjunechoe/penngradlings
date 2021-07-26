@@ -4,6 +4,8 @@
 # penngradlings - Themes and utilities for Penn GradLingS
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/yjunechoe/penngradlings/workflows/R-CMD-check/badge.svg)](https://github.com/yjunechoe/penngradlings/actions)
 <!-- badges: end -->
 
 ## Installation
