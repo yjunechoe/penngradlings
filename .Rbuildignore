@@ -1,4 +1,6 @@
-^penngradlings\.Rproj$
+^.*\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^README\.Rmd$
+^pkgdown$
+^_pkgdown\.yml$
