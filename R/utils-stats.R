@@ -1,6 +1,6 @@
 #' Corrected calculation of mean and standard error
 #'
-#' Adapted from `ggplot2::mean_se`. Corrects the denominator of the variance with \eqn{N - 1}.
+#' Adapted from \code{ggplot2::mean_se}. Corrects the denominator of the variance with \eqn{N - 1}.
 #'
 #' @param x Numeric vector.
 #' @param mult Number of multiples of standard error.
@@ -17,7 +17,7 @@
 #' mean_se_corrected(x)
 mean_se_corrected <- function(x, mult = 1) {
   x <- stats::na.omit(x)
-  se <- mult * sqrt( stats::var(x) / (length(x) - 1) )
+  se <- mult * sqrt(stats::var(x) / (length(x) - 1))
   mean <- mean(x)
   as.data.frame(list(y = mean, ymin = mean - se, ymax = mean + se), n = 1)
 }
