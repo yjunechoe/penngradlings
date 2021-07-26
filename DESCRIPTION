@@ -2,12 +2,12 @@ Package: penngradlings
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "June",
+           family = "Choe",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "yjchoe@sas.upenn.edu",
+           comment = c(ORCID = "	0000-0002-0701-921X"))
+Description: Themes and utilities for Penn GradLings.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
