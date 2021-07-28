@@ -19,6 +19,8 @@ Unavailable font features are ignored.}
 Register a font variant with OpenType feature specifications
 }
 \examples{
+\dontrun{
 font_pluck(family = "Alegreya", c("lnum", "ordn"))
+}
 
 }

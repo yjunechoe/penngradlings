@@ -6,7 +6,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' font_hoist(family = "Arial")
+#' }
 #'
 #' @importFrom rlang .data .env
 font_hoist <- function(family, silent = FALSE) {
@@ -17,7 +19,12 @@ font_hoist <- function(family, silent = FALSE) {
 
   purrr::pwalk(as.list(font_specs), systemfonts::register_font)
 
-  if (!silent)  message(paste0("Hoisted ", nrow(font_specs), " variants:\n", paste(font_specs$name, collapse = "\n")))
+  if (!silent) {
+    cli::cli({
+      cli::cli_alert_success("Hoisted {.val {nrow(font_specs)}} variants for {.val {family}}")
+      cli::cli_ul(font_specs$name)
+    })
+  }
 }
 
 #' Register a font variant with OpenType feature specifications
@@ -31,7 +38,9 @@ font_hoist <- function(family, silent = FALSE) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' font_pluck(family = "Alegreya", c("lnum", "ordn"))
+#' }
 #'
 #' @importFrom rlang .data .env
 font_pluck <- function(family, features, .name) {
