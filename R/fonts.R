@@ -1,7 +1,7 @@
 #' Register members of a font family as their own families
 #'
 #' @param family The name of the font family, as registered in \code{systemfonts::system_fonts()}
-#' @param silent Whether to print a message of the newly registered font families
+#' @param verbose Whether to print a message of the newly registered font families
 #'
 #' @export
 #'
@@ -11,7 +11,7 @@
 #' }
 #'
 #' @importFrom rlang .data .env
-font_hoist <- function(family, silent = FALSE) {
+font_hoist <- function(family, verbose = TRUE) {
   font_specs <- systemfonts::system_fonts() %>%
     dplyr::filter(.data$family == .env$family) %>%
     dplyr::mutate(family = paste(.data$family, .data$style)) %>%
@@ -19,7 +19,7 @@ font_hoist <- function(family, silent = FALSE) {
 
   purrr::pwalk(as.list(font_specs), systemfonts::register_font)
 
-  if (!silent) {
+  if (verbose) {
     cli::cli({
       cli::cli_alert_success("Hoisted {.val {nrow(font_specs)}} variants for {.val {family}}")
       cli::cli_ul(font_specs$name)
