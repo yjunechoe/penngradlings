@@ -16,7 +16,11 @@ reference:
   contents:
   - font_hoist
   - font_pluck
-- title: Statistics
+- title: Save and render plots
+  desc: Functions for saving and rendering plots in interactive contexts
+  contents:
+  - ggsave2
+- title: Statistical transformations for plotting
   desc: Functions for common statistical analyses
   contents:
   - mean_se_corrected
