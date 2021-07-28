@@ -1,0 +1,22 @@
+url: https://yjunechoe.github.io/penngradlings/
+
+home:
+  title: Penn GradLingS
+
+authors:
+  June Choe:
+    href: https://yjunechoe.github.io
+
+template:
+  bootstrap: 4
+
+reference:
+- title: Font helpers
+  desc: Functions for registering custom fonts
+  contents:
+  - font_hoist
+  - font_pluck
+- title: Statistics
+  desc: Functions for common statistical analyses
+  contents:
+  - mean_se_corrected

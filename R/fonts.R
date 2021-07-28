@@ -1,0 +1,101 @@
+#' Register members of a font family as their own families
+#'
+#' @param family The name of the font family, as registered in \code{systemfonts::system_fonts()}
+#' @param silent Whether to print a message of the newly registered font families
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' font_hoist(family = "Arial")
+#' }
+#'
+#' @importFrom rlang .data .env
+font_hoist <- function(family, silent = FALSE) {
+  font_specs <- systemfonts::system_fonts() %>%
+    dplyr::filter(.data$family == .env$family) %>%
+    dplyr::mutate(family = paste(.data$family, .data$style)) %>%
+    dplyr::select(plain = .data$path, name = .data$family)
+
+  purrr::pwalk(as.list(font_specs), systemfonts::register_font)
+
+  if (!silent)  message(paste0("Hoisted ", nrow(font_specs), " variants:\n", paste(font_specs$name, collapse = "\n")))
+}
+
+#' Register a font variant with OpenType feature specifications
+#'
+#' @param family Font family. The Regular member of the family is used as the base.
+#' @param features Character vector of 4-letter OpenType feature tags.
+#' See [complete list of OpenType features](https://docs.microsoft.com/en-us/typography/opentype/spec/featurelist).
+#' Unavailable font features are ignored.
+#' @param .name (Optional) Name of the new font family. Appends registered feature tags to the new family name by default.
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' font_hoist(family = "Alegreya", c("lnum", "ordn"))
+#' }
+#'
+#' @importFrom rlang .data .env
+font_pluck <- function(family, features, .name) {
+  font_feature_tbl <- c(
+    "liga" = "standard",
+    "hlig" = "historical",
+    "clig" = "contextual",
+    "dlig" = "discretionary",
+    "cswh" = "swash",
+    "calt" = "alternates",
+    "hist" = "historical",
+    "locl" = "localized",
+    "rand" = "randomize",
+    "nalt" = "alt_annotation",
+    "salt" = "stylistic",
+    "subs" = "subscript",
+    "sups" = "superscript",
+    "titl" = "titling",
+    "smcp" = "small_caps",
+    "lnum" = "lining",
+    "onum" = "oldstyle",
+    "pnum" = "proportional",
+    "tnum" = "tabular",
+    "frac" = "fractions",
+    "afrc" = "fractions_alt"
+  )
+
+  family_path <- systemfonts::system_fonts() %>%
+    dplyr::filter(.data$family == .env$family, .data$style == "Regular") %>%
+    dplyr::pull(.data$path)
+  if (!rlang::has_length(family_path)) {
+    cli::cli_abort("Font family {.val {family}} not found in systemfonts::system_fonts().")
+  }
+
+  valid_features <- features[stringr::str_length(features) == 4]
+  valid_features <- valid_features[valid_features %in% textshaping::get_font_features(family)[[1]]]
+  types <- dplyr::case_when(
+    valid_features %in% c("liga", "hlig", "clig", "dlig") ~ "ligatures",
+    valid_features %in% c("cswh", "calt", "hist", "locl", "rand", "nalt", "salt", "subs", "sups", "titl", "smcp") ~ "letters",
+    valid_features %in% c("lnum", "onum", "pnum", "lnum", "frac", "afrc") ~ "numbers",
+    TRUE ~ valid_features
+  )
+  if (any(duplicated(types))) {
+    cli::cli_abort("Multiple specifications for one of: {.arg Ligatures}, {.arg Letters}, {.arg Numbers}.")
+  }
+  if (rlang::is_missing(.name)) {
+    .name <- paste(family, paste(sort(valid_features), collapse = "-"))
+  }
+  valid_features <- as.list(stats::setNames(valid_features, types))
+  for (i in seq_along(valid_features)) {
+    if (names(valid_features)[[i]] %in% c("ligatures", "letters", "numbers")) {
+      valid_features[[i]] <- unname(font_feature_tbl[valid_features[[i]]])
+    } else {
+      valid_features[[i]] <- TRUE
+    }
+  }
+  systemfonts::register_font(
+    name = .name,
+    plain = family_path,
+    features = do.call(systemfonts::font_feature, valid_features)
+  )
+  cli::cli_alert_success("Registered {.strong {.name}}.\nCheck systemfonts::registry_fonts() for more details.")
+}

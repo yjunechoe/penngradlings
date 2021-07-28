@@ -22,4 +22,11 @@ Imports:
     ggplot2,
     magrittr,
     patchwork,
-    gridtext
+    gridtext,
+    systemfonts,
+    ragg,
+    purrr,
+    rlang,
+    cli,
+    stringr,
+    textshaping

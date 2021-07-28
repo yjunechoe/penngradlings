@@ -13,8 +13,10 @@
 #' }
 #' @export
 #' @examples
+#' \dontrun{
 #' x <- rnorm(100)
 #' mean_se_corrected(x)
+#' }
 mean_se_corrected <- function(x, mult = 1) {
   x <- stats::na.omit(x)
   se <- mult * sqrt(stats::var(x) / (length(x) - 1))
