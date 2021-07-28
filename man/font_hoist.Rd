@@ -4,12 +4,12 @@
 \alias{font_hoist}
 \title{Register members of a font family as their own families}
 \usage{
-font_hoist(family, silent = FALSE)
+font_hoist(family, verbose = TRUE)
 }
 \arguments{
 \item{family}{The name of the font family, as registered in \code{systemfonts::system_fonts()}}
 
-\item{silent}{Whether to print a message of the newly registered font families}
+\item{verbose}{Whether to print a message of the newly registered font families}
 }
 \description{
 Register members of a font family as their own families

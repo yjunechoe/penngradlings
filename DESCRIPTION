@@ -6,7 +6,7 @@ Authors@R: c(
            family = "Choe",
            role = c("aut", "cre"),
            email = "yjchoe@sas.upenn.edu",
-           comment = c(ORCID = "	0000-0002-0701-921X")))
+           comment = c(ORCID = "0000-0002-0701-921X")))
 Description: Themes and utilities for Penn GradLings.
 URL: https://github.com/yjunechoe/penngradlings
 BugReports: https://github.com/yjunechoe/penngradlings/issues
