@@ -15,8 +15,6 @@ font_hoist(family, silent = FALSE)
 Register members of a font family as their own families
 }
 \examples{
-\dontrun{
 font_hoist(family = "Arial")
-}
 
 }

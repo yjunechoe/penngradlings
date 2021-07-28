@@ -6,9 +6,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' font_hoist(family = "Arial")
-#' }
 #'
 #' @importFrom rlang .data .env
 font_hoist <- function(family, silent = FALSE) {
@@ -24,7 +22,7 @@ font_hoist <- function(family, silent = FALSE) {
 
 #' Register a font variant with OpenType feature specifications
 #'
-#' @param family Font family. The Regular member of the family is used as the base.
+#' @param family A font family. The Regular member of the family is used as the base.
 #' @param features Character vector of 4-letter OpenType feature tags.
 #' See [complete list of OpenType features](https://docs.microsoft.com/en-us/typography/opentype/spec/featurelist).
 #' Unavailable font features are ignored.
@@ -33,9 +31,7 @@ font_hoist <- function(family, silent = FALSE) {
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' font_hoist(family = "Alegreya", c("lnum", "ordn"))
-#' }
+#' font_pluck(family = "Alegreya", c("lnum", "ordn"))
 #'
 #' @importFrom rlang .data .env
 font_pluck <- function(family, features, .name) {

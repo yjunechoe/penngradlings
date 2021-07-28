@@ -20,11 +20,9 @@ A dataframe with three columns:
 }
 }
 \description{
-Adapted from \code{ggplot2::mean_se}. Corrects the denominator of the variance with \eqn{N - 1}.
+Adapted from \code{ggplot2::mean_se}. Corrects the denominator for the variance with \eqn{N - 1}.
 }
 \examples{
-\dontrun{
 x <- rnorm(100)
 mean_se_corrected(x)
-}
 }

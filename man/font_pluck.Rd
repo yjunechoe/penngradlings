@@ -7,7 +7,7 @@
 font_pluck(family, features, .name)
 }
 \arguments{
-\item{family}{Font family. The Regular member of the family is used as the base.}
+\item{family}{A font family. The Regular member of the family is used as the base.}
 
 \item{features}{Character vector of 4-letter OpenType feature tags.
 See \href{https://docs.microsoft.com/en-us/typography/opentype/spec/featurelist}{complete list of OpenType features}.
@@ -19,8 +19,6 @@ Unavailable font features are ignored.}
 Register a font variant with OpenType feature specifications
 }
 \examples{
-\dontrun{
-font_hoist(family = "Alegreya", c("lnum", "ordn"))
-}
+font_pluck(family = "Alegreya", c("lnum", "ordn"))
 
 }
