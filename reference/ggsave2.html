@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • penngradlings</title>
+<title>Save and open plot — ggsave2 • penngradlings</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Save and open plot — ggsave2" />
+<meta property="og:description" content="Wrapper around ggplot2::ggsave() that opens rendered output using the system's default app for the graphic type." />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -105,86 +106,30 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Save and open plot</h1>
+    <small class="dont-index">Source: <a href='https://github.com/yjunechoe/penngradlings/blob/master/R/plot-save-render.R'><code>R/plot-save-render.R</code></a></small>
+    <div class="hidden name"><code>ggsave2.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Wrapper around <code><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggplot2::ggsave()</a></code> that opens rendered output using the system's default app for the graphic type.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>ggsave2</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-font-helpers" class="hasAnchor"><a href="#section-font-helpers" class="anchor"></a>Font helpers</h2>
-          <p class="section-desc"><p>Functions for registering custom fonts</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="font_hoist.html">font_hoist()</a></code> </p>
-        </td>
-        <td><p>Register members of a font family as their own families</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="font_pluck.html">font_pluck()</a></code> </p>
-        </td>
-        <td><p>Register a font variant with OpenType feature specifications</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-save-and-render-plots" class="hasAnchor"><a href="#section-save-and-render-plots" class="anchor"></a>Save and render plots</h2>
-          <p class="section-desc"><p>Functions for saving and rendering plots in interactive contexts</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="ggsave2.html">ggsave2()</a></code> </p>
-        </td>
-        <td><p>Save and open plot</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-statistical-transformations-for-plotting" class="hasAnchor"><a href="#section-statistical-transformations-for-plotting" class="anchor"></a>Statistical transformations for plotting</h2>
-          <p class="section-desc"><p>Functions for common statistical analyses</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="mean_se_corrected.html">mean_se_corrected()</a></code> </p>
-        </td>
-        <td><p>Corrected calculation of mean and standard error</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>Passed to <code><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggplot2::ggsave()</a></code></p></td>
+    </tr>
     </table>
-  </div>
 
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
