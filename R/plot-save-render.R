@@ -40,7 +40,6 @@ ggsave2 <- function(..., verbose = FALSE) {
     opts$dpi <- 300
   }
   path <- withVisible(do.call(ggplot2::ggsave, opts))$value
-  print(opts)
   system2("open", path)
   if (verbose) {
     img <- magick::image_read(path)

@@ -14,6 +14,7 @@ reference:
 - title: Font helpers
   desc: Functions for registering custom fonts
   contents:
+  - load_pkg_fonts
   - font_hoist
   - font_pluck
 - title: Save and render plots
