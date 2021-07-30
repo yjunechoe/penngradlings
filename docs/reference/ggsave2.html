@@ -117,16 +117,34 @@
     <p>Wrapper around <code><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggplot2::ggsave()</a></code> that opens rendered output using the system's default app for the graphic type.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ggsave2</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>ggsave2</span><span class='op'>(</span><span class='va'>...</span>, verbose <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>Passed to <code><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggplot2::ggsave()</a></code></p></td>
+      <td><p>Passed to <code><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggplot2::ggsave()</a></code>, with some defaults optimized for publication figures.</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Whether to show information about the saved plot and invisibly return an ImageMagick object of the plot for post-processing. Defaults to <code>FALSE</code>.</p></td>
     </tr>
     </table>
+
+    <h2 class="hasAnchor" id="default-options-for-publication-figures"><a class="anchor" href="#default-options-for-publication-figures"></a>Default options for publication figures</h2>
+
+    
+
+<dl>
+<dt><code>width</code></dt><dd><p>Defaults to 6.5in, 100% of the full-width of letter-sized paper (8.5in) minus 1in margins. Accepts a string of percentage scale (ex: "50%").</p></dd>
+<dt><code>height</code></dt><dd><p>Defaults to 3in, 33% of the full-width of letter-sized paper (11in) minus 1in margins. Accepts a string of percentage scale (ex: "50%").</p></dd>
+
+</dl><p>If either width or height are specified as percentages, the following defaults are also set:</p><dl>
+<dt><code>dpi</code></dt><dd><p>300, the print standard.</p></dd>
+<dt><code>units</code></dt><dd><p>"in"</p></dd>
+
+</dl>
 
 
   </div>

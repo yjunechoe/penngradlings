@@ -4,11 +4,26 @@
 \alias{ggsave2}
 \title{Save and open plot}
 \usage{
-ggsave2(...)
+ggsave2(..., verbose = FALSE)
 }
 \arguments{
-\item{...}{Passed to \code{ggplot2::ggsave()}}
+\item{...}{Passed to \code{ggplot2::ggsave()}, with some defaults optimized for publication figures.}
+
+\item{verbose}{Whether to show information about the saved plot and invisibly return an ImageMagick object of the plot for post-processing. Defaults to \code{FALSE}.}
 }
 \description{
 Wrapper around \code{ggplot2::ggsave()} that opens rendered output using the system's default app for the graphic type.
 }
+\section{Default options for publication figures}{
+
+\describe{
+\item{\code{width}}{ Defaults to 6.5in, 100\% of the full-width of letter-sized paper (8.5in) minus 1in margins. Accepts a string of percentage scale (ex: "50\%"). }
+\item{\code{height}}{ Defaults to 3in, 33\% of the full-width of letter-sized paper (11in) minus 1in margins. Accepts a string of percentage scale (ex: "50\%"). }
+}
+If either width or height are specified as percentages, the following defaults are also set:
+\describe{
+\item{\code{dpi}}{ 300, the print standard. }
+\item{\code{units}}{ "in" }
+}
+}
+
