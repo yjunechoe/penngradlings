@@ -9,4 +9,6 @@ vignette: >
   %\usepackage[utf8]{inputenc}
 ---
 
-TBD
+╭────────────────────╮
+│        TBD         │
+╰────────────────────╯

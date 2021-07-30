@@ -7,3 +7,4 @@
 ^\.github$
 ^docs$
 ^vignettes/
+^data-raw$
