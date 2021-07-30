@@ -1,20 +1,26 @@
 #' Load package fonts
 #'
-#' Registers fonts contained in {penngradlings} with \code{systemfonts::register_font()}.
-#' Call \code{systemfonts::registry_fonts()} after loading the fonts for more details.
+#' Registers fonts contained in {penngradlings} with \code{systemfonts::register_font()}. This function is called silently on package load.
 #'
-#' @param verbose Whether the newly registered fonts should be printed to the console. Defaults to \code{FALSE}.
+#' Call \code{systemfonts::registry_fonts()} after loading the fonts for more details on the registered fonts.
+#'
+#' @param verbose Whether the newly registered fonts should be printed to the console. Defaults to \code{TRUE}.
 #'
 #' @section Fonts loaded:
 #' \describe{
-#'     \item{`Charis SIL`}{ From SIL International \url{https://software.sil.org/charis/}}
-#'     \item{`Inter`}{ From Google Fonts \url{https://fonts.google.com/specimen/Inter}}
-#'     \item{`Lato`}{ From Google Fonts \url{https://fonts.google.com/specimen/Roboto}}
+#'     \item{`Charis SIL`}{ From SIL International: \url{https://software.sil.org/charis/}}.
+#'     \item{`Inter`}{ From Google Fonts: \url{https://fonts.google.com/specimen/Inter}}.
+#'     \item{`Lato`}{ From Google Fonts: \url{https://fonts.google.com/specimen/Roboto}}.
 #' }
 #'
-#' All fonts are licensed under the SIL Open Font License (OFL) \url{https://scripts.sil.org/OFL}
+#' All fonts are licensed under the SIL Open Font License (OFL): \url{https://scripts.sil.org/OFL}. Copy of the license is also included in the package source.
 #'
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' load_pkg_fonts()
+#' }
 load_pkg_fonts <- function(verbose = TRUE) {
   load_pkg_font <- function(family) {
     font_dir <- system.file("fonts", family, package = "penngradlings")
@@ -40,6 +46,6 @@ load_pkg_fonts <- function(verbose = TRUE) {
   purrr::walk(pkg_fonts, load_pkg_font)
   if (verbose) {
     cli::cli_rule()
-    cli::cli_alert_info("Check {.code systemfonts::registry_fonts()} for more details.")
+    cli::cli_alert_info("Done! Check {.code systemfonts::registry_fonts()} for more details.")
   }
 }

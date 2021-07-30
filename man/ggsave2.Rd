@@ -27,3 +27,9 @@ If either width or height are specified as percentages, the following defaults a
 }
 }
 
+\examples{
+\dontrun{
+p <- qplot(mpg, hp, data = mtcars)
+ggsave2("myplot.png", p, width = "50\%", height = "30\%")
+}
+}

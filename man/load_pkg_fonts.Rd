@@ -7,20 +7,27 @@
 load_pkg_fonts(verbose = TRUE)
 }
 \arguments{
-\item{verbose}{Whether the newly registered fonts should be printed to the console. Defaults to \code{FALSE}.}
+\item{verbose}{Whether the newly registered fonts should be printed to the console. Defaults to \code{TRUE}.}
 }
 \description{
-Registers fonts contained in {penngradlings} with \code{systemfonts::register_font()}.
-Call \code{systemfonts::registry_fonts()} after loading the fonts for more details.
+Registers fonts contained in {penngradlings} with \code{systemfonts::register_font()}. This function is called silently on package load.
+}
+\details{
+Call \code{systemfonts::registry_fonts()} after loading the fonts for more details on the registered fonts.
 }
 \section{Fonts loaded}{
 
 \describe{
-\item{\verb{Charis SIL}}{ From SIL International \url{https://software.sil.org/charis/}}
-\item{\code{Inter}}{ From Google Fonts \url{https://fonts.google.com/specimen/Inter}}
-\item{\code{Lato}}{ From Google Fonts \url{https://fonts.google.com/specimen/Roboto}}
+\item{\verb{Charis SIL}}{ From SIL International: \url{https://software.sil.org/charis/}}.
+\item{\code{Inter}}{ From Google Fonts: \url{https://fonts.google.com/specimen/Inter}}.
+\item{\code{Lato}}{ From Google Fonts: \url{https://fonts.google.com/specimen/Roboto}}.
 }
 
-All fonts are licensed under the SIL Open Font License (OFL) \url{https://scripts.sil.org/OFL}
+All fonts are licensed under the SIL Open Font License (OFL): \url{https://scripts.sil.org/OFL}. Copy of the license is also included in the package source.
 }
 
+\examples{
+\dontrun{
+load_pkg_fonts()
+}
+}

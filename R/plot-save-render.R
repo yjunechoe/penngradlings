@@ -17,6 +17,12 @@
 #' }
 #'
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' p <- qplot(mpg, hp, data = mtcars)
+#' ggsave2("myplot.png", p, width = "50%", height = "30%")
+#' }
 ggsave2 <- function(..., verbose = FALSE) {
   inner_height <- 9
   inner_width <- 6.5

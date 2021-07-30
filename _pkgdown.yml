@@ -22,6 +22,24 @@ reference:
   contents:
   - ggsave2
 - title: Statistical transformations for plotting
-  desc: Functions for common statistical analyses
+  desc: Functions for common statistical analyses with outputs formatted for mapping to aesthetics
   contents:
   - mean_se_corrected
+
+articles:
+- title: Style guide
+  navbar: Style guide
+  contents:
+  - figures
+  - tables
+
+figures:
+  dev: ragg::agg_png
+  dpi: 150
+  dev.args: []
+  fig.ext: png
+  fig.width: 7.2916667
+  fig.height: ~
+  fig.retina: 2
+  fig.asp: 1.618
+  bg: NA

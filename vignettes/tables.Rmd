@@ -1,0 +1,12 @@
+---
+title: "Style guide for tables"
+description: >
+  A standardized theme and how-to's for common tables in linguistics and adjacent fields.
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Style guide for tables}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[utf8]{inputenc}
+---
+
+TBD
