@@ -148,10 +148,13 @@
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>An invisible call to <code><a href='https://rdrr.io/pkg/systemfonts/man/register_font.html'>systemfonts::registry_fonts()</a></code> for further inspection.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>All styles of a font family are registered as the Regular member of their own families in the form of "family-style(s)".</p>
-<p>Call <code><a href='https://rdrr.io/pkg/systemfonts/man/register_font.html'>systemfonts::registry_fonts()</a></code> after loading the fonts for more details.</p>
+<p>Call <code><a href='https://rdrr.io/pkg/systemfonts/man/register_font.html'>systemfonts::registry_fonts()</a></code> after loading the fonts for more details (also returned invisibly).</p>
     <h2 class="hasAnchor" id="fonts-loaded"><a class="anchor" href="#fonts-loaded"></a>Fonts loaded</h2>
 
     
@@ -174,6 +177,7 @@ We thank the developers of the fonts for their open-source contributions and per
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='fu'>load_pkg_fonts</span><span class='op'>(</span><span class='op'>)</span>
 <span class='op'>}</span>
+
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
