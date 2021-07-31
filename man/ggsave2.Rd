@@ -17,7 +17,7 @@ Wrapper around \code{ggplot2::ggsave()} that opens rendered output using the sys
 \section{Default options for publication figures}{
 
 \describe{
-\item{\code{width}}{ Defaults to 6.5in, 100\% of the full-width of letter-sized paper (8.5in) minus 1in margins. Accepts a string of percentage scale (ex: "50\%"). }
+\item{\code{width}}{ Defaults to 5.2in, 80\% of the full-width of letter-sized paper (8.5in) minus 1in margins. Accepts a string of percentage scale (ex: "50\%"). }
 \item{\code{height}}{ Defaults to 3in, 33\% of the full-width of letter-sized paper (11in) minus 1in margins. Accepts a string of percentage scale (ex: "50\%"). }
 }
 If either width or height are specified as percentages, the following defaults are also set:
