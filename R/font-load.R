@@ -22,10 +22,24 @@
 #' load_pkg_fonts()
 #' }
 load_pkg_fonts <- function(verbose = TRUE) {
-  load_pkg_font <- function(family) {
+
+  custom_names <- c(
+    "bootstrap-icons" = "BootstrapIcons-Regular",
+    "MaterialIcons-Regular" = "MaterialIcons-Filled",
+    "MaterialIconsOutlined-Regular" = "MaterialIcons-Outlined",
+    "Font-Awesome-5-Brands-Regular-400" = "FontAwesome5-Brands",
+    "Font-Awesome-5-Free-Regular-400" = "FontAwesome5-Regular",
+    "Font-Awesome-5-Free-Solid-900" = "FontAwesome5-Solid"
+  )
+
+  .load_pkg_font <- function(family) {
     font_dir <- system.file("fonts", family, package = "penngradlings")
     font_paths <- dir(font_dir, full.names = TRUE)
     font_names <- stringr::str_remove(dir(font_dir), "\\..*$")
+
+    if (all(font_names %in% names(custom_names))) {
+      font_names <- unname(custom_names[font_names])
+    }
 
     purrr::walk2(
       font_names, font_paths,
@@ -37,13 +51,13 @@ load_pkg_fonts <- function(verbose = TRUE) {
     if (verbose) {
       cli::cli({
         cli::cli_h2("{.strong {family}}")
-        cli::cli_alert_success("{.val {length(font_names)}} styles registered:")
+        cli::cli_alert_success("{.val {length(font_names)}} style{?s} registered:")
         cli::cli_ul(font_names)
       })
     }
   }
   pkg_fonts <- dir(system.file("fonts", package = "penngradlings"))
-  purrr::walk(pkg_fonts, load_pkg_font)
+  purrr::walk(pkg_fonts, .load_pkg_font)
   if (verbose) {
     cli::cli_rule()
     cli::cli_alert_info("Done! Check {.code systemfonts::registry_fonts()} for more details.")
