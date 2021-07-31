@@ -40,7 +40,7 @@
 
 
 <meta property="og:title" content="Load package fonts — load_pkg_fonts" />
-<meta property="og:description" content="Registers fonts contained in penngradlings with systemfonts::register_font(). This function is called silently on package load." />
+<meta property="og:description" content="Registers fonts contained in penngradlings with systemfonts::register_font(). This function is called silently when the package is loaded." />
 
 
 
@@ -131,7 +131,7 @@
     </div>
 
     <div class="ref-description">
-    <p>Registers fonts contained in penngradlings with <code><a href='https://rdrr.io/pkg/systemfonts/man/register_font.html'>systemfonts::register_font()</a></code>. This function is called silently on package load.</p>
+    <p>Registers fonts contained in penngradlings with <code><a href='https://rdrr.io/pkg/systemfonts/man/register_font.html'>systemfonts::register_font()</a></code>. This function is called silently when the package is loaded.</p>
     </div>
 
     <pre class="usage"><span class='fu'>load_pkg_fonts</span><span class='op'>(</span>verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
@@ -153,13 +153,18 @@
     
 
 <dl>
-<dt><code>Charis SIL</code></dt><dd><p>From SIL International: <a href='https://software.sil.org/charis/'>https://software.sil.org/charis/</a></p></dd>.
-<dt><code>Inter</code></dt><dd><p>From Google Fonts: <a href='https://fonts.google.com/specimen/Inter'>https://fonts.google.com/specimen/Inter</a></p></dd>.
-<dt><code>Lato</code></dt><dd><p>From Google Fonts: <a href='https://fonts.google.com/specimen/Roboto'>https://fonts.google.com/specimen/Roboto</a></p></dd>.
+<dt><code>Charis SIL</code></dt><dd><p>From SIL International: <a href='https://software.sil.org/charis/'>https://software.sil.org/charis/</a>.</p></dd>
+<dt><code>Inter</code></dt><dd><p>From Google Fonts: <a href='https://fonts.google.com/specimen/Inter'>https://fonts.google.com/specimen/Inter</a>.</p></dd>
+<dt><code>Lato</code></dt><dd><p>From Google Fonts: <a href='https://fonts.google.com/specimen/Roboto'>https://fonts.google.com/specimen/Roboto</a>.</p></dd>
+<dt><code>Bootstrap Icons</code></dt><dd><p>From Bootstrap <a href='https://icons.getbootstrap.com/'>https://icons.getbootstrap.com/</a>.</p></dd>
+<dt><code>Material Icons</code></dt><dd><p>From Google Fonts <a href='https://fonts.google.com/icons/'>https://fonts.google.com/icons/</a>.</p></dd>
+<dt><code>Font Awesome 5 Free</code></dt><dd><p>From Font Awesome <a href='https://fontawesome.com/'>https://fontawesome.com/</a>.</p></dd>
 
 </dl>
 
-<p>All fonts are licensed under the SIL Open Font License (OFL): <a href='https://scripts.sil.org/OFL'>https://scripts.sil.org/OFL</a>. Copy of the license is also included in the package source.</p>
+<p>Copy of the license for each font is included in the package source.
+The use of these fonts in the package does not indicate endorsement or liability of the copyright/trademark holders.
+We thank the developers of the fonts for their open-source contributions and permissive licenses.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>

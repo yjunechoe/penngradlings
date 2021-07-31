@@ -1,6 +1,6 @@
 #' Load package fonts
 #'
-#' Registers fonts contained in {penngradlings} with \code{systemfonts::register_font()}. This function is called silently on package load.
+#' Registers fonts contained in {penngradlings} with \code{systemfonts::register_font()}. This function is called silently when the package is loaded.
 #'
 #' Call \code{systemfonts::registry_fonts()} after loading the fonts for more details on the registered fonts.
 #'
@@ -8,12 +8,17 @@
 #'
 #' @section Fonts loaded:
 #' \describe{
-#'     \item{`Charis SIL`}{ From SIL International: \url{https://software.sil.org/charis/}}.
-#'     \item{`Inter`}{ From Google Fonts: \url{https://fonts.google.com/specimen/Inter}}.
-#'     \item{`Lato`}{ From Google Fonts: \url{https://fonts.google.com/specimen/Roboto}}.
+#'     \item{`Charis SIL`}{ From SIL International: \url{https://software.sil.org/charis/}. }
+#'     \item{`Inter`}{ From Google Fonts: \url{https://fonts.google.com/specimen/Inter}. }
+#'     \item{`Lato`}{ From Google Fonts: \url{https://fonts.google.com/specimen/Roboto}. }
+#'     \item{`Bootstrap Icons`}{ From Bootstrap \url{https://icons.getbootstrap.com/}. }
+#'     \item{`Material Icons`}{ From Google Fonts \url{https://fonts.google.com/icons/}. }
+#'     \item{`Font Awesome 5 Free`}{ From Font Awesome \url{https://fontawesome.com/}. }
 #' }
 #'
-#' All fonts are licensed under the SIL Open Font License (OFL): \url{https://scripts.sil.org/OFL}. Copy of the license is also included in the package source.
+#' Copy of the license for each font is included in the package source.
+#' The use of these fonts in the package does not indicate endorsement or liability of the copyright/trademark holders.
+#' We thank the developers of the fonts for their open-source contributions and permissive licenses.
 #'
 #' @export
 #'

@@ -1,5 +1,6 @@
 Package: penngradlings
-Title: Themes and Utilities for Penn GradLings
+Type: Package
+Title: Themes and Utilities for Penn GradLingS
 Version: 0.0.0.9000
 Authors@R: c(
       person(given = "June",
@@ -7,7 +8,9 @@ Authors@R: c(
            role = c("aut", "cre"),
            email = "yjchoe@sas.upenn.edu",
            comment = c(ORCID = "0000-0002-0701-921X")))
-Description: Themes and utilities for Penn GradLings.
+Description: Assortment of quality-of-life functionalities for common workflows in R,
+  centered around data visualization and science communication. Made for the
+  University of Pennsylvania Graduate Linguistics Society (GradLingS).
 URL: https://github.com/yjunechoe/penngradlings
 BugReports: https://github.com/yjunechoe/penngradlings/issues
 Depends: R (>= 3.3.0)

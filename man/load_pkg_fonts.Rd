@@ -10,7 +10,7 @@ load_pkg_fonts(verbose = TRUE)
 \item{verbose}{Whether the newly registered fonts should be printed to the console. Defaults to \code{TRUE}.}
 }
 \description{
-Registers fonts contained in {penngradlings} with \code{systemfonts::register_font()}. This function is called silently on package load.
+Registers fonts contained in {penngradlings} with \code{systemfonts::register_font()}. This function is called silently when the package is loaded.
 }
 \details{
 Call \code{systemfonts::registry_fonts()} after loading the fonts for more details on the registered fonts.
@@ -18,12 +18,17 @@ Call \code{systemfonts::registry_fonts()} after loading the fonts for more detai
 \section{Fonts loaded}{
 
 \describe{
-\item{\verb{Charis SIL}}{ From SIL International: \url{https://software.sil.org/charis/}}.
-\item{\code{Inter}}{ From Google Fonts: \url{https://fonts.google.com/specimen/Inter}}.
-\item{\code{Lato}}{ From Google Fonts: \url{https://fonts.google.com/specimen/Roboto}}.
+\item{\verb{Charis SIL}}{ From SIL International: \url{https://software.sil.org/charis/}. }
+\item{\code{Inter}}{ From Google Fonts: \url{https://fonts.google.com/specimen/Inter}. }
+\item{\code{Lato}}{ From Google Fonts: \url{https://fonts.google.com/specimen/Roboto}. }
+\item{\verb{Bootstrap Icons}}{ From Bootstrap \url{https://icons.getbootstrap.com/}. }
+\item{\verb{Material Icons}}{ From Google Fonts \url{https://fonts.google.com/icons/}. }
+\item{\verb{Font Awesome 5 Free}}{ From Font Awesome \url{https://fontawesome.com/}. }
 }
 
-All fonts are licensed under the SIL Open Font License (OFL): \url{https://scripts.sil.org/OFL}. Copy of the license is also included in the package source.
+Copy of the license for each font is included in the package source.
+The use of these fonts in the package does not indicate endorsement or liability of the copyright/trademark holders.
+We thank the developers of the fonts for their open-source contributions and permissive licenses.
 }
 
 \examples{
