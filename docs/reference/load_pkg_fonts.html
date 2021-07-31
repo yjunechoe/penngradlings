@@ -40,7 +40,7 @@
 
 
 <meta property="og:title" content="Load package fonts — load_pkg_fonts" />
-<meta property="og:description" content="Registers fonts contained in penngradlings with systemfonts::register_font(). This function is called silently when the package is loaded." />
+<meta property="og:description" content="Registers fonts contained in penngradlings with systemfonts::register_font(). This function is called once silently when the package is loaded." />
 
 
 
@@ -94,6 +94,9 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/font-workflow.html">Font workflow</a>
+    </li>
     <li class="divider"></li>
     <li class="dropdown-header">Style guide</li>
     <li>
@@ -131,7 +134,7 @@
     </div>
 
     <div class="ref-description">
-    <p>Registers fonts contained in penngradlings with <code><a href='https://rdrr.io/pkg/systemfonts/man/register_font.html'>systemfonts::register_font()</a></code>. This function is called silently when the package is loaded.</p>
+    <p>Registers fonts contained in penngradlings with <code><a href='https://rdrr.io/pkg/systemfonts/man/register_font.html'>systemfonts::register_font()</a></code>. This function is called once silently when the package is loaded.</p>
     </div>
 
     <pre class="usage"><span class='fu'>load_pkg_fonts</span><span class='op'>(</span>verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
@@ -147,7 +150,8 @@
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Call <code><a href='https://rdrr.io/pkg/systemfonts/man/register_font.html'>systemfonts::registry_fonts()</a></code> after loading the fonts for more details on the registered fonts.</p>
+    <p>All styles of a font family are registered as the Regular member of their own families in the form of "family-style(s)".</p>
+<p>Call <code><a href='https://rdrr.io/pkg/systemfonts/man/register_font.html'>systemfonts::registry_fonts()</a></code> after loading the fonts for more details.</p>
     <h2 class="hasAnchor" id="fonts-loaded"><a class="anchor" href="#fonts-loaded"></a>Fonts loaded</h2>
 
     

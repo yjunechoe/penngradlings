@@ -3,5 +3,5 @@
 }
 
 .onAttach <- function(...) {
-  packageStartupMessage("Loaded package fonts. See `?load_pkg_fonts` for details.")
+  packageStartupMessage("Package fonts loaded. See `?load_pkg_fonts` for details.")
 }

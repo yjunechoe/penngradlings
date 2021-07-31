@@ -3,8 +3,9 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   figures: figures.html
+  font-workflow: font-workflow.html
   tables: tables.html
-last_built: 2021-07-31T03:08Z
+last_built: 2021-07-31T07:22Z
 urls:
   reference: https://yjunechoe.github.io/penngradlings//reference
   article: https://yjunechoe.github.io/penngradlings//articles

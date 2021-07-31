@@ -27,6 +27,11 @@ reference:
   - mean_se_corrected
 
 articles:
+- title: Font workflow
+  navbar: ~
+  contents:
+  - font-workflow
+
 - title: Style guide
   navbar: Style guide
   contents:

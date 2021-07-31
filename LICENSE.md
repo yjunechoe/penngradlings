@@ -1,3 +1,15 @@
+The {penngradlings} package as a whole is distributed under the MIT License.
+
+This package includes the following fonts:
+- Charis SIL: Downloaded and used as-is from the font website - https://software.sil.org/charis/download/.
+- Inter: Downloaded and used as-is from Google Fonts - https://fonts.google.com/specimen/Inter/.
+- Lato: Downloaded and used as-is from Google Fonts - https://fonts.google.com/specimen/Lato/.
+- Bootstrap Icons: Downloaded in .woff format from Bootstrap Icons - https://icons.getbootstrap.com/ -  and converted to .ttf for use in the package.
+- Material Icons: Downloaded as-is from Google Fonts - https://fonts.google.com/icons/.
+- Font Awesome 5 Free: Downloaded in .otf format from the "Free" download version distributed on Github - https://github.com/FortAwesome/Font-Awesome/.
+
+Full copies of their license agreements (one or a combination of the following: SIL OFL, MIT, Apache 2.0) are included in the package source at: https://github.com/yjunechoe/penngradlings/tree/master/inst/font-licenses.
+
 # MIT License
 
 Copyright (c) 2021 June Choe

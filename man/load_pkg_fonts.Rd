@@ -10,10 +10,12 @@ load_pkg_fonts(verbose = TRUE)
 \item{verbose}{Whether the newly registered fonts should be printed to the console. Defaults to \code{TRUE}.}
 }
 \description{
-Registers fonts contained in {penngradlings} with \code{systemfonts::register_font()}. This function is called silently when the package is loaded.
+Registers fonts contained in {penngradlings} with \code{systemfonts::register_font()}. This function is called once silently when the package is loaded.
 }
 \details{
-Call \code{systemfonts::registry_fonts()} after loading the fonts for more details on the registered fonts.
+All styles of a font family are registered as the Regular member of their own families in the form of "{family}-{style(s)}".
+
+Call \code{systemfonts::registry_fonts()} after loading the fonts for more details.
 }
 \section{Fonts loaded}{
 
