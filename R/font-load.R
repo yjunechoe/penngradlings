@@ -33,7 +33,6 @@
 #'
 #' @importFrom rlang .data .env
 load_pkg_fonts <- function(verbose = TRUE) {
-
   custom_names <- c(
     "bootstrap-icons" = "BootstrapIcons-Regular",
     "MaterialIcons-Regular" = "MaterialIcons-Filled",
