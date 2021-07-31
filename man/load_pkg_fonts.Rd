@@ -9,13 +9,16 @@ load_pkg_fonts(verbose = TRUE)
 \arguments{
 \item{verbose}{Whether the newly registered fonts should be printed to the console. Defaults to \code{TRUE}.}
 }
+\value{
+An invisible call to \code{systemfonts::registry_fonts()} for further inspection.
+}
 \description{
 Registers fonts contained in {penngradlings} with \code{systemfonts::register_font()}. This function is called once silently when the package is loaded.
 }
 \details{
 All styles of a font family are registered as the Regular member of their own families in the form of "{family}-{style(s)}".
 
-Call \code{systemfonts::registry_fonts()} after loading the fonts for more details.
+Call \code{systemfonts::registry_fonts()} after loading the fonts for more details (also returned invisibly).
 }
 \section{Fonts loaded}{
 
@@ -37,4 +40,5 @@ We thank the developers of the fonts for their open-source contributions and per
 \dontrun{
 load_pkg_fonts()
 }
+
 }

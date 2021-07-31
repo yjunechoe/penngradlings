@@ -4,7 +4,7 @@
 #'
 #' All styles of a font family are registered as the Regular member of their own families in the form of "{family}-{style(s)}".
 #'
-#' Call \code{systemfonts::registry_fonts()} after loading the fonts for more details.
+#' Call \code{systemfonts::registry_fonts()} after loading the fonts for more details (also returned invisibly).
 #'
 #' @param verbose Whether the newly registered fonts should be printed to the console. Defaults to \code{TRUE}.
 #'
@@ -22,12 +22,16 @@
 #' The use of these fonts in the package does not indicate endorsement or liability of the copyright/trademark holders.
 #' We thank the developers of the fonts for their open-source contributions and permissive licenses.
 #'
+#' @return An invisible call to \code{systemfonts::registry_fonts()} for further inspection.
+#'
 #' @export
 #'
 #' @examples
 #' \dontrun{
 #' load_pkg_fonts()
 #' }
+#'
+#' @importFrom rlang .data .env
 load_pkg_fonts <- function(verbose = TRUE) {
 
   custom_names <- c(
@@ -69,4 +73,5 @@ load_pkg_fonts <- function(verbose = TRUE) {
     cli::cli_rule()
     cli::cli_alert_info("Done! Check {.code systemfonts::registry_fonts()} for more details.")
   }
+  invisible(systemfonts::registry_fonts())
 }
