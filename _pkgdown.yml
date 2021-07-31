@@ -2,6 +2,7 @@ url: https://yjunechoe.github.io/penngradlings/
 
 home:
   title: Penn GradLingS
+  description: Themes and utilities for Penn GradLingS.
 
 authors:
   June Choe:
@@ -9,6 +10,7 @@ authors:
 
 template:
   bootstrap: 4
+  bootswatch: materia
 
 reference:
 - title: Font helpers
