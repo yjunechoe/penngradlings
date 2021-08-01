@@ -13,6 +13,10 @@ template:
   bootswatch: materia
 
 reference:
+- title: Custom ggplot2 functions
+  desc: Layers and helper functions for working wtih ggplot
+  contents:
+  - annotate_panel
 - title: Font helpers
   desc: Functions for registering custom fonts
   contents:

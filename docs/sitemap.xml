@@ -4,6 +4,12 @@
     <loc>https://yjunechoe.github.io/penngradlings//index.html</loc>
   </url>
   <url>
+    <loc>https://yjunechoe.github.io/penngradlings//reference/annotate_panel.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings//reference/compute_position.html</loc>
+  </url>
+  <url>
     <loc>https://yjunechoe.github.io/penngradlings//reference/font_hoist.html</loc>
   </url>
   <url>
@@ -20,6 +26,9 @@
   </url>
   <url>
     <loc>https://yjunechoe.github.io/penngradlings//reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings//reference/update_ggplot_defaults.html</loc>
   </url>
   <url>
     <loc>https://yjunechoe.github.io/penngradlings//articles/figures.html</loc>

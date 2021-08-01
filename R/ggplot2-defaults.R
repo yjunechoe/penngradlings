@@ -11,7 +11,7 @@ update_ggplot_defaults <- function() {
       fill = NA,
       family = "Inter-Medium",
       label.size = 0,
-      label.padding = ggplot2::unit(10, "pt")
+      label.padding = grid::unit(10, "pt")
     ),
     "point" = list(
       fill = "black",
@@ -31,12 +31,4 @@ update_ggplot_defaults <- function() {
 
   purrr::walk2(names(geom_opts), geom_opts, ggplot2::update_geom_defaults)
 
-  stat_opts <- list(
-    "summary" = list(
-      fun.data = penngradlings::mean_se_corrected,
-      geom = "errorbar"
-    )
-  )
-
-  purrr::walk2(names(stat_opts), stat_opts, ggplot2::update_stat_defaults)
 }
