@@ -1,17 +1,26 @@
 ---
-title: "Font workflow"
+title: "Custom fonts"
 description: >
-  Workflow for setting up and debugging custom fonts in R, for typography-conscious data visualization.
+  Working with custom fonts for typography-conscious data visualization.
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Font workflow}
+  %\VignetteIndexEntry{Custom fonts}
   %\VignetteEngine{knitr::rmarkdown}
   %\usepackage[utf8]{inputenc}
 ---
 
+```{r, echo = FALSE}
+ragg_png = function(..., res = 150) {
+  ragg::agg_png(..., res = res, units = "in")
+}
+knitr::opts_chunk$set(dev = "ragg_png")
+```
+
 ## Required packages
 
 ```{r setup, message=FALSE}
+library(penngradlings)
+library(ggplot2)
 library(ragg)
 library(systemfonts)
 library(textshaping)

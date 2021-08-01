@@ -9,6 +9,15 @@ vignette: >
   %\usepackage[utf8]{inputenc}
 ---
 
+```{r, echo = FALSE}
+ragg_png = function(..., res = 150) {
+  ragg::agg_png(..., res = res, units = "in")
+}
+knitr::opts_chunk$set(dev = "ragg_png")
+```
+
+## TBD
+
 ╭────────────────────╮
 │        TBD         │
 ╰────────────────────╯

@@ -16,7 +16,7 @@ reference:
 - title: Custom ggplot2 functions
   desc: Layers and helper functions for working wtih ggplot
   contents:
-  - annotate_panel
+  - annotation_textbox
 - title: Font helpers
   desc: Functions for registering custom fonts
   contents:
@@ -33,24 +33,27 @@ reference:
   - mean_se_corrected
 
 articles:
-- title: Font workflow
-  navbar: ~
+- title: ggplot2 workflow
+  navbar: ggplot2 workflow
   contents:
-  - font-workflow
-
+  - custom-fonts
+  - custom-functions
 - title: Style guide
   navbar: Style guide
   contents:
   - figures
   - tables
 
+navbar:
+  structure:
+    right: [articles, reference, github]
+    left: []
+
 figures:
   dev: ragg::agg_png
   dpi: 150
   dev.args: []
   fig.ext: png
-  fig.width: 7.2916667
   fig.height: ~
   fig.retina: 2
-  fig.asp: 1.618
   bg: NA

@@ -1,0 +1,63 @@
+---
+title: "Custom functions"
+description: >
+  Custom layers and helpers for graphics.
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Custom functions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[utf8]{inputenc}
+---
+
+```{r, echo = FALSE}
+ragg_png = function(..., res = 150) {
+  ragg::agg_png(..., res = res, units = "in")
+}
+knitr::opts_chunk$set(dev = "ragg_png")
+```
+
+
+## Required packages
+
+```{r setup, message=FALSE}
+library(penngradlings)
+library(ggplot2)
+library(gridtext)
+```
+
+## Themes
+
+## Geom defaults
+
+## Annotations
+
+```{r}
+p <- ggplot(mtcars, aes(mpg, hp)) +
+  geom_point()
+
+p
+```
+
+
+### HTML textbox annotations with `annotation_textbox` 
+
+```{r}
+annotation <- "
+  <span style=\"font-size:18px; font-family:'Inter-Black';\">
+   This is a cat:</span>
+  <br><br>
+  <span style=\"font-size:72px; color:'#7950F2';
+   font-family:'FontAwesome5-Solid';\">cat</span>
+  <br><br>
+  Just look at this cat!
+"
+
+tbox <- annotation_textbox(
+   html = annotation,
+   position = "top-right",
+   halign = 0.5
+ )
+
+p + annotation_custom(tbox)
+```
+

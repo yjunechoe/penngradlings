@@ -19,10 +19,11 @@ compute_position <- function(position) {
 }
 
 
-#' Add an HTML textbox annotation to the plot panel
+#' HTML textbox annotation
 #'
-#' A wrapper around \code{ggplot2::annotation_custom} and \code{gridtext::textbox_grob} with convenient positioning and themed defaults.
-#' Use for non-data-based annotations.
+#' A wrapper around \code{gridtext::textbox_grob} with convenient positioning and themed defaults.
+#'
+#' To be used for non-data-based annotations with \code{ggplot2::annotation_custom}.
 #'
 #' @param html Content of the textbox in html syn %>% tax. See supported tags in \url{https://wilkelab.org/ggtext/index.html}.
 #' @param position One of "top-left", "top-right", "bottom-left", "bottom-right", "center". Calculated with \code{compute_position}.
@@ -38,10 +39,28 @@ compute_position <- function(position) {
 #' @param orientation Orientation of the box. One of "upright", "left-rotated", "right-rotated", "inverted".
 #' @param ... Passed to \code{gridtext::textbox_grob}
 #'
-#' @return A \code{ggplot2::annotation_custom} layer of \code{gridtext::textbox_grob}.
+#' @return A \code{gridtext::textbox_grob}.
 #' @export
 #'
-annotate_panel <- function(html,
+#' @examples
+#' \dontrun{
+#' annotation <- annotation_textbox(
+#'   html = "<span style=\"font-size:18px; font-family:'Inter-Black';\">
+#'            This is a cat:</span>
+#'           <br><br>
+#'           <span style=\"font-size:72px; color:'#7950F2';
+#'            font-family:'FontAwesome5-Solid';\">cat</span>
+#'           <br><br>
+#'           Just look at this cat!",
+#'   position = "top-right",
+#'   halign = 0.5
+#' )
+#'
+#' ggplot2::qplot(mpg, hp, data = mtcars) +
+#'   ggplot2::annotation_custom(annotation) +
+#'   ggplot2::theme_classic()
+#' }
+annotation_textbox <- function(html,
                            position = "top-left",
                            width = NULL,
                            height = NULL,
@@ -61,7 +80,7 @@ annotate_panel <- function(html,
     margin <- grid::unit(rep(box_gp$lwd, 4), "pt")
   }
 
-  annotation <- gridtext::textbox_grob(
+  gridtext::textbox_grob(
     text = html,
     x = position$x + x_offset,
     y = position$y + y_offset,
@@ -77,7 +96,5 @@ annotate_panel <- function(html,
     orientation = orientation,
     ...
   )
-
-  ggplot2::annotation_custom(annotation)
 
 }
