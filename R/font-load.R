@@ -16,6 +16,8 @@
 #'     \item{`Bootstrap Icons`}{ From Bootstrap \url{https://icons.getbootstrap.com/}. }
 #'     \item{`Material Icons`}{ From Google Fonts \url{https://fonts.google.com/icons/}. }
 #'     \item{`Font Awesome 5 Free`}{ From Font Awesome \url{https://fontawesome.com/}. }
+#'       The free version contains a subset of the Regular, Solid, and Brand styles:
+#'       \url{https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=brands,regular,solid&m=free}.
 #' }
 #'
 #' Copy of the license for each font is included in the package source.
