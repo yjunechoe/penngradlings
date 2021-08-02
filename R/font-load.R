@@ -15,9 +15,10 @@
 #'     \item{`Piazzolla`}{ by Juan Pablo del Peral, retrieved from \url{https://fonts.google.com/specimen/Piazzolla}. }
 #'     \item{`Bootstrap Icons`}{ by The Bootstrap Authors, retrieved from \url{https://icons.getbootstrap.com/}. }
 #'     \item{`Material Icons`}{ by Google Design, retrieved from \url{https://fonts.google.com/icons/}. }
-#'     \item{`Font Awesome 5 Free`}{ by Dave Gandy \url{https://fontawesome.com/}. }
+#'     \item{`Font Awesome 5 Free`}{ by Dave Gandy \url{https://fontawesome.com/}.
 #'       The free version contains a subset of the Regular, Solid, and Brand styles:
 #'       \url{https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=brands,regular,solid&m=free}.
+#'     }
 #' }
 #'
 #' Copy of the license for each font is included in the package source.

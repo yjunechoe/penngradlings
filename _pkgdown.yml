@@ -33,11 +33,12 @@ reference:
   - mean_se_corrected
 
 articles:
-- title: ggplot2 workflow
-  navbar: ggplot2 workflow
+- title: Extending {ggplot2}
+  navbar: Extending {ggplot2}
   contents:
-  - custom-fonts
-  - custom-functions
+  - themes
+  - annotations
+  - fonts
 - title: Style guide
   navbar: Style guide
   contents:

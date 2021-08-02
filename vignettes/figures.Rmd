@@ -1,7 +1,7 @@
 ---
 title: "Style guide for figures"
 description: >
-  A standardized theme and how-to's for common figures in linguistics and adjacent fields.
+  For common figures in linguistics and adjacent fields.
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Style guide for figures}
@@ -16,8 +16,4 @@ ragg_png = function(..., res = 150) {
 knitr::opts_chunk$set(dev = "ragg_png")
 ```
 
-## TBD
-
-╭────────────────────╮
-│        TBD         │
-╰────────────────────╯
+## WIP

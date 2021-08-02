@@ -1,10 +1,10 @@
 ---
-title: "Style guide for tables"
+title: "Custom themes"
 description: >
-  For common tables in linguistics and adjacent fields.
+  Publication-tailored themes with high-level parameters.
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Style guide for tables}
+  %\VignetteIndexEntry{Custom themes}
   %\VignetteEngine{knitr::rmarkdown}
   %\usepackage[utf8]{inputenc}
 ---

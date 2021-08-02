@@ -1,7 +1,7 @@
 ---
 title: "Custom fonts"
 description: >
-  Working with custom fonts for typography-conscious data visualization.
+  Helpers for registering custom fonts for typography-conscious data visualization.
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Custom fonts}

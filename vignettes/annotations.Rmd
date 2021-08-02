@@ -1,10 +1,10 @@
 ---
-title: "Custom functions"
+title: "Custom annotations"
 description: >
-  Custom layers and helpers for graphics.
+  Functions and objects for annotating the data panel.
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Custom functions}
+  %\VignetteIndexEntry{Custom annotations}
   %\VignetteEngine{knitr::rmarkdown}
   %\usepackage[utf8]{inputenc}
 ---
@@ -26,11 +26,7 @@ library(grid)
 library(gridtext)
 ```
 
-## Themes
-
-## Geom defaults
-
-## Annotations
+### HTML textbox annotations with `annotation_textbox` 
 
 ```{r}
 p <- ggplot(mtcars, aes(mpg, hp)) +
@@ -38,9 +34,6 @@ p <- ggplot(mtcars, aes(mpg, hp)) +
 
 p
 ```
-
-
-### HTML textbox annotations with `annotation_textbox` 
 
 ```{r}
 annotation <- "

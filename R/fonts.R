@@ -102,5 +102,5 @@ font_pluck <- function(family, features, .name) {
     plain = family_path,
     features = do.call(systemfonts::font_feature, valid_features)
   )
-  cli::cli_alert_success("Registered {.strong {.name}}.\nCheck systemfonts::registry_fonts() for more details.")
+  cli::cli_alert_success("Registered {.val {.name}}.\nCheck systemfonts::registry_fonts() for more details.")
 }
