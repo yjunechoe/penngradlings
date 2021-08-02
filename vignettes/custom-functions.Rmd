@@ -22,6 +22,7 @@ knitr::opts_chunk$set(dev = "ragg_png")
 ```{r setup, message=FALSE}
 library(penngradlings)
 library(ggplot2)
+library(grid)
 library(gridtext)
 ```
 
@@ -43,21 +44,37 @@ p
 
 ```{r}
 annotation <- "
-  <span style=\"font-size:18px; font-family:'Inter-Black';\">
+  <span style=\"font-size:18px; font-family:'Piazzolla-Black';\">
    This is a cat:</span>
   <br><br>
   <span style=\"font-size:72px; color:'#7950F2';
    font-family:'FontAwesome5-Solid';\">cat</span>
   <br><br>
-  Just look at this cat!
+  Just look at this
+  <span style=\"font-family:'PiazzollaSC-Regular';\">cat!</span>
 "
 
-tbox <- annotation_textbox(
-   html = annotation,
-   position = "top-right",
-   halign = 0.5
- )
+tbox1 <- annotation_textbox(
+  html = annotation,
+  position = "top-right",
+  halign = 0.5,
+)
 
-p + annotation_custom(tbox)
+p + annotation_custom(tbox1)
+```
+
+```{r}
+tbox2 <- annotation_textbox(
+  html = annotation,
+  position = "center",
+  halign = 0.5,
+  valign = 0.5,
+  x_offset = -0.1,
+  y_offset = 0.1,
+  width = 0.4,
+  height = 0.5
+)
+
+p + annotation_custom(tbox2)
 ```
 

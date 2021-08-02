@@ -11,7 +11,7 @@ annotation_textbox(
   height = NULL,
   x_offset = 0,
   y_offset = 0,
-  gp = grid::gpar(fontsize = 10, lineheight = 1.4, fontfamily = "Inter-Medium"),
+  gp = grid::gpar(fontsize = 10, lineheight = 1.4, fontfamily = "Piazzolla-Regular"),
   box_gp = grid::gpar(col = "#0E151B", fill = "#e5e7eb", lwd = grid::unit(1.5, "pt")),
   padding = grid::unit(rep(10, 4), "pt"),
   margin,

@@ -165,12 +165,14 @@
     
 
 <dl>
-<dt><code>Charis SIL</code></dt><dd><p>From SIL International: <a href='https://software.sil.org/charis/'>https://software.sil.org/charis/</a>.</p></dd>
-<dt><code>Inter</code></dt><dd><p>From Google Fonts: <a href='https://fonts.google.com/specimen/Inter'>https://fonts.google.com/specimen/Inter</a>.</p></dd>
-<dt><code>Lato</code></dt><dd><p>From Google Fonts: <a href='https://fonts.google.com/specimen/Roboto'>https://fonts.google.com/specimen/Roboto</a>.</p></dd>
-<dt><code>Bootstrap Icons</code></dt><dd><p>From Bootstrap <a href='https://icons.getbootstrap.com/'>https://icons.getbootstrap.com/</a>.</p></dd>
-<dt><code>Material Icons</code></dt><dd><p>From Google Fonts <a href='https://fonts.google.com/icons/'>https://fonts.google.com/icons/</a>.</p></dd>
-<dt><code>Font Awesome 5 Free</code></dt><dd><p>From Font Awesome <a href='https://fontawesome.com/'>https://fontawesome.com/</a>.</p></dd>
+<dt><code>Charis SIL</code></dt><dd><p>by SIL international, retrieved from <a href='https://software.sil.org/charis/'>https://software.sil.org/charis/</a>.</p></dd>
+<dt><code>Inter</code></dt><dd><p>by Rasmus Andersson, retrieved from <a href='https://fonts.google.com/specimen/Inter'>https://fonts.google.com/specimen/Inter</a>.</p></dd>
+<dt><code>Piazzolla</code></dt><dd><p>by Juan Pablo del Peral, retrieved from <a href='https://fonts.google.com/specimen/Piazzolla'>https://fonts.google.com/specimen/Piazzolla</a>.</p></dd>
+<dt><code>Bootstrap Icons</code></dt><dd><p>by The Bootstrap Authors, retrieved from <a href='https://icons.getbootstrap.com/'>https://icons.getbootstrap.com/</a>.</p></dd>
+<dt><code>Material Icons</code></dt><dd><p>by Google Design, retrieved from <a href='https://fonts.google.com/icons/'>https://fonts.google.com/icons/</a>.</p></dd>
+<dt><code>Font Awesome 5 Free</code></dt><dd><p>by Dave Gandy <a href='https://fontawesome.com/'>https://fontawesome.com/</a>.</p></dd>
+The free version contains a subset of the Regular, Solid, and Brand styles:
+https://fontawesome.com/v5.15/icons?d=gallery&amp;p=2&amp;s=brands,regular,solid&amp;m=free.
 
 </dl>
 
@@ -179,11 +181,76 @@ The use of these fonts in the package does not indicate endorsement or liability
 We thank the developers of the fonts for their open-source contributions and permissive licenses.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+    <pre class="examples"><div class='input'><span class='co'># \dontrun{</span>
 <span class='fu'>load_pkg_fonts</span><span class='op'>(</span><span class='op'>)</span>
-<span class='op'>}</span>
+</div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>-- <span style='font-weight: bold;'>BootstrapIcons</span><span> --</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'></span><span style='color: #00BB00;'>v</span><span> </span><span style='color: #0000BB;'>1</span><span> style registered:</span>
+#&gt; <span class='message'>* BootstrapIcons-Regular</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>-- </span><span style='font-weight: bold;'>CharisSIL</span><span> --</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'></span><span style='color: #00BB00;'>v</span><span> </span><span style='color: #0000BB;'>2</span><span> styles registered:</span>
+#&gt; <span class='message'>* CharisSIL-Bold</span>
+#&gt; <span class='message'>* CharisSIL-Regular</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>-- </span><span style='font-weight: bold;'>FontAwesome5Free</span><span> --</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'></span><span style='color: #00BB00;'>v</span><span> </span><span style='color: #0000BB;'>3</span><span> styles registered:</span>
+#&gt; <span class='message'>* FontAwesome5-Brands</span>
+#&gt; <span class='message'>* FontAwesome5-Regular</span>
+#&gt; <span class='message'>* FontAwesome5-Solid</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>-- </span><span style='font-weight: bold;'>Inter</span><span> --</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'></span><span style='color: #00BB00;'>v</span><span> </span><span style='color: #0000BB;'>18</span><span> styles registered:</span>
+#&gt; <span class='message'>* Inter-Black</span>
+#&gt; <span class='message'>* Inter-BlackItalic</span>
+#&gt; <span class='message'>* Inter-Bold</span>
+#&gt; <span class='message'>* Inter-BoldItalic</span>
+#&gt; <span class='message'>* Inter-ExtraBold</span>
+#&gt; <span class='message'>* Inter-ExtraBoldItalic</span>
+#&gt; <span class='message'>* Inter-ExtraLight</span>
+#&gt; <span class='message'>* Inter-ExtraLightItalic</span>
+#&gt; <span class='message'>* Inter-Italic</span>
+#&gt; <span class='message'>* Inter-Light</span>
+#&gt; <span class='message'>* Inter-LightItalic</span>
+#&gt; <span class='message'>* Inter-Medium</span>
+#&gt; <span class='message'>* Inter-MediumItalic</span>
+#&gt; <span class='message'>* Inter-Regular</span>
+#&gt; <span class='message'>* Inter-SemiBold</span>
+#&gt; <span class='message'>* Inter-SemiBoldItalic</span>
+#&gt; <span class='message'>* Inter-Thin</span>
+#&gt; <span class='message'>* Inter-ThinItalic</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>-- </span><span style='font-weight: bold;'>MaterialIcons</span><span> --</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'></span><span style='color: #00BB00;'>v</span><span> </span><span style='color: #0000BB;'>2</span><span> styles registered:</span>
+#&gt; <span class='message'>* MaterialIcons-Filled</span>
+#&gt; <span class='message'>* MaterialIcons-Outlined</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>-- </span><span style='font-weight: bold;'>Piazzolla</span><span> --</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'></span><span style='color: #00BB00;'>v</span><span> </span><span style='color: #0000BB;'>12</span><span> styles registered:</span>
+#&gt; <span class='message'>* Piazzolla-Black</span>
+#&gt; <span class='message'>* Piazzolla-BlackItalic</span>
+#&gt; <span class='message'>* Piazzolla-Bold</span>
+#&gt; <span class='message'>* Piazzolla-BoldItalic</span>
+#&gt; <span class='message'>* Piazzolla-ExtraBold</span>
+#&gt; <span class='message'>* Piazzolla-ExtraBoldItalic</span>
+#&gt; <span class='message'>* Piazzolla-Italic</span>
+#&gt; <span class='message'>* Piazzolla-Medium</span>
+#&gt; <span class='message'>* Piazzolla-MediumItalic</span>
+#&gt; <span class='message'>* Piazzolla-Regular</span>
+#&gt; <span class='message'>* Piazzolla-SemiBold</span>
+#&gt; <span class='message'>* Piazzolla-SemiBoldItalic</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>-- </span><span style='font-weight: bold;'>PiazzollaSC</span><span> --</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'></span><span style='color: #00BB00;'>v</span><span> </span><span style='color: #0000BB;'>6</span><span> styles registered:</span>
+#&gt; <span class='message'>* PiazzollaSC-Black</span>
+#&gt; <span class='message'>* PiazzollaSC-Bold</span>
+#&gt; <span class='message'>* PiazzollaSC-ExtraBold</span>
+#&gt; <span class='message'>* PiazzollaSC-Medium</span>
+#&gt; <span class='message'>* PiazzollaSC-Regular</span>
+#&gt; <span class='message'>* PiazzollaSC-SemiBold</span></div><div class='output co'>#&gt; <span class='message'>--------------------------------------------------------------------------------</span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BBBB;'>i</span><span> Done! Check </span><span style='color: #262626;background-color: #DADADA;'>`systemfonts::registry_fonts()`</span><span> for more details.</span></div><div class='input'><span class='co'># }</span>
 
-</div></pre>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
