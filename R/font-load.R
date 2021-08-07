@@ -57,7 +57,27 @@ load_pkg_fonts <- function(verbose = TRUE) {
     purrr::walk2(
       font_names, font_paths,
       function(name, path) {
-        systemfonts::register_font(name = name, plain = path)
+        if (stringr::str_detect(name, "^Inter-")) {
+          systemfonts::register_font(
+            name = name, plain = path,
+            features = systemfonts::font_feature(
+              numbers = "tabular",
+              case = 1,
+              kern = 1
+            )
+          )
+        } else if (stringr::str_detect(name, "^Piazzolla-")) {
+          systemfonts::register_font(
+            name = name, plain = path,
+            features = systemfonts::font_feature(
+              numbers = "proportional",
+              case = 1,
+              kern = 1
+            )
+          )
+        } else {
+          systemfonts::register_font(name = name, plain = path)
+        }
       }
     )
 
