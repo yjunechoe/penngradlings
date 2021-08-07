@@ -9,12 +9,13 @@ compute_position <- function(position) {
     cli::cli_abort("Invalid {.arg position} value")
   } else {
     switch(position,
-           "top-left" = list(hjust = 0, vjust = 1, x = 0, y = 1),
-           "top-right" = list (hjust = 1, vjust = 1, x = 1, y = 1),
-           "bottom-left" = list(hjust = 0, vjust = 0, x = 0, y = 0),
-           "bottom-right" = list (hjust = 1, vjust = 0, x = 1, y = 0),
-           "center" = list(hjust = 0.5, vjust = 0.5, x = 0.5, y = 0.5),
-           cli::cli_abort("Invalid {.arg position} value"))
+      "top-left" = list(hjust = 0, vjust = 1, x = 0, y = 1),
+      "top-right" = list(hjust = 1, vjust = 1, x = 1, y = 1),
+      "bottom-left" = list(hjust = 0, vjust = 0, x = 0, y = 0),
+      "bottom-right" = list(hjust = 1, vjust = 0, x = 1, y = 0),
+      "center" = list(hjust = 0.5, vjust = 0.5, x = 0.5, y = 0.5),
+      cli::cli_abort("Invalid {.arg position} value")
+    )
   }
 }
 
@@ -61,19 +62,18 @@ compute_position <- function(position) {
 #'   ggplot2::theme_classic()
 #' }
 annotation_textbox <- function(html,
-                           position = "top-left",
-                           width = NULL,
-                           height = NULL,
-                           x_offset = 0,
-                           y_offset = 0,
-                           gp = grid::gpar(fontsize = 10, lineheight = 1.4, fontfamily = "Piazzolla-Regular"),
-                           box_gp = grid::gpar(col = "#0E151B", fill = "#e5e7eb", lwd = grid::unit(1.5, "pt")),
-                           padding = grid::unit(rep(10, 4), "pt"),
-                           margin,
-                           r = grid::unit(5, "pt"),
-                           orientation = "upright",
-                           ...) {
-
+                               position = "top-left",
+                               width = NULL,
+                               height = NULL,
+                               x_offset = 0,
+                               y_offset = 0,
+                               gp = grid::gpar(fontsize = 10, lineheight = 1.4, fontfamily = "Piazzolla-Regular"),
+                               box_gp = grid::gpar(col = "#0E151B", fill = "#e5e7eb", lwd = grid::unit(1.5, "pt")),
+                               padding = grid::unit(rep(10, 4), "pt"),
+                               margin,
+                               r = grid::unit(5, "pt"),
+                               orientation = "upright",
+                               ...) {
   position <- compute_position(position)
 
   if (rlang::is_missing(margin)) {
@@ -96,5 +96,4 @@ annotation_textbox <- function(html,
     orientation = orientation,
     ...
   )
-
 }

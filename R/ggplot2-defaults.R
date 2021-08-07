@@ -30,5 +30,4 @@ update_ggplot_defaults <- function() {
   )
 
   purrr::walk2(names(geom_opts), geom_opts, ggplot2::update_geom_defaults)
-
 }

@@ -2,7 +2,10 @@
 
 export("%>%")
 export(annotation_textbox)
+export(font_exists)
 export(font_hoist)
+export(font_info)
+export(font_path)
 export(font_pluck)
 export(ggsave2)
 export(load_pkg_fonts)
