@@ -32,7 +32,7 @@ ggplot() +
 
 ggplot() +
   geom_richtext(aes(0, 0, label = paste0("This is a line<br>",
-                                         zerowidth_char(25),
+                                         zerowidth_char(30),
                                          "This is a paragraph<br>of text.")))
 }
 }

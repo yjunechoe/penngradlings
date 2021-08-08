@@ -17,6 +17,8 @@ reference:
   desc: Layers and helper functions for working wtih ggplot
   contents:
   - annotation_textbox
+  - geom_text_outline
+  - zerowidth_char
 - title: Font helpers
   desc: Functions for registering custom fonts
   contents:

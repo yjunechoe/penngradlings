@@ -38,18 +38,31 @@ Outlines will create a stronger perceptual contrast for the labels.
 }
 \examples{
 \dontrun{
+library(ggplot2)
 p <- ggplot(mtcars, aes(mpg, disp, label = rownames(mtcars)))
 
-p + geom_text_shadow()
+# By default creates a white inner-outline and a gray-shade outer-outline
+p + geom_text_outline()
 
-p + geom_text_shadow(check_overlap = TRUE, angle = 30)
-
-p + geom_text_shadow(geom = ggrepel::geom_text_repel)
-
-p + geom_text_shadow() +
+# This is more obvious against a white background
+p + geom_text_outline() +
   theme_void()
 
-p + geom_text_shadow(inner_params = list(color = "goldenrod"), use_outer = FALSE) +
+# You also have the option to turn the outer outline off
+p + geom_text_outline(use_outer = FALSE) +
   theme_void()
+
+# You can pass arguments to the layer specified in the `geom` argument in the `...`.
+# The default geom is `geom_text`, so you set values for `check_overlap` and `angle`
+p + geom_text_outline(check_overlap = TRUE, angle = 30)
+
+# You can invert the text outlines by setting the color of the text to "white"
+# and the color of the inner outline to "black".
+p + geom_text_outline(color = "white", inner_params = list(colour = "black"), use_outer = FALSE) +
+  theme_void()
+
+# You can pass other geoms to the `geom` argument
+library(ggrepel)
+p + geom_text_outline(geom = geom_text_repel)
 }
 }
