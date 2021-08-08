@@ -128,3 +128,65 @@ annotation_textbox <- function(html,
 zerowidth_char <- function(size = 12, units = "px") {
   paste0("<span style='font-size:", size, units, "'>&#8203;</span>")
 }
+
+#' Outlined text layer
+#'
+#' Mimicking SVG-style "stroke" styles, this function uses 1-2 \code{ggfx::with_outer_glow} filters
+#' to create outlines around text. There are two layers for the following uses: the first layer is designed to
+#' create a visible outline that places emphasis on the text. The second layer is designed to add
+#' a mask around the outlined text that makes it stand out from the background.
+#'
+#' This is particularly useful for labels drawn over panels with grid lines and a non-white background color.
+#' Outlines will create a stronger perceptual contrast for the labels.
+#'
+#' @param ... Passed to the geom layer as specified in the \code{geom} argument.
+#' @param geom Which geom layer to apply outlines over. Defaults to
+#' @param inner_params Passed to the first \code{ggfx::with_outer_glow} filter (inner outline).
+#' @param outer_params Passed to the second \code{ggfx::with_outer_glow} filter (outer outline).
+#' @param use_outer Whether the outer outline should be turned on. Defaults to \code{TRUE}.
+#'
+#' @return A {ggplot2} layer if \code{use_outer} is \code{TRUE}, otherwise a list of two layers.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' p <- ggplot(mtcars, aes(mpg, disp, label = rownames(mtcars)))
+#'
+#' p + geom_text_shadow()
+#'
+#' p + geom_text_shadow(check_overlap = TRUE, angle = 30)
+#'
+#' p + geom_text_shadow(geom = ggrepel::geom_text_repel)
+#'
+#' p + geom_text_shadow() +
+#'   theme_void()
+#'
+#' p + geom_text_shadow(inner_params = list(color = "goldenrod"), use_outer = FALSE) +
+#'   theme_void()
+#' }
+geom_text_outline <- function(..., geom = "geom_text", inner_params = list(), outer_params = list(), use_outer = TRUE) {
+  .id <- stringr::str_flatten(sample(letters, 24, replace = TRUE))
+  geom <- rlang::ensym(geom)
+  .inner_params <- list(
+    x = eval(rlang::call2(geom, ...)),
+    colour = "white",
+    sigma = 0.01,
+    expand = 4,
+    id = .id
+  )
+  .outer_params <- list(
+    x = .id,
+    colour = "#EBEBEB",
+    sigma = 0.01,
+    expand = 8
+  )
+  if(use_outer) {
+    list(
+      do.call(ggfx::with_outer_glow, utils::modifyList(.inner_params, inner_params)),
+      do.call(ggfx::with_outer_glow, utils::modifyList(.outer_params, outer_params))
+    )
+  } else {
+    .inner_params <- c(.inner_params, include = TRUE)
+    do.call(ggfx::with_outer_glow, utils::modifyList(.inner_params, inner_params))
+  }
+}

@@ -23,8 +23,8 @@ reference:
   - load_pkg_fonts
   - font_hoist
   - font_pluck
-  - font_exists
   - font_info
+  - font_exists
   - font_path
 - title: Save and render plots
   desc: Functions for saving and rendering plots in interactive contexts
