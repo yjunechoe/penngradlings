@@ -15,7 +15,7 @@ font_exists(family, style = "Regular")
 Boolean
 }
 \description{
-Wrapper around \code{font_info} that tests whether the output is \code{NULL}.
+Wrapper around \code{penngradlings::font_info} that tests whether the output is \code{NULL}.
 }
 \examples{
 \dontrun{

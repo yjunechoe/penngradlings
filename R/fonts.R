@@ -34,7 +34,7 @@ font_info <- function(family, style = "Regular") {
 
 #' Check whether a font is registered
 #'
-#' Wrapper around \code{font_info} that tests whether the output is \code{NULL}.
+#' Wrapper around \code{penngradlings::font_info} that tests whether the output is \code{NULL}.
 #'
 #' @param family Font family.
 #' @param style Font style. Defaults to \code{"Regular"}.
@@ -52,7 +52,7 @@ font_exists <- function(family, style = "Regular") {
 
 #' Find path to a system font
 #'
-#' Wrapper around \code{font_info} that pulls the path of the font if it exists.
+#' Wrapper around \code{penngradlings::font_info} that pulls the path of the font if it exists.
 #'
 #' @param family Font family.
 #' @param style Font style. Defaults to \code{"Regular"}.

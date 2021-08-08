@@ -97,3 +97,34 @@ annotation_textbox <- function(html,
     ...
   )
 }
+
+#' Create an HTML span of the unicode zero-width character
+#'
+#' Helper function for adjusting paragraph margins for use with {ggtext}/{gridtext},
+#' which does not natively support margin/padding styles.
+#'
+#' The zero-width unicode character only ever takes up vertical space, so when placed in-line
+#' its size determines the amount of "top-margins" for the paragraph. This allows finer control
+#' over spacing.
+#'
+#' @param size Size of the zero-width character
+#' @param units Defaults to \code{"px"}
+#'
+#' @return A string
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' library(ggtext)
+#'
+#' ggplot() +
+#'   geom_richtext(aes(0, 0, label = "This is a line<br><br>This is a paragraph<br>of text."))
+#'
+#' ggplot() +
+#'   geom_richtext(aes(0, 0, label = paste0("This is a line<br>",
+#'                                          zerowidth_char(25),
+#'                                          "This is a paragraph<br>of text.")))
+#' }
+zerowidth_char <- function(size = 12, units = "px") {
+  paste0("<span style='font-size:", size, units, "'>&#8203;</span>")
+}

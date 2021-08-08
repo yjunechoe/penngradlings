@@ -16,5 +16,5 @@ If the font doesn't exist, invisibly returns \code{NULL}.}
 String of the path to the font file.
 }
 \description{
-Wrapper around \code{font_info} that pulls the path of the font if it exists.
+Wrapper around \code{penngradlings::font_info} that pulls the path of the font if it exists.
 }
