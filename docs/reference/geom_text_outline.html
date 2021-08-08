@@ -197,19 +197,30 @@ Outlines will create a stronger perceptual contrast for the labels.</p>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
 <span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>mtcars</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>mpg</span>, <span class='va'>disp</span>, label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 
+<span class='co'># By default creates a white inner-outline and a gray-shade outer-outline</span>
 <span class='va'>p</span> <span class='op'>+</span> <span class='fu'>geom_text_outline</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='img'><img src='geom_text_outline-1.png' alt='' width='1094' height='676' /></div><div class='input'>
-<span class='va'>p</span> <span class='op'>+</span> <span class='fu'>geom_text_outline</span><span class='op'>(</span>check_overlap <span class='op'>=</span> <span class='cn'>TRUE</span>, angle <span class='op'>=</span> <span class='fl'>30</span><span class='op'>)</span>
-</div><div class='img'><img src='geom_text_outline-2.png' alt='' width='1094' height='676' /></div><div class='input'>
+<span class='co'># This is more obvious against a white background</span>
 <span class='va'>p</span> <span class='op'>+</span> <span class='fu'>geom_text_outline</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_void</a></span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='img'><img src='geom_text_outline-2.png' alt='' width='1094' height='676' /></div><div class='input'>
+<span class='co'># You also have the option to turn the outer outline off</span>
+<span class='va'>p</span> <span class='op'>+</span> <span class='fu'>geom_text_outline</span><span class='op'>(</span>use_outer <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_void</a></span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='img'><img src='geom_text_outline-3.png' alt='' width='1094' height='676' /></div><div class='input'>
+<span class='co'># You can pass arguments to the layer specified in the `geom` argument in the `...`.</span>
+<span class='co'># The default geom is `geom_text`, so you set values for `check_overlap` and `angle`</span>
+<span class='va'>p</span> <span class='op'>+</span> <span class='fu'>geom_text_outline</span><span class='op'>(</span>check_overlap <span class='op'>=</span> <span class='cn'>TRUE</span>, angle <span class='op'>=</span> <span class='fl'>30</span><span class='op'>)</span>
+</div><div class='img'><img src='geom_text_outline-4.png' alt='' width='1094' height='676' /></div><div class='input'>
+<span class='co'># You can invert the text outlines by setting the color of the text to "white"</span>
+<span class='co'># and the color of the inner outline to "black".</span>
 <span class='va'>p</span> <span class='op'>+</span> <span class='fu'>geom_text_outline</span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"white"</span>, inner_params <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>colour <span class='op'>=</span> <span class='st'>"black"</span><span class='op'>)</span>, use_outer <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_void</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='img'><img src='geom_text_outline-4.png' alt='' width='1094' height='676' /></div><div class='input'>
+</div><div class='img'><img src='geom_text_outline-5.png' alt='' width='1094' height='676' /></div><div class='input'>
+<span class='co'># You can pass other geoms to the `geom` argument</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/slowkow/ggrepel'>ggrepel</a></span><span class='op'>)</span>
 <span class='va'>p</span> <span class='op'>+</span> <span class='fu'>geom_text_outline</span><span class='op'>(</span>geom <span class='op'>=</span> <span class='va'>geom_text_repel</span><span class='op'>)</span>
-</div><div class='img'><img src='geom_text_outline-5.png' alt='' width='1094' height='676' /></div><div class='input'><span class='co'># }</span>
+</div><div class='img'><img src='geom_text_outline-6.png' alt='' width='1094' height='676' /></div><div class='input'><span class='co'># }</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
