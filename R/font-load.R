@@ -13,6 +13,7 @@
 #'     \item{`Charis SIL`}{ by SIL international, retrieved from \url{https://software.sil.org/charis/}. }
 #'     \item{`Inter`}{ by Rasmus Andersson, retrieved from \url{https://fonts.google.com/specimen/Inter}. }
 #'     \item{`Piazzolla`}{ by Juan Pablo del Peral, retrieved from \url{https://fonts.google.com/specimen/Piazzolla}. }
+#'     \item{`Atkinson Hyperlegible`}{ by Braille Institute, retrieved from \url{https://fonts.google.com/specimen/Atkinson+Hyperlegible}. }
 #'     \item{`Bootstrap Icons`}{ by The Bootstrap Authors, retrieved from \url{https://icons.getbootstrap.com/}. }
 #'     \item{`Material Icons`}{ by Google Design, retrieved from \url{https://fonts.google.com/icons/}. }
 #'     \item{`Font Awesome 5 Free`}{ by Dave Gandy \url{https://fontawesome.com/}.
@@ -57,27 +58,16 @@ load_pkg_fonts <- function(verbose = TRUE) {
     purrr::walk2(
       font_names, font_paths,
       function(name, path) {
+        features <- list("case" = 1, "kern" = 1)
         if (stringr::str_detect(name, "^Inter-")) {
-          systemfonts::register_font(
-            name = name, plain = path,
-            features = systemfonts::font_feature(
-              numbers = "tabular",
-              case = 1,
-              kern = 1
-            )
-          )
+          features <- c(features, "numbers" = "tabular")
         } else if (stringr::str_detect(name, "^Piazzolla-")) {
-          systemfonts::register_font(
-            name = name, plain = path,
-            features = systemfonts::font_feature(
-              numbers = "proportional",
-              case = 1,
-              kern = 1
-            )
-          )
-        } else {
-          systemfonts::register_font(name = name, plain = path)
+          features <- c(features, "numbers" = "proportional")
+        } else if (stringr::str_detect(name, "^AtkinsonHyperlegible-")) {
+          features <- c(features, "numbers" = "proportional")
         }
+        feature_spec <- do.call(systemfonts::font_feature, features)
+        systemfonts::register_font(name = name, plain = path, features = feature_spec)
       }
     )
 

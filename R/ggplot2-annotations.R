@@ -121,9 +121,11 @@ annotation_textbox <- function(html,
 #'   geom_richtext(aes(0, 0, label = "This is a line<br><br>This is a paragraph<br>of text."))
 #'
 #' ggplot() +
-#'   geom_richtext(aes(0, 0, label = paste0("This is a line<br>",
-#'                                          zerowidth_char(30),
-#'                                          "This is a paragraph<br>of text.")))
+#'   geom_richtext(aes(0, 0, label = paste0(
+#'     "This is a line<br>",
+#'     zerowidth_char(30),
+#'     "This is a paragraph<br>of text."
+#'   )))
 #' }
 zerowidth_char <- function(size = 12, units = "px") {
   paste0("<span style='font-size:", size, units, "'>&#8203;</span>")
@@ -160,20 +162,23 @@ zerowidth_char <- function(size = 12, units = "px") {
 #' p + geom_text_outline() +
 #'   theme_void()
 #'
-#' # You also have the option to turn the outer outline off
-#' p + geom_text_outline(use_outer = FALSE) +
+#' # You stylize the inner and outer outlines
+#' p + geom_text_outline(inner_params = list(expand = 10), outer_params = list(colour = "red")) +
 #'   theme_void()
 #'
 #' # You can pass arguments to the layer specified in the `geom` argument in the `...`.
-#' # The default geom is `geom_text`, so you set values for `check_overlap` and `angle`
+#' # The default geom is `geom_text`, so you set values for e.g., `check_overlap` and `angle`
 #' p + geom_text_outline(check_overlap = TRUE, angle = 30)
 #'
-#' # You can invert the text outlines by setting the color of the text to "white"
-#' # and the color of the inner outline to "black".
-#' p + geom_text_outline(color = "white", inner_params = list(colour = "black"), use_outer = FALSE) +
-#'   theme_void()
+#' # You can invert the text outlines
+#' p +
+#'   geom_text_outline(
+#'     color = "white",
+#'     inner_params = list(colour = "black", expand = 2),
+#'     use_outer = FALSE
+#'   )
 #'
-#' # You can pass other geoms to the `geom` argument
+#' # You can pass other geoms to the `geom` argument (doesn't necessarily have to be a text layer)
 #' library(ggrepel)
 #' p + geom_text_outline(geom = geom_text_repel)
 #' }
@@ -193,7 +198,7 @@ geom_text_outline <- function(..., geom = "geom_text", inner_params = list(), ou
     sigma = 0.01,
     expand = 8
   )
-  if(use_outer) {
+  if (use_outer) {
     list(
       do.call(ggfx::with_outer_glow, utils::modifyList(.inner_params, inner_params)),
       do.call(ggfx::with_outer_glow, utils::modifyList(.outer_params, outer_params))

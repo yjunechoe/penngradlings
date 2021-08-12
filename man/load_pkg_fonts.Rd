@@ -26,6 +26,7 @@ Call \code{systemfonts::registry_fonts()} after loading the fonts for more detai
 \item{\verb{Charis SIL}}{ by SIL international, retrieved from \url{https://software.sil.org/charis/}. }
 \item{\code{Inter}}{ by Rasmus Andersson, retrieved from \url{https://fonts.google.com/specimen/Inter}. }
 \item{\code{Piazzolla}}{ by Juan Pablo del Peral, retrieved from \url{https://fonts.google.com/specimen/Piazzolla}. }
+\item{\verb{Atkinson Hyperlegible}}{ by Braille Institute, retrieved from \url{https://fonts.google.com/specimen/Atkinson+Hyperlegible}. }
 \item{\verb{Bootstrap Icons}}{ by The Bootstrap Authors, retrieved from \url{https://icons.getbootstrap.com/}. }
 \item{\verb{Material Icons}}{ by Google Design, retrieved from \url{https://fonts.google.com/icons/}. }
 \item{\verb{Font Awesome 5 Free}}{ by Dave Gandy \url{https://fontawesome.com/}.

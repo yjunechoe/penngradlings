@@ -48,20 +48,23 @@ p + geom_text_outline()
 p + geom_text_outline() +
   theme_void()
 
-# You also have the option to turn the outer outline off
-p + geom_text_outline(use_outer = FALSE) +
+# You stylize the inner and outer outlines
+p + geom_text_outline(inner_params = list(expand = 10), outer_params = list(colour = "red")) +
   theme_void()
 
 # You can pass arguments to the layer specified in the `geom` argument in the `...`.
-# The default geom is `geom_text`, so you set values for `check_overlap` and `angle`
+# The default geom is `geom_text`, so you set values for e.g., `check_overlap` and `angle`
 p + geom_text_outline(check_overlap = TRUE, angle = 30)
 
-# You can invert the text outlines by setting the color of the text to "white"
-# and the color of the inner outline to "black".
-p + geom_text_outline(color = "white", inner_params = list(colour = "black"), use_outer = FALSE) +
-  theme_void()
+# You can invert the text outlines
+p +
+  geom_text_outline(
+    color = "white",
+    inner_params = list(colour = "black", expand = 2),
+    use_outer = FALSE
+  )
 
-# You can pass other geoms to the `geom` argument
+# You can pass other geoms to the `geom` argument (doesn't necessarily have to be a text layer)
 library(ggrepel)
 p + geom_text_outline(geom = geom_text_repel)
 }

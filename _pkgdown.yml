@@ -13,7 +13,11 @@ template:
   bootswatch: materia
 
 reference:
-- title: Custom ggplot2 functions
+- title: Custom ggplot2 themes
+  desc: Custom themes and layer defaults
+  contents:
+  - update_ggplot_defaults
+- title: Custom ggplot2 layers/functions
   desc: Layers and helper functions for working wtih ggplot
   contents:
   - annotation_textbox
@@ -62,4 +66,4 @@ figures:
   fig.ext: png
   fig.height: ~
   fig.retina: 2
-  bg: NA
+  bg: "white"

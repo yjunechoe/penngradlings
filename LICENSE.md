@@ -1,15 +1,5 @@
 The {penngradlings} package as a whole is distributed under the MIT License.
 
-This package includes the following fonts:
-- Charis SIL: Downloaded and used as-is from the font website - https://software.sil.org/charis/download/.
-- Inter: Downloaded and used as-is from Google Fonts - https://fonts.google.com/specimen/Inter/.
-- Piazzolla: Downloaded and used as-is from Google Fonts - https://fonts.google.com/specimen/Piazzolla/.
-- Bootstrap Icons: Downloaded in .woff format from Bootstrap Icons - https://icons.getbootstrap.com/ -  and converted to .ttf for use in the package.
-- Material Icons: Downloaded as-is from Google Fonts - https://fonts.google.com/icons/.
-- Font Awesome 5 Free: Downloaded in .otf format from the "Free" download version distributed on Github - https://github.com/FortAwesome/Font-Awesome/.
-
-Full copies of their license agreements (one or a combination of the following: SIL OFL, MIT, Apache 2.0) are included in the package source at: https://github.com/yjunechoe/penngradlings/tree/master/inst/font-licenses.
-
 # MIT License
 
 Copyright (c) 2021 June Choe
@@ -31,3 +21,16 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+# Font licenses
+
+This package includes the following fonts:
+- Charis SIL: Downloaded and used as-is from the font website - https://software.sil.org/charis/download/.
+- Inter: Downloaded and used as-is from Google Fonts - https://fonts.google.com/specimen/Inter/.
+- Piazzolla: Downloaded and used as-is from Google Fonts - https://fonts.google.com/specimen/Piazzolla/.
+- Atkinson Hyperlegible: Downloaded and used as-is from Google Fonts - https://fonts.google.com/specimen/Atkinson+Hyperlegible.
+- Bootstrap Icons: Downloaded in .woff format from Bootstrap Icons - https://icons.getbootstrap.com/ -  and converted to .ttf for use in the package.
+- Material Icons: Downloaded as-is from Google Fonts - https://fonts.google.com/icons/.
+- Font Awesome 5 Free: Downloaded in .otf format from the "Free" download version distributed on Github - https://github.com/FortAwesome/Font-Awesome/.
+
+Full copies of their license agreements (one or a combination of the following: SIL OFL, MIT, Apache 2.0) are included in the package source at: https://github.com/yjunechoe/penngradlings/tree/master/inst/font-licenses.
