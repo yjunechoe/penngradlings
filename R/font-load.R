@@ -87,3 +87,19 @@ load_pkg_fonts <- function(verbose = TRUE) {
   }
   invisible(systemfonts::registry_fonts())
 }
+
+#' Fonts included in the package
+#'
+#' @return A named list of font families and font styles
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' .pgl_fonts()
+#' }
+.pgl_fonts <- function() {
+  families <- dir(system.file("fonts", package = "penngradlings"))
+  fonts <- purrr::map(families, ~ dir(system.file("fonts", .x, package = "penngradlings")))
+  fonts <- purrr::map(fonts, ~ stringr::str_remove(.x,  "\\..*$"))
+  stats::setNames(fonts, families)
+}
