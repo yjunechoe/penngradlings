@@ -4,12 +4,12 @@
 \alias{ggsave2}
 \title{Save and open plot}
 \usage{
-ggsave2(..., verbose = FALSE)
+ggsave2(..., load_as_magick = FALSE)
 }
 \arguments{
 \item{...}{Passed to \code{ggplot2::ggsave()}, with some defaults optimized for publication figures.}
 
-\item{verbose}{Whether to show information about the saved plot and invisibly return an ImageMagick object of the plot for post-processing. Defaults to \code{FALSE}.}
+\item{load_as_magick}{Whether to show information about the saved plot and invisibly return an ImageMagick object of the plot for post-processing. Defaults to \code{FALSE}.}
 }
 \description{
 Wrapper around \code{ggplot2::ggsave()} that opens rendered output using the system's default app for the graphic type.

@@ -34,5 +34,4 @@ Imports:
     stringr,
     textshaping,
     magick,
-    fs,
     ggfx

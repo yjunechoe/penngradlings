@@ -3,7 +3,7 @@
 #' Wrapper around `ggplot2::ggsave()` that opens rendered output using the system's default app for the graphic type.
 #'
 #' @param ... Passed to `ggplot2::ggsave()`, with some defaults optimized for publication figures.
-#' @param verbose Whether to show information about the saved plot and invisibly return an ImageMagick object of the plot for post-processing. Defaults to \code{FALSE}.
+#' @param load_as_magick Whether to show information about the saved plot and invisibly return an ImageMagick object of the plot for post-processing. Defaults to \code{FALSE}.
 #'
 #' @section Default options for publication figures:
 #' \describe{
@@ -23,7 +23,7 @@
 #' # p <- ggplot2::qplot(mpg, hp, data = mtcars)
 #' # ggplot2::ggsave2("myplot.png", p, width = "50%", height = "30%")
 #' }
-ggsave2 <- function(..., verbose = FALSE) {
+ggsave2 <- function(..., load_as_magick = FALSE) {
   inner_height <- 9
   inner_width <- 6.5
   opts <- list(...)
@@ -51,19 +51,10 @@ ggsave2 <- function(..., verbose = FALSE) {
   }
   path <- withVisible(do.call(ggplot2::ggsave, opts))$value
   system2("open", path)
-  if (verbose) {
+  if (load_as_magick) {
     img <- magick::image_read(path)
     img_info <- magick::image_info(img)
-    file_info <- fs::file_info(path)
-    cli::cli({
-      cli::cli_alert_success("Plot saved at: {.path {path}}")
-      cli::cli_li(c(
-        "Modification time: {file_info$modification_time}",
-        "Size: {file_info$size}",
-        "Width: {img_info$width}px",
-        "Height: {img_info$height}px"
-      ))
-    })
+    cli::cli_alert_success("Plot saved at: {.path {path}}")
     return(invisible(img))
   }
 }
