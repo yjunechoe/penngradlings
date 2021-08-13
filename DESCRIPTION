@@ -23,7 +23,6 @@ Imports:
     dplyr,
     ggplot2,
     magrittr,
-    patchwork,
     gridtext,
     systemfonts,
     ragg,
