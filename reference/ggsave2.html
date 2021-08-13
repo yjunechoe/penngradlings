@@ -145,7 +145,7 @@
     <p>Wrapper around <code><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggplot2::ggsave()</a></code> that opens rendered output using the system's default app for the graphic type.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ggsave2</span><span class='op'>(</span><span class='va'>...</span>, verbose <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>ggsave2</span><span class='op'>(</span><span class='va'>...</span>, load_as_magick <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,7 +155,7 @@
       <td><p>Passed to <code><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggplot2::ggsave()</a></code>, with some defaults optimized for publication figures.</p></td>
     </tr>
     <tr>
-      <th>verbose</th>
+      <th>load_as_magick</th>
       <td><p>Whether to show information about the saved plot and invisibly return an ImageMagick object of the plot for post-processing. Defaults to <code>FALSE</code>.</p></td>
     </tr>
     </table>
