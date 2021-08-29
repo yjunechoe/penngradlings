@@ -1,5 +1,50 @@
 #' Save and open plot
 #'
+#' Wrapper around `ggplot2::ggsave()` that saves the rendered output to a special folder
+#' and opens it using the system's default app for the graphic type.
+#'
+#' Creates a folder `/.ggsave_auto` in the working directory where figures are saved
+#' with zero-padding to 3 digits (e.g., `ggsave_auto-001.png`).
+#'
+#' @param ... Passed to `ggplot2::ggsave()`, overriding `path` and `filename`.
+#' @param load_as_magick Whether to show information about the saved plot and invisibly return an ImageMagick object of the plot for post-processing. Defaults to \code{FALSE}.
+#'
+#' @return An magick object or path to the saved plot.
+#' @export
+#'
+ggsave_auto <- function(..., load_as_magick = FALSE) {
+
+  working_dir <- getwd()
+  if (!dir.exists(".ggsave_auto")) {
+    idx <- 1
+    dir.create(".ggsave_auto")
+  } else {
+    idx <- dir(path = ".ggsave_auto", pattern = "ggsave_auto-\\d{3}\\.png") |>
+      stringr::str_extract("\\d{3}") |>
+      as.integer() |>
+      max() + 1
+  }
+
+  params <- list(...)
+  params$path <- ".ggsave_auto"
+  params$filename <- sprintf("ggsave_auto-%03d.png", idx)
+
+  img_path <- withVisible(do.call(ggplot2::ggsave, params))$value
+  cli::cli_alert_success("Plot saved at: {.path {img_path}}")
+  system2("open", img_path)
+
+  if (load_as_magick) {
+    img <- magick::image_read(img_path)
+    img_info <- magick::image_info(img)
+    invisible(img)
+  } else {
+    invisible(img_path)
+  }
+
+}
+
+#' Save and open plot
+#'
 #' Wrapper around `ggplot2::ggsave()` that opens rendered output using the system's default app for the graphic type.
 #'
 #' @param ... Passed to `ggplot2::ggsave()`, with some defaults optimized for publication figures.
@@ -15,8 +60,6 @@
 #'     \item{`dpi`}{ 300, the print standard. }
 #'     \item{`units`}{ "in" }
 #' }
-#'
-#' @export
 #'
 #' @examples
 #' \dontrun{

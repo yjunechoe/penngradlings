@@ -1,0 +1,4 @@
+Name: ggsave_auto
+Description: Saves and opens the last ggplot
+Binding: ggsave_auto
+Interactive: true

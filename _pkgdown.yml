@@ -35,7 +35,7 @@ reference:
 - title: Save and render plots
   desc: Functions for saving and rendering plots in interactive contexts
   contents:
-  - ggsave2
+  - ggsave_auto
 - title: Statistical transformations for plotting
   desc: Functions for common statistical analyses with outputs formatted for mapping to aesthetics
   contents:
