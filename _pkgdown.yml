@@ -13,19 +13,18 @@ template:
   bootswatch: materia
 
 reference:
-- title: Custom ggplot2 themes
-  desc: Custom themes and layer defaults
+- title: ggplot2 themes
+  desc: Themes and layer defaults
   contents:
   - theme_plg_basic
-  - update_ggplot_defaults
-- title: Custom ggplot2 layers/functions
+- title: ggplot2 layers/functions
   desc: Layers and helper functions for working wtih ggplot
   contents:
   - annotation_textbox
   - geom_text_outline
   - zerowidth_char
 - title: Font helpers
-  desc: Functions for registering custom fonts
+  desc: Font workflow
   contents:
   - load_pkg_fonts
   - font_hoist
