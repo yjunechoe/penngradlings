@@ -66,7 +66,7 @@ font_path <- function(family, style = "Regular") {
     font_info$path
   } else {
     cli::cli_text("Font {.val {family}} does not exist!")
-    invisible(NULL)
+    invisible(NA)
   }
 }
 

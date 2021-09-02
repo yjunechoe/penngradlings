@@ -145,7 +145,7 @@ zerowidth_char <- function(size = 12, units = "px") {
 #' @param geom Which geom layer to apply outlines over. Defaults to
 #' @param inner_params Passed to the first \code{ggfx::with_outer_glow} filter (inner outline).
 #' @param outer_params Passed to the second \code{ggfx::with_outer_glow} filter (outer outline).
-#' @param use_outer Whether the outer outline should be turned on. Defaults to \code{TRUE}.
+#' @param use_outer Whether the outer outline should be turned on. Defaults to \code{FALSE}.
 #'
 #' @return A {ggplot2} layer if \code{use_outer} is \code{TRUE}, otherwise a list of two layers.
 #' @export
@@ -155,34 +155,53 @@ zerowidth_char <- function(size = 12, units = "px") {
 #' library(ggplot2)
 #' p <- ggplot(mtcars, aes(mpg, disp, label = rownames(mtcars)))
 #'
-#' # By default creates a white inner-outline and a gray-shade outer-outline
-#' p + geom_text_outline()
-#'
-#' # This is more obvious against a white background
+#' # By default creates a white outline (note the "padding" around gridlines)
 #' p + geom_text_outline() +
+#'   theme_plg_basic()
+#'
+#' # You can add a second, outer outline
+#' # This is useful if the plot has a background color like in the default theme
+#' p + geom_text_outline(use_outer = TRUE)
+#'
+#' # This outer outline is more obvious against a white background
+#' p + geom_text_outline(use_outer = TRUE) +
 #'   theme_void()
 #'
-#' # You stylize the inner and outer outlines
-#' p + geom_text_outline(inner_params = list(expand = 10), outer_params = list(colour = "red")) +
+#' # You can stylize the inner and outer outlines with
+#' # arguments passed to `ggfx::with_outer_glow()`.
+#' # The most relevant are `expand` and `colour`
+#' p +
+#'   geom_text_outline(
+#'     inner_params = list(expand = 8),
+#'     outer_params = list(colour = "red"),
+#'     use_outer = TRUE
+#'   ) +
 #'   theme_void()
 #'
 #' # You can pass arguments to the layer specified in the `geom` argument in the `...`.
-#' # The default geom is `geom_text`, so you set values for e.g., `check_overlap` and `angle`
-#' p + geom_text_outline(check_overlap = TRUE, angle = 30)
-#'
-#' # You can invert the text outlines
+#' # The default geom is `geom_text`, so you can pass arguments specific to it
 #' p +
 #'   geom_text_outline(
+#'     vjust = "inward",
+#'     hjust = "inward",
+#'     check_overlap = TRUE,
+#'     angle = 30
+#'   )
+#'
+#' # You can also invert the text outlines
+#' p +
+#'   geom_text_outline(
+#'     size = 5,
 #'     color = "white",
-#'     inner_params = list(colour = "black", expand = 2),
-#'     use_outer = FALSE
+#'     inner_params = list(colour = "black", expand = 1.5),
+#'     use_outer = TRUE
 #'   )
 #'
 #' # You can pass other geoms to the `geom` argument (doesn't necessarily have to be a text layer)
 #' library(ggrepel)
 #' p + geom_text_outline(geom = geom_text_repel)
 #' }
-geom_text_outline <- function(..., geom = "geom_text", inner_params = list(), outer_params = list(), use_outer = TRUE) {
+geom_text_outline <- function(..., geom = "geom_text", inner_params = list(), outer_params = list(), use_outer = FALSE) {
   .id <- stringr::str_flatten(sample(letters, 24, replace = TRUE))
   geom <- rlang::ensym(geom)
   .inner_params <- list(

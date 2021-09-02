@@ -13,7 +13,6 @@
 #' @export
 #'
 ggsave_auto <- function(..., load_as_magick = FALSE) {
-
   working_dir <- getwd()
   if (!dir.exists(".ggsave_auto")) {
     idx <- 1
@@ -40,7 +39,6 @@ ggsave_auto <- function(..., load_as_magick = FALSE) {
   } else {
     invisible(img_path)
   }
-
 }
 
 #' Save and open plot

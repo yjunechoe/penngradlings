@@ -100,6 +100,6 @@ load_pkg_fonts <- function(verbose = TRUE) {
 .pgl_fonts <- function() {
   families <- dir(system.file("fonts", package = "penngradlings"))
   fonts <- purrr::map(families, ~ dir(system.file("fonts", .x, package = "penngradlings")))
-  fonts <- purrr::map(fonts, ~ stringr::str_remove(.x,  "\\..*$"))
+  fonts <- purrr::map(fonts, ~ stringr::str_remove(.x, "\\..*$"))
   stats::setNames(fonts, families)
 }

@@ -16,6 +16,7 @@ reference:
 - title: Custom ggplot2 themes
   desc: Custom themes and layer defaults
   contents:
+  - theme_plg_basic
   - update_ggplot_defaults
 - title: Custom ggplot2 layers/functions
   desc: Layers and helper functions for working wtih ggplot
