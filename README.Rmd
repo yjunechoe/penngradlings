@@ -30,6 +30,6 @@ devtools::install_github("yjunechoe/penngradlings")
 
 ## Example
 
-```{r example}
+```{r load}
 library(penngradlings)
 ```

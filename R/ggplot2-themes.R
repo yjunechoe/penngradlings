@@ -11,15 +11,13 @@
 #' @examples
 #' \dontrun{
 #' library(ggplot2)
-#' ggplot(mtcars, aes(mpg, hp)) +
-#'   geom_point(aes(color = factor(cyl))) +
+#' ggplot(iris, aes(Petal.Length, Petal.Width, color = Species)) +
+#'   geom_point(size = 2) +
 #'   labs(
-#'     title = "This is an example plot",
-#'     subtitle = "We are using this to demonstrate theme_plg_basic",
-#'     x = "Miles per gallon (mpg)",
-#'     y = "Horsepower",
-#'     color = "Cylinder"
+#'     title = "Petal profile of plant species in the iris dataset",
+#'     subtitle = "Virginica has the largest petal of the three species"
 #'   ) +
+#'   facet_wrap(~ Species) +
 #'   theme_plg_basic()
 #' }
 theme_plg_basic <- function(base_size = 12, axis_lines = "", grid_lines = "xy", grid_lines_minor = FALSE) {
@@ -46,8 +44,11 @@ theme_plg_basic <- function(base_size = 12, axis_lines = "", grid_lines = "xy", 
       plot.caption.position = "plot",
       plot.margin = ggplot2::margin(0.03, 0.02, 0.03, 0.02, "npc"),
       panel.grid = ggplot2::element_line(color = "#F2F2F2"),
+      panel.spacing = grid::unit(0.015, "npc"),
       legend.title = ggplot2::element_text(family = "Inter-SemiBold"),
-      legend.key = ggplot2::element_blank()
+      legend.key = ggplot2::element_blank(),
+      strip.background = ggplot2::element_rect(),
+      strip.text = ggplot2::element_text(size = ggplot2::rel(0.85), family = "Inter-SemiBold")
     )
 
   if (stringr::str_length(axis_lines) <= 2 && grepl("[xyXY]{1,2}", axis_lines)) {

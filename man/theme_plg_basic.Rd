@@ -29,15 +29,13 @@ Basic {penngradlings} theme template
 \examples{
 \dontrun{
 library(ggplot2)
-ggplot(mtcars, aes(mpg, hp)) +
-  geom_point(aes(color = factor(cyl))) +
+ggplot(iris, aes(Petal.Length, Petal.Width, color = Species)) +
+  geom_point(size = 2) +
   labs(
-    title = "This is an example plot",
-    subtitle = "We are using this to demonstrate theme_plg_basic",
-    x = "Miles per gallon (mpg)",
-    y = "Horsepower",
-    color = "Cylinder"
+    title = "Petal profile of plant species in the iris dataset",
+    subtitle = "Virginica has the largest petal of the three species"
   ) +
+  facet_wrap(~ Species) +
   theme_plg_basic()
 }
 }

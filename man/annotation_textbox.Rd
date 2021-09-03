@@ -21,7 +21,7 @@ annotation_textbox(
 )
 }
 \arguments{
-\item{html}{Content of the textbox in html syn \%>\% tax. See supported tags in \url{https://wilkelab.org/ggtext/index.html}.}
+\item{html}{Content of the textbox in html syntax. See supported tags in \url{https://wilkelab.org/ggtext/index.html}.}
 
 \item{position}{One of "top-left", "top-right", "bottom-left", "bottom-right", "center". Calculated with \code{compute_position}.}
 

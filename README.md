@@ -22,4 +22,5 @@ devtools::install_github("yjunechoe/penngradlings")
 
 ``` r
 library(penngradlings)
+#> Package fonts loaded. See `?load_pkg_fonts` for details.
 ```

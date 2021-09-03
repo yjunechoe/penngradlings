@@ -26,7 +26,7 @@ compute_position <- function(position) {
 #'
 #' To be used for non-data-based annotations with \code{ggplot2::annotation_custom}.
 #'
-#' @param html Content of the textbox in html syn %>% tax. See supported tags in \url{https://wilkelab.org/ggtext/index.html}.
+#' @param html Content of the textbox in html syntax. See supported tags in \url{https://wilkelab.org/ggtext/index.html}.
 #' @param position One of "top-left", "top-right", "bottom-left", "bottom-right", "center". Calculated with \code{compute_position}.
 #' @param width A numeric value for the npc or a \code{grid::unit} object. Defaults to fit the contents passed to \code{html}.
 #' @param height A numeric value for the npc or a \code{grid::unit} object. Defaults to fit the contents passed to \code{html}.
