@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>License • penngradlings</title>
+<title>Changelog • penngradlings</title>
 
 
 <!-- jquery -->
@@ -18,8 +18,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
 <!-- bootstrap-toc -->
-<link rel="stylesheet" href="bootstrap-toc.css">
-<script src="bootstrap-toc.js"></script>
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
@@ -33,13 +33,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script>
+<link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script>
 
 
 
 
-<meta property="og:title" content="License" />
+<meta property="og:title" content="Changelog" />
 
 
 
@@ -58,7 +58,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-title-body">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -70,7 +70,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">penngradlings</a>
+        <a class="navbar-link" href="../index.html">penngradlings</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
@@ -78,18 +78,18 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">
+  <a href="../index.html">
     <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="news/index.html">Changelog</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -101,21 +101,21 @@
     <li class="divider"></li>
     <li class="dropdown-header">ggplot2 extensions</li>
     <li>
-      <a href="articles/themes.html">Custom themes</a>
+      <a href="../articles/themes.html">Custom themes</a>
     </li>
     <li>
-      <a href="articles/annotations.html">Custom annotations</a>
+      <a href="../articles/annotations.html">Custom annotations</a>
     </li>
     <li>
-      <a href="articles/fonts.html">Custom fonts</a>
+      <a href="../articles/fonts.html">Custom fonts</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">Style guide</li>
     <li>
-      <a href="articles/figures.html">Style guide for figures</a>
+      <a href="../articles/figures.html">Style guide for figures</a>
     </li>
     <li>
-      <a href="articles/tables.html">Style guide for tables</a>
+      <a href="../articles/tables.html">Style guide for tables</a>
     </li>
   </ul>
 </li>
@@ -136,15 +136,59 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>License</h1>
+      <h1 data-toc-skip>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/yjunechoe/penngradlings/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-<pre>YEAR: 2021
-COPYRIGHT HOLDER: June Choe
-</pre>
-
+    <div id="penngradlings-development-version" class="section level1">
+<h1 class="page-header" data-toc-text="development version">
+<a href="#penngradlings-development-version" class="anchor"></a>penngradlings (development version)</h1>
+<ul>
+<li>Color palettes in <code><a href="../reference/pgl_pals.html">pgl_pals()</a></code>
+</li>
+</ul>
+</div>
+    <div id="penngradlings-010" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.0">
+<a href="#penngradlings-010" class="anchor"></a>penngradlings 0.1.0</h1>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>New features</h2>
+<div id="fonts" class="section level3">
+<h3 class="hasAnchor">
+<a href="#fonts" class="anchor"></a>Fonts</h3>
+<ul>
+<li>The package packs 8 open source font families: <em>Atkinson Hyperlegible</em>, <em>Bootstrap Icons</em>, <em>Charis SIL</em>, <em>Font Awesome 5 Free</em>, <em>Inter</em>, <em>Material Icons</em>, <em>Piazzolla</em>, <em>Piazzolla SC</em>. Fonts are automatically registered on package load. See <code><a href="../reference/.pgl_fonts.html">.pgl_fonts()</a></code> for details.</li>
+<li>A <code>font_*()</code> family of helper functions for inspecting, registering, and shaping fonts - <code><a href="../reference/font_hoist.html">font_hoist()</a></code>, <code><a href="../reference/font_pluck.html">font_pluck()</a></code>, <code><a href="../reference/font_info.html">font_info()</a></code>, <code><a href="../reference/font_exists.html">font_exists()</a></code>, and <code><a href="../reference/font_path.html">font_path()</a></code>.</li>
+</ul>
+</div>
+<div id="themes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#themes" class="anchor"></a>Themes</h3>
+<ul>
+<li>
+<code>theme_pgl_basic()</code>, a low-ink theme design built on top of <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">ggplot2::theme_minimal()</a></code>, with options for turning on/off axis and grid lines.</li>
+</ul>
+</div>
+<div id="layers" class="section level3">
+<h3 class="hasAnchor">
+<a href="#layers" class="anchor"></a>Layers</h3>
+<ul>
+<li>Stylized panel annotations with <code><a href="../reference/geom_text_outline.html">geom_text_outline()</a></code> and <code><a href="../reference/annotation_textbox.html">annotation_textbox()</a></code>.</li>
+</ul>
+</div>
+<div id="misc" class="section level3">
+<h3 class="hasAnchor">
+<a href="#misc" class="anchor"></a>Misc</h3>
+<ul>
+<li>
+<code><a href="../reference/ggsave_auto.html">ggsave_auto()</a></code>, a wrapper around <code><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggplot2::ggsave()</a></code> offering convenience for interactive plotting. Accumulates all plots rendered with the function in a separate <em>./ggsave_auto</em> directory and opens the saved figure back using the system’s default photo-viewing app. Includes option for reading the saved figure back as a {magick} object.</li>
+</ul>
+</div>
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -154,7 +198,6 @@ COPYRIGHT HOLDER: June Choe
   </div>
 
 </div>
-
 
 
       <footer>

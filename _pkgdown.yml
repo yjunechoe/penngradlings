@@ -53,7 +53,7 @@ articles:
 
 navbar:
   structure:
-    right: [articles, reference, github]
+    right: [reference, articles, github]
     left: []
 
 figures:
