@@ -16,7 +16,7 @@ reference:
 - title: Themes
   desc: ggplot2 themes and layer defaults
   contents:
-  - theme_plg_basic
+  - theme_pgl_minimal
 - title: Layers
   desc: ggplot2 layers and helper functions
   contents:

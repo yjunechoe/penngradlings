@@ -22,27 +22,28 @@
 #'     subtitle = "Virginica has the largest petal of the three species"
 #'   ) +
 #'   facet_wrap(~Species) +
-#'   theme_plg_basic(base_size = 11)
+#'   theme_pgl_minimal(base_size = 11)
 #'
-#' ggplot(diamonds, aes(cut, price)) +
+#' ggplot(diamonds, aes(cut, price, fill = cut)) +
 #'   stat_summary(geom = "bar", fun = "mean", width = 0.8) +
 #'   scale_y_continuous(
 #'     expand = expansion(c(0, 0.1)),
 #'     labels = ~ paste0("$", .x)
 #'   ) +
+#'   scale_fill_manual(values = pgl_pals("christine", "blueberry_boba")) +
 #'   labs(
 #'     title = "Price of diamonds by cut quality",
 #'     subtitle = "This is a bad explanatory plot because carat (size) is a confounding variable",
 #'     x = NULL, y = NULL,
 #'     caption = "diamonds dataset from {ggplot2}"
 #'   ) +
-#'   theme_plg_basic(axis_lines = "x", grid_lines = "y")
+#'   theme_pgl_minimal(axis_lines = "x", grid_lines = "y")
 #' }
-theme_plg_basic <- function(base_size = 10,
-                            axis_lines = "",
-                            grid_lines = "xy",
-                            grid_lines_minor = FALSE,
-                            outline_color = "#1F1C1C") {
+theme_pgl_minimal <- function(base_size = 10,
+                              axis_lines = "",
+                              grid_lines = "xy",
+                              grid_lines_minor = FALSE,
+                              outline_color = "#1F1C1C") {
   faded_outline_color <- colorspace::lighten(outline_color, 0.35)
 
   .theme <- ggplot2::theme_minimal(
@@ -59,8 +60,9 @@ theme_plg_basic <- function(base_size = 10,
       axis.title.x.top = element_text(margin = margin(b = 0.5, unit = "npc")),
       axis.title.y.left = element_text(margin = margin(r = 0.5, unit = "npc")),
       axis.title.y.right = element_text(margin = margin(l = 0.5, unit = "npc")),
+      plot.background = element_rect(color = NA, fill = "white"),
       plot.subtitle = element_text(color = faded_outline_color, margin = margin(t = 0.1, b = 0.8, unit = "npc")),
-      plot.caption = element_text(color = faded_outline_color, family = "Inter-Medium"),
+      plot.caption = element_text(color = faded_outline_color, family = "Inter-Medium", margin = margin(t = 0.8, unit = "npc")),
       plot.title.position = "plot",
       plot.caption.position = "plot",
       plot.margin = margin(0.03, 0.02, 0.03, 0.02, "npc"),

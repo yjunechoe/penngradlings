@@ -155,11 +155,11 @@ zerowidth_char <- function(size = 12, units = "px") {
 #' library(ggplot2)
 #' p <- ggplot(mtcars, aes(mpg, disp, label = rownames(mtcars)))
 #'
-#' # By default creates a white outline (note the "padding" around gridlines)
+#' # By default creates a white outline
 #' p + geom_text_outline() +
-#'   theme_plg_basic()
+#'   theme_pgl_minimal()
 #'
-#' # You can add a second, outer outline
+#' # You can also add a second, outer outline with `use_outer = TRUE`
 #' # This is useful if the plot has a background color like in the default theme
 #' p + geom_text_outline(use_outer = TRUE)
 #'
@@ -185,6 +185,7 @@ zerowidth_char <- function(size = 12, units = "px") {
 #'     vjust = "inward",
 #'     hjust = "inward",
 #'     check_overlap = TRUE,
+#'     use_outer = TRUE,
 #'     angle = 30
 #'   )
 #'
