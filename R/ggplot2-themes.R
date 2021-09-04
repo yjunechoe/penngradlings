@@ -21,7 +21,7 @@
 #'     title = "Petal profile of plant species in the iris dataset",
 #'     subtitle = "Virginica has the largest petal of the three species"
 #'   ) +
-#'   facet_wrap(~ Species) +
+#'   facet_wrap(~Species) +
 #'   theme_plg_basic(base_size = 11)
 #'
 #' ggplot(diamonds, aes(cut, price)) +
@@ -43,7 +43,6 @@ theme_plg_basic <- function(base_size = 10,
                             grid_lines = "xy",
                             grid_lines_minor = FALSE,
                             outline_color = "#1F1C1C") {
-
   faded_outline_color <- colorspace::lighten(outline_color, 0.35)
 
   .theme <- ggplot2::theme_minimal(

@@ -39,7 +39,7 @@ ggplot(iris, aes(Petal.Length, Petal.Width, color = Species)) +
     title = "Petal profile of plant species in the iris dataset",
     subtitle = "Virginica has the largest petal of the three species"
   ) +
-  facet_wrap(~ Species) +
+  facet_wrap(~Species) +
   theme_plg_basic(base_size = 11)
 
 ggplot(diamonds, aes(cut, price)) +

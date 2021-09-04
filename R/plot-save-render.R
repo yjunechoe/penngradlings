@@ -13,6 +13,11 @@
 #' @export
 #'
 ggsave_auto <- function(..., load_as_magick = FALSE) {
+  p <- ggplot2::last_plot()
+  if (is.null(p)) {
+    cli::cli_abort("There is no plot to save.")
+  }
+
   working_dir <- getwd()
   if (!dir.exists(".ggsave_auto")) {
     idx <- 1
@@ -25,6 +30,7 @@ ggsave_auto <- function(..., load_as_magick = FALSE) {
   }
 
   params <- list(...)
+  params$plot <- p
   params$path <- ".ggsave_auto"
   params$filename <- sprintf("ggsave_auto-%03d.png", idx)
 
