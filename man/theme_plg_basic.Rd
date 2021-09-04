@@ -5,10 +5,11 @@
 \title{Basic {penngradlings} theme template}
 \usage{
 theme_plg_basic(
-  base_size = 12,
+  base_size = 10,
   axis_lines = "",
   grid_lines = "xy",
-  grid_lines_minor = FALSE
+  grid_lines_minor = FALSE,
+  outline_color = "#1F1C1C"
 )
 }
 \arguments{
@@ -19,9 +20,11 @@ theme_plg_basic(
 \item{grid_lines}{Which grid lines should be drawn, passed as a string.}
 
 \item{grid_lines_minor}{Whether minor grid lines should be draw. Defaults to \code{FALSE}}
+
+\item{outline_color}{Primary color for text, line, and rectangle outline.}
 }
 \value{
-A theme object created by \code{ggplot2::theme()}
+A theme object created by \code{theme()}
 }
 \description{
 Basic {penngradlings} theme template
@@ -29,6 +32,7 @@ Basic {penngradlings} theme template
 \examples{
 \dontrun{
 library(ggplot2)
+
 ggplot(iris, aes(Petal.Length, Petal.Width, color = Species)) +
   geom_point(size = 2) +
   labs(
@@ -36,6 +40,20 @@ ggplot(iris, aes(Petal.Length, Petal.Width, color = Species)) +
     subtitle = "Virginica has the largest petal of the three species"
   ) +
   facet_wrap(~ Species) +
-  theme_plg_basic()
+  theme_plg_basic(base_size = 11)
+
+ggplot(diamonds, aes(cut, price)) +
+  stat_summary(geom = "bar", fun = "mean", width = 0.8) +
+  scale_y_continuous(
+    expand = expansion(c(0, 0.1)),
+    labels = ~ paste0("$", .x)
+  ) +
+  labs(
+    title = "Price of diamonds by cut quality",
+    subtitle = "This is a bad explanatory plot because carat (size) is a confounding variable",
+    x = NULL, y = NULL,
+    caption = "diamonds dataset from {ggplot2}"
+  ) +
+  theme_plg_basic(axis_lines = "x", grid_lines = "y")
 }
 }
