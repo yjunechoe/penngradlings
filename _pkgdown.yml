@@ -17,6 +17,7 @@ reference:
   desc: ggplot2 themes and layer defaults
   contents:
   - theme_pgl_minimal
+  - pgl_pals
 - title: Layers
   desc: ggplot2 layers and helper functions
   contents:
@@ -36,10 +37,6 @@ reference:
   desc: Functions for saving and rendering plots in interactive contexts
   contents:
   - ggsave_auto
-- title: Statistical transformations for plotting
-  desc: Functions for common statistical analyses with outputs formatted for mapping to aesthetics
-  contents:
-  - mean_se_corrected
 
 articles:
 - title: ggplot2 extensions
