@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • penngradlings</title>
+<title>Select a PGL-themed color palette — pgl_pals • penngradlings</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Select a PGL-themed color palette — pgl_pals" />
+<meta property="og:description" content="Select a PGL-themed color palette" />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -133,160 +134,44 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Select a PGL-themed color palette</h1>
+    <small class="dont-index">Source: <a href='https://github.com/yjunechoe/penngradlings/blob/master/R/ggplot2-colors.R'><code>R/ggplot2-colors.R</code></a></small>
+    <div class="hidden name"><code>pgl_pals.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Select a PGL-themed color palette</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>pgl_pals</span><span class='op'>(</span><span class='va'>who</span>, <span class='va'>what</span>, <span class='va'>n</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-themes" class="hasAnchor"><a href="#section-themes" class="anchor"></a>Themes</h2>
-          <p class="section-desc"><p>ggplot2 themes and layer defaults</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="theme_pgl_minimal.html">theme_pgl_minimal()</a></code> </p>
-        </td>
-        <td><p>Basic penngradlings theme template</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-layers" class="hasAnchor"><a href="#section-layers" class="anchor"></a>Layers</h2>
-          <p class="section-desc"><p>ggplot2 layers and helper functions</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="annotation_textbox.html">annotation_textbox()</a></code> </p>
-        </td>
-        <td><p>HTML textbox annotation</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="geom_text_outline.html">geom_text_outline()</a></code> </p>
-        </td>
-        <td><p>Outlined text layer</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="zerowidth_char.html">zerowidth_char()</a></code> </p>
-        </td>
-        <td><p>Create an HTML span of the unicode zero-width character</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-font-workflow" class="hasAnchor"><a href="#section-font-workflow" class="anchor"></a>Font workflow</h2>
-          <p class="section-desc"><p>Functions for inspecting, registering, and shaping custom fonts.</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="load_pkg_fonts.html">load_pkg_fonts()</a></code> </p>
-        </td>
-        <td><p>Load package fonts</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="font_hoist.html">font_hoist()</a></code> </p>
-        </td>
-        <td><p>Register members of a font family as their own families</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="font_pluck.html">font_pluck()</a></code> </p>
-        </td>
-        <td><p>Register a font variant with OpenType feature specifications</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="font_info.html">font_info()</a></code> </p>
-        </td>
-        <td><p>Get information about a font</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="font_exists.html">font_exists()</a></code> </p>
-        </td>
-        <td><p>Check whether a font is registered</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="font_path.html">font_path()</a></code> </p>
-        </td>
-        <td><p>Find path to a system font</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-save-and-render-plots" class="hasAnchor"><a href="#section-save-and-render-plots" class="anchor"></a>Save and render plots</h2>
-          <p class="section-desc"><p>Functions for saving and rendering plots in interactive contexts</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="ggsave_auto.html">ggsave_auto()</a></code> </p>
-        </td>
-        <td><p>Save and open plot</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-statistical-transformations-for-plotting" class="hasAnchor"><a href="#section-statistical-transformations-for-plotting" class="anchor"></a>Statistical transformations for plotting</h2>
-          <p class="section-desc"><p>Functions for common statistical analyses with outputs formatted for mapping to aesthetics</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="mean_se_corrected.html">mean_se_corrected()</a></code> </p>
-        </td>
-        <td><p>Corrected calculation of mean and standard error</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>who</th>
+      <td><p>The person associated with the palette.</p></td>
+    </tr>
+    <tr>
+      <th>what</th>
+      <td><p>The object the palette was extracted from</p></td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td><p>Number of colors to return</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A character vector of colors</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>pgl_pals</span><span class='op'>(</span><span class='st'>"christine"</span>, <span class='st'>"blueberry_boba"</span>, <span class='fl'>4</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "#5E4950" "#93604F" "#A2919B" "#77722E"</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
