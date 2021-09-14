@@ -18,7 +18,11 @@ An magick object or path to the saved plot.
 Wrapper around \code{ggplot2::ggsave()} that saves the rendered output to a special folder
 and opens it using the system's default app for the graphic type.
 }
-\details{
+\note{
 Creates a folder \verb{/.ggsave_auto} in the working directory where figures are saved
-with zero-padding to 3 digits (e.g., \verb{ggsave_auto-001.png}).
+with zero-padding to 3 digits (e.g., \verb{ggsave_auto-001.png}). Appends \code{.ggsave_auto} to
+a \code{.gitignore} file if it exists.
+
+Global params can be set through \code{options()}, with the argument name followed by \code{pgl.ggsave_auto.}
+such as \code{options(pgl.ggsave_auto.width = 7)}.
 }

@@ -3,13 +3,18 @@
 #' Wrapper around `ggplot2::ggsave()` that saves the rendered output to a special folder
 #' and opens it using the system's default app for the graphic type.
 #'
-#' Creates a folder `/.ggsave_auto` in the working directory where figures are saved
-#' with zero-padding to 3 digits (e.g., `ggsave_auto-001.png`).
-#'
 #' @param ... Passed to `ggplot2::ggsave()`, overriding `path` and `filename`.
 #' @param load_as_magick Whether to show information about the saved plot and invisibly return an ImageMagick object of the plot for post-processing. Defaults to \code{FALSE}.
 #'
 #' @return An magick object or path to the saved plot.
+#'
+#' @note Creates a folder `/.ggsave_auto` in the working directory where figures are saved
+#'   with zero-padding to 3 digits (e.g., `ggsave_auto-001.png`). Appends `.ggsave_auto` to
+#'   a `.gitignore` file if it exists.
+#'
+#'   Global params can be set through `options()`, with the argument name followed by `pgl.ggsave_auto.`
+#'   such as `options(pgl.ggsave_auto.width = 7)`.
+#'
 #' @export
 #'
 ggsave_auto <- function(..., load_as_magick = FALSE) {
@@ -34,9 +39,20 @@ ggsave_auto <- function(..., load_as_magick = FALSE) {
   params$path <- ".ggsave_auto"
   params$filename <- sprintf("ggsave_auto-%03d.png", idx)
 
+  global_opts <- grep("^pgl\\.ggsave_auto\\.", names(options()), value = TRUE)
+  if (length(global_opts) > 0) {
+    opts_list <- unlist(lapply(grep("^pgl\\.ggsave_auto\\.", names(options()), value = TRUE), options))
+    names(opts_list) <- gsub("^pgl\\.ggsave_auto\\.", "", names(opts_list))
+    params <- utils::modifyList(params, as.list(opts_list))
+  }
+
   img_path <- withVisible(do.call(ggplot2::ggsave, params))$value
   cli::cli_alert_success("Plot saved at: {.path {img_path}}")
   system2("open", img_path)
+
+  if (file.exists(".gitignore") && !(".ggsave_auto" %in% readLines(".gitignore"))) {
+    writeLines(c(readLines(".gitignore"), ".ggsave_auto", ""), ".gitignore")
+  }
 
   if (load_as_magick) {
     img <- magick::image_read(img_path)
