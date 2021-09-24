@@ -41,6 +41,10 @@ reference:
   desc: Utility functions for analyzing/transforming code as data
   contents:
   - name_self
+- title: Miscellaneous
+  desc: Miscellaneous functions
+  contents:
+  - read_pcibex
 
 articles:
 - title: ggplot2 extensions
