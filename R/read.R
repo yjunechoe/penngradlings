@@ -44,6 +44,7 @@ read_pcibex <- function(file) {
   block_colnames <- lapply(block_lines, function(block) {
     colnames_list <- utils::modifyList(ref_colnames, parse_colnames(block$colnames))
     colnames_vec <- make.names(as.character(colnames_list), unique = TRUE)
+    colnames_vec <- gsub("\\.+", "_", colnames_vec)
     setdiff(colnames_vec, "Controller name")
   })
   all_colnames <- unique(unlist(block_colnames, use.names = FALSE))
