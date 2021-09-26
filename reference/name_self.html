@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">penngradlings</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -157,7 +157,8 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>list_expr</th>
-      <td><p>A expression using a call to <code>list</code>, <code>c</code>, or the like.</p></td>
+      <td><p>A expression using a call to <code>list</code>, <code>c</code>, or the like, where all arguments
+are name-value pairs and the expression evaluates to a list.</p></td>
     </tr>
     <tr>
       <th>.fn</th>
@@ -178,7 +179,7 @@ after coercing the element symbols in <code>list_expr</code> to name. Defaults t
 #&gt; $mean
 #&gt; function (x, ...) 
 #&gt; UseMethod("mean")
-#&gt; &lt;bytecode: 0x7fa6f2240590&gt;
+#&gt; &lt;bytecode: 0x7fa54f35e990&gt;
 #&gt; &lt;environment: namespace:base&gt;
 #&gt; 
 #&gt; $max
@@ -190,7 +191,7 @@ after coercing the element symbols in <code>list_expr</code> to name. Defaults t
 #&gt; $MEAN
 #&gt; function (x, ...) 
 #&gt; UseMethod("mean")
-#&gt; &lt;bytecode: 0x7fa6f2240590&gt;
+#&gt; &lt;bytecode: 0x7fa54f35e990&gt;
 #&gt; &lt;environment: namespace:base&gt;
 #&gt; 
 #&gt; $MAX
@@ -202,7 +203,7 @@ after coercing the element symbols in <code>list_expr</code> to name. Defaults t
 #&gt; $mean2
 #&gt; function (x, ...) 
 #&gt; UseMethod("mean")
-#&gt; &lt;bytecode: 0x7fa6f2240590&gt;
+#&gt; &lt;bytecode: 0x7fa54f35e990&gt;
 #&gt; &lt;environment: namespace:base&gt;
 #&gt; 
 #&gt; $max3

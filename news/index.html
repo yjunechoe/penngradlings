@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">penngradlings</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -146,42 +146,63 @@
 <h1 class="page-header" data-toc-text="development version">
 <a href="#penngradlings-development-version" class="anchor"></a>penngradlings (development version)</h1>
 <ul>
-<li>Color palettes in <code><a href="../reference/pgl_pals.html">pgl_pals()</a></code>
+<li>More color palettes in <code><a href="../reference/pgl_pals.html">pgl_pals()</a></code>
 </li>
 </ul>
+</div>
+    <div id="penngradlings-011" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.1">
+<a href="#penngradlings-011" class="anchor"></a>penngradlings 0.1.1</h1>
+<div id="new-functions" class="section level3">
+<h3 class="hasAnchor">
+<a href="#new-functions" class="anchor"></a>New functions</h3>
+<ul>
+<li><p><code><a href="../reference/name_self.html">name_self()</a></code> list-constructor function, mostly to help with naming multiple columns when passing a list of functions to <code><a href="https://dplyr.tidyverse.org/reference/across.html">dplyr::across()</a></code>.</p></li>
+<li><p><code><a href="../reference/read_pcibex.html">read_pcibex()</a></code> for reading in the results from a PCIbex experiment.</p></li>
+</ul>
+</div>
+<div id="enhancements" class="section level3">
+<h3 class="hasAnchor">
+<a href="#enhancements" class="anchor"></a>Enhancements</h3>
+<ul>
+<li><p>You can now set global options for <code><a href="../reference/ggsave_auto.html">ggsave_auto()</a></code> with <code>options(ggsave_auto.*)</code>. The package now also comes with an RStudio addin for calling <code><a href="../reference/ggsave_auto.html">ggsave_auto()</a></code> (one possible keyboard binding is Ctrl/Cmd+Shift+G, which overwrites the “Find Previous” shortcut).</p></li>
+<li><p><code><a href="../reference/theme_pgl_minimal.html">theme_pgl_minimal()</a></code> gets <code>strip.placement = outside</code> to hack margins into the space between facet and panel with a blank secondary axis.</p></li>
+</ul>
+</div>
 </div>
     <div id="penngradlings-010" class="section level1">
 <h1 class="page-header" data-toc-text="0.1.0">
 <a href="#penngradlings-010" class="anchor"></a>penngradlings 0.1.0</h1>
-<div id="new-features" class="section level2">
-<h2 class="hasAnchor">
-<a href="#new-features" class="anchor"></a>New features</h2>
-<div id="fonts" class="section level3">
+<p>First release.</p>
+<div id="new-functions-1" class="section level3">
 <h3 class="hasAnchor">
-<a href="#fonts" class="anchor"></a>Fonts</h3>
+<a href="#new-functions-1" class="anchor"></a>New functions</h3>
+<div id="fonts" class="section level4">
+<h4 class="hasAnchor">
+<a href="#fonts" class="anchor"></a>Fonts</h4>
 <ul>
 <li>The package packs 8 open source font families: <em>Atkinson Hyperlegible</em>, <em>Bootstrap Icons</em>, <em>Charis SIL</em>, <em>Font Awesome 5 Free</em>, <em>Inter</em>, <em>Material Icons</em>, <em>Piazzolla</em>, <em>Piazzolla SC</em>. Fonts are automatically registered on package load. See <code><a href="../reference/.pgl_fonts.html">.pgl_fonts()</a></code> for details.</li>
 <li>A <code>font_*()</code> family of helper functions for inspecting, registering, and shaping fonts - <code><a href="../reference/font_hoist.html">font_hoist()</a></code>, <code><a href="../reference/font_pluck.html">font_pluck()</a></code>, <code><a href="../reference/font_info.html">font_info()</a></code>, <code><a href="../reference/font_exists.html">font_exists()</a></code>, and <code><a href="../reference/font_path.html">font_path()</a></code>.</li>
 </ul>
 </div>
-<div id="themes" class="section level3">
-<h3 class="hasAnchor">
-<a href="#themes" class="anchor"></a>Themes</h3>
+<div id="themes" class="section level4">
+<h4 class="hasAnchor">
+<a href="#themes" class="anchor"></a>Themes</h4>
 <ul>
 <li>
 <code>theme_pgl_basic()</code>, a low-ink theme design built on top of <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">ggplot2::theme_minimal()</a></code>, with options for turning on/off axis and grid lines.</li>
 </ul>
 </div>
-<div id="layers" class="section level3">
-<h3 class="hasAnchor">
-<a href="#layers" class="anchor"></a>Layers</h3>
+<div id="layers" class="section level4">
+<h4 class="hasAnchor">
+<a href="#layers" class="anchor"></a>Layers</h4>
 <ul>
 <li>Stylized panel annotations with <code><a href="../reference/geom_text_outline.html">geom_text_outline()</a></code> and <code><a href="../reference/annotation_textbox.html">annotation_textbox()</a></code>.</li>
 </ul>
 </div>
-<div id="misc" class="section level3">
-<h3 class="hasAnchor">
-<a href="#misc" class="anchor"></a>Misc</h3>
+<div id="saverender" class="section level4">
+<h4 class="hasAnchor">
+<a href="#saverender" class="anchor"></a>Save/render</h4>
 <ul>
 <li>
 <code><a href="../reference/ggsave_auto.html">ggsave_auto()</a></code>, a wrapper around <code><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggplot2::ggsave()</a></code> offering convenience for interactive plotting. Accumulates all plots rendered with the function in a separate <em>./ggsave_auto</em> directory and opens the saved figure back using the system’s default photo-viewing app. Includes option for reading the saved figure back as a {magick} object.</li>
