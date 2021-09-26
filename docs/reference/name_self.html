@@ -157,7 +157,8 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>list_expr</th>
-      <td><p>A expression using a call to <code>list</code>, <code>c</code>, or the like.</p></td>
+      <td><p>A expression using a call to <code>list</code>, <code>c</code>, or the like, where all arguments
+are name-value pairs and the expression evaluates to a list.</p></td>
     </tr>
     <tr>
       <th>.fn</th>
@@ -178,7 +179,7 @@ after coercing the element symbols in <code>list_expr</code> to name. Defaults t
 #&gt; $mean
 #&gt; function (x, ...) 
 #&gt; UseMethod("mean")
-#&gt; &lt;bytecode: 0x0000000013df64e0&gt;
+#&gt; &lt;bytecode: 0x00000000159040f0&gt;
 #&gt; &lt;environment: namespace:base&gt;
 #&gt; 
 #&gt; $max
@@ -190,7 +191,7 @@ after coercing the element symbols in <code>list_expr</code> to name. Defaults t
 #&gt; $MEAN
 #&gt; function (x, ...) 
 #&gt; UseMethod("mean")
-#&gt; &lt;bytecode: 0x0000000013df64e0&gt;
+#&gt; &lt;bytecode: 0x00000000159040f0&gt;
 #&gt; &lt;environment: namespace:base&gt;
 #&gt; 
 #&gt; $MAX
@@ -202,7 +203,7 @@ after coercing the element symbols in <code>list_expr</code> to name. Defaults t
 #&gt; $mean2
 #&gt; function (x, ...) 
 #&gt; UseMethod("mean")
-#&gt; &lt;bytecode: 0x0000000013df64e0&gt;
+#&gt; &lt;bytecode: 0x00000000159040f0&gt;
 #&gt; &lt;environment: namespace:base&gt;
 #&gt; 
 #&gt; $max3
@@ -220,23 +221,23 @@ after coercing the element symbols in <code>list_expr</code> to name. Defaults t
 <span class='va'>mtcars</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>cyl</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/across.html'>across</a></span><span class='op'>(</span><span class='fu'>where</span><span class='op'>(</span><span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>.x</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>100</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>min</span>, <span class='va'>mean</span>, <span class='va'>max</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3 x 7</span><span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3 x 7</span>
 #&gt;     cyl disp_1 disp_2 disp_3  hp_1  hp_2  hp_3
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span>     4   71.1   105.   147.    52  82.6   113
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span>     6  145     183.   258    105 122.    175
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span>     8  276.    353.   472    150 209.    335</div><div class='input'>
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span>     4   71.1   105.   147.    52  82.6   113
+#&gt; <span style='color: #BCBCBC;'>2</span>     6  145     183.   258    105 122.    175
+#&gt; <span style='color: #BCBCBC;'>3</span>     8  276.    353.   472    150 209.    335</div><div class='input'>
 <span class='co'>## With `name_self()`</span>
 <span class='va'>mtcars</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>cyl</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/across.html'>across</a></span><span class='op'>(</span><span class='fu'>where</span><span class='op'>(</span><span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>.x</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>100</span><span class='op'>)</span>, <span class='fu'>name_self</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>min</span>, <span class='va'>mean</span>, <span class='va'>max</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 3 x 7</span><span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3 x 7</span>
 #&gt;     cyl disp_min disp_mean disp_max hp_min hp_mean hp_max
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span>     4     71.1      105.     147.     52    82.6    113
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span>     6    145        183.     258     105   122.     175
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span>     8    276.       353.     472     150   209.     335</div><div class='input'>
-</div></span></pre>
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span>     4     71.1      105.     147.     52    82.6    113
+#&gt; <span style='color: #BCBCBC;'>2</span>     6    145        183.     258     105   122.     175
+#&gt; <span style='color: #BCBCBC;'>3</span>     8    276.       353.     472     150   209.     335</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

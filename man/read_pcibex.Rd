@@ -13,5 +13,13 @@ read_pcibex(file)
 A dataframe
 }
 \description{
-Converts the comma-separated PCIbex results file into rectangular format.
+Converts a comma-separated PCIbex results file into rectangular format.
+}
+\examples{
+\dontrun{
+# Takes a few seconds because it's reading from remote
+# but the parsing itself is very fast
+read_pcibex("https://raw.githubusercontent.com/yjunechoe
+             /Semantic-Persistence/master/data/result.txt")
+}
 }

@@ -70,6 +70,7 @@ theme_pgl_minimal <- function(base_size = 10,
       panel.spacing = grid::unit(0.015, "npc"),
       legend.title = element_text(family = "Inter-SemiBold"),
       legend.key = element_blank(),
+      strip.placement = "outside",
       strip.background = element_rect(),
       strip.text = element_text(size = rel(0.85), family = "Inter-SemiBold")
     )

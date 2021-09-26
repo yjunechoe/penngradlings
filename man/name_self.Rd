@@ -9,7 +9,8 @@ name_self(list_expr, .fn = function(x, y) {
 })
 }
 \arguments{
-\item{list_expr}{A expression using a call to \code{list}, \code{c}, or the like.}
+\item{list_expr}{A expression using a call to \code{list}, \code{c}, or the like, where all arguments
+are name-value pairs and the expression evaluates to a list.}
 
 \item{.fn}{A function passed to \code{purrr::imap_chr}, called on the character vector returned
 after coercing the element symbols in \code{list_expr} to name. Defaults to the identity function.}
