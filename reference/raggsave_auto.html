@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • penngradlings</title>
+<title>Save and open any plot — raggsave_auto • penngradlings</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,9 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Save and open any plot — raggsave_auto" />
+<meta property="og:description" content="Wrapper around ragg::agg_png() that saves the output from a plotting expression to a special folder
+and opens it using the system's default app for the graphic type." />
 
 
 
@@ -58,7 +60,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -136,191 +138,49 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Save and open any plot</h1>
+    <small class="dont-index">Source: <a href='https://github.com/yjunechoe/penngradlings/blob/master/R/plot-save-render.R'><code>R/plot-save-render.R</code></a></small>
+    <div class="hidden name"><code>raggsave_auto.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Wrapper around <code><a href='https://ragg.r-lib.org/reference/agg_png.html'>ragg::agg_png()</a></code> that saves the output from a plotting expression to a special folder
+and opens it using the system's default app for the graphic type.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>raggsave_auto</span><span class='op'>(</span>plot_expr <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span>, load_as_magick <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-themes" class="hasAnchor"><a href="#section-themes" class="anchor"></a>Themes</h2>
-          <p class="section-desc"><p>ggplot2 themes and layer defaults</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="theme_pgl_minimal.html">theme_pgl_minimal()</a></code> </p>
-        </td>
-        <td><p>Basic penngradlings theme template</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pgl_pals.html">pgl_pals()</a></code> </p>
-        </td>
-        <td><p>Select a PGL-themed color palette</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-layers" class="hasAnchor"><a href="#section-layers" class="anchor"></a>Layers</h2>
-          <p class="section-desc"><p>ggplot2 layers and helper functions</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="annotation_textbox.html">annotation_textbox()</a></code> </p>
-        </td>
-        <td><p>HTML textbox annotation</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="geom_text_outline.html">geom_text_outline()</a></code> </p>
-        </td>
-        <td><p>Outlined text layer</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="zerowidth_char.html">zerowidth_char()</a></code> </p>
-        </td>
-        <td><p>Create an HTML span of the unicode zero-width character</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-font-workflow" class="hasAnchor"><a href="#section-font-workflow" class="anchor"></a>Font workflow</h2>
-          <p class="section-desc"><p>Functions for inspecting, registering, and shaping custom fonts.</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="load_pkg_fonts.html">load_pkg_fonts()</a></code> </p>
-        </td>
-        <td><p>Load package fonts</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="font_hoist.html">font_hoist()</a></code> </p>
-        </td>
-        <td><p>Register members of a font family as their own families</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="font_pluck.html">font_pluck()</a></code> </p>
-        </td>
-        <td><p>Register a font variant with OpenType feature specifications</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="font_info.html">font_info()</a></code> </p>
-        </td>
-        <td><p>Get information about a font</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="font_exists.html">font_exists()</a></code> </p>
-        </td>
-        <td><p>Check whether a font is registered</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="font_path.html">font_path()</a></code> </p>
-        </td>
-        <td><p>Find path to a system font</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-save-and-render-plots" class="hasAnchor"><a href="#section-save-and-render-plots" class="anchor"></a>Save and render plots</h2>
-          <p class="section-desc"><p>Functions for saving and rendering plots in interactive contexts</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="ggsave_auto.html">ggsave_auto()</a></code> </p>
-        </td>
-        <td><p>Save and open a ggplot</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="raggsave_auto.html">raggsave_auto()</a></code> </p>
-        </td>
-        <td><p>Save and open any plot</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-metaprogramming" class="hasAnchor"><a href="#section-metaprogramming" class="anchor"></a>Metaprogramming</h2>
-          <p class="section-desc"><p>Utility functions for analyzing/transforming code as data</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="name_self.html">name_self()</a></code> </p>
-        </td>
-        <td><p>Construct a list that names itself</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-miscellaneous" class="hasAnchor"><a href="#section-miscellaneous" class="anchor"></a>Miscellaneous</h2>
-          <p class="section-desc"><p>Miscellaneous functions</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="read_pcibex.html">read_pcibex()</a></code> </p>
-        </td>
-        <td><p>Read the results from a PCIbex experiment</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>plot_expr</th>
+      <td><p>An expression that plots a figure to a device as a side effect, to be captured by <code><a href='https://ragg.r-lib.org/reference/agg_png.html'>ragg::agg_png()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Passed to <code><a href='https://ragg.r-lib.org/reference/agg_png.html'>ragg::agg_png()</a></code>, overriding <code>filename</code>. Uses the same width and height as the RStudio viewer pane size by default, like <code><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggplot2::ggsave()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>load_as_magick</th>
+      <td><p>Whether to show information about the saved plot and invisibly return an ImageMagick object of the plot for post-processing. Defaults to <code>FALSE</code>.</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A magick object or path to the saved plot.</p>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>Creates a folder <code>/.raggsave_auto</code> in the working directory where figures are saved
+with zero-padding to 3 digits (e.g., <code>raggsave_auto-001.png</code>). Appends <code>.raggsave_auto</code> to
+a <code>.gitignore</code> file if it exists.</p>
+<p>Global params can be set through <code><a href='https://rdrr.io/r/base/options.html'>options()</a></code>, with the argument name followed by <code>pgl.raggsave_auto.</code>
+such as <code><a href='https://rdrr.io/r/base/options.html'>options(pgl.raggsave_auto.width = 7)</a></code>.</p>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
