@@ -11,7 +11,9 @@
 #' @examples
 #' name_self(c(min, mean, max))
 #' name_self(c(min, mean, max), .fn = ~ toupper(.x))
-#' name_self(c(min, mean, max), .fn = function(x, y) { paste0(x, y) })
+#' name_self(c(min, mean, max), .fn = function(x, y) {
+#'   paste0(x, y)
+#' })
 #'
 #' # Helps when naming produced by from `across()`
 #' library(dplyr)
@@ -25,8 +27,9 @@
 #' mtcars %>%
 #'   group_by(cyl) %>%
 #'   summarize(across(where(~ max(.x) > 100), name_self(list(min, mean, max))))
-#'
-name_self <- function(list_expr, .fn = function(x, y) { x } ) {
+name_self <- function(list_expr, .fn = function(x, y) {
+                        x
+                      }) {
   list_quo <- rlang::enquo(list_expr)
   if (rlang::quo_is_call(list_quo) | is.vector(list_expr)) {
     args <- rlang::call_args(list_quo)

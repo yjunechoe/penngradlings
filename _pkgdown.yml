@@ -37,6 +37,7 @@ reference:
   desc: Functions for saving and rendering plots in interactive contexts
   contents:
   - ggsave_auto
+  - raggsave_auto
 - title: Metaprogramming
   desc: Utility functions for analyzing/transforming code as data
   contents:

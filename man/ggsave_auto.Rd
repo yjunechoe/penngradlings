@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot-save-render.R
 \name{ggsave_auto}
 \alias{ggsave_auto}
-\title{Save and open plot}
+\title{Save and open a ggplot}
 \usage{
 ggsave_auto(..., load_as_magick = FALSE)
 }
@@ -12,7 +12,7 @@ ggsave_auto(..., load_as_magick = FALSE)
 \item{load_as_magick}{Whether to show information about the saved plot and invisibly return an ImageMagick object of the plot for post-processing. Defaults to \code{FALSE}.}
 }
 \value{
-An magick object or path to the saved plot.
+A magick object or path to the saved plot.
 }
 \description{
 Wrapper around \code{ggplot2::ggsave()} that saves the rendered output to a special folder

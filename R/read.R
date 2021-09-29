@@ -14,7 +14,6 @@
 #'              /Semantic-Persistence/master/data/result.txt")
 #' }
 read_pcibex <- function(file) {
-
   results_raw <- readLines(file, warn = FALSE)
   results_raw <- gsub(",+$", "", results_raw)
 
@@ -67,5 +66,4 @@ read_pcibex <- function(file) {
   } else {
     result
   }
-
 }

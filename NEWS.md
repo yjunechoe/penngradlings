@@ -1,6 +1,7 @@
 # penngradlings (development version)
 
 - More color palettes in `pgl_pals()`
+- `raggsave_auto()` to save any arbitrary plot with `ragg::agg_png()`
 
 # penngradlings 0.1.1
 
