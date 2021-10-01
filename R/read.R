@@ -3,17 +3,28 @@
 #' Converts a comma-separated PCIbex results file into rectangular format.
 #'
 #' @param file Path to the results file
+#' @param exclude_controller_name Whether to skip parsing a column for `"Controller name"`.
+#'   In the new PCIbex (last checked: September 2021), `"Controller name"` appears in the column
+#'   specification as the third column but does not have associated values in the results. This is
+#'   `TRUE` by default but when parsing results files from the old PCIbex, it should be set to `FALSE`.
 #'
 #' @return A dataframe
 #' @export
 #' @examples
 #' \dontrun{
-#' # Takes a few seconds because it's reading from remote
-#' # but the parsing itself is very fast
-#' read_pcibex("https://raw.githubusercontent.com/yjunechoe
-#'              /Semantic-Persistence/master/data/result.txt")
+#' # It takes a few seconds because it's reading from remote
+#' # but the parsing itself is very fast.
+#' # Also note that this results file is from the old PCIbex
+#' # so `exclude_controller_name` is set to `FALSE`
+#' dplyr::glimpse(
+#'   read_pcibex(
+#'     "https://raw.githubusercontent.com/yjunechoe
+#'      /Semantic-Persistence/master/data/result.txt",
+#'      exclude_controller_name = FALSE
+#'   )
+#' )
 #' }
-read_pcibex <- function(file) {
+read_pcibex <- function(file, exclude_controller_name = TRUE) {
   results_raw <- readLines(file, warn = FALSE)
   results_raw <- gsub(",+$", "", results_raw)
 
@@ -44,7 +55,11 @@ read_pcibex <- function(file) {
     colnames_list <- utils::modifyList(ref_colnames, parse_colnames(block$colnames))
     colnames_vec <- make.names(as.character(colnames_list), unique = TRUE)
     colnames_vec <- gsub("\\.+", "_", colnames_vec)
-    setdiff(colnames_vec, "Controller_name")
+    if (exclude_controller_name) {
+      setdiff(colnames_vec, "Controller_name")
+    } else {
+      colnames_vec
+    }
   })
   all_colnames <- unique(unlist(block_colnames, use.names = FALSE))
 

@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">penngradlings</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -148,7 +148,7 @@
     <p>Converts a comma-separated PCIbex results file into rectangular format.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>read_pcibex</span><span class='op'>(</span><span class='va'>file</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>read_pcibex</span><span class='op'>(</span><span class='va'>file</span>, exclude_controller_name <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -156,6 +156,13 @@
     <tr>
       <th>file</th>
       <td><p>Path to the results file</p></td>
+    </tr>
+    <tr>
+      <th>exclude_controller_name</th>
+      <td><p>Whether to skip parsing a column for <code>"Controller name"</code>.
+In the new PCIbex (last checked: September 2021), <code>"Controller name"</code> appears in the column
+specification as the third column but does not have associated values in the results. This is
+<code>TRUE</code> by default but when parsing results files from the old PCIbex, it should be set to <code>FALSE</code>.</p></td>
     </tr>
     </table>
 
@@ -165,27 +172,36 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \dontrun{</span>
-<span class='co'># Takes a few seconds because it's reading from remote</span>
-<span class='co'># but the parsing itself is very fast</span>
-<span class='fu'>read_pcibex</span><span class='op'>(</span><span class='st'>"https://raw.githubusercontent.com/yjunechoe
-             /Semantic-Persistence/master/data/result.txt"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 23,302 x 17</span>
-#&gt;    Time.results.wer~ MD5.hash.of.par~ Controller.name Item.number Element.number
-#&gt;                <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                 <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span>        <span style='text-decoration: underline;'>1</span>586<span style='text-decoration: underline;'>129</span>536 ed21346ef6cb189~ PennController            0              0
-#&gt; <span style='color: #BCBCBC;'> 2</span>        <span style='text-decoration: underline;'>1</span>586<span style='text-decoration: underline;'>129</span>536 ed21346ef6cb189~ PennController            0              0
-#&gt; <span style='color: #BCBCBC;'> 3</span>        <span style='text-decoration: underline;'>1</span>586<span style='text-decoration: underline;'>129</span>536 ed21346ef6cb189~ PennController            2              0
-#&gt; <span style='color: #BCBCBC;'> 4</span>        <span style='text-decoration: underline;'>1</span>586<span style='text-decoration: underline;'>129</span>536 ed21346ef6cb189~ PennController            2              0
-#&gt; <span style='color: #BCBCBC;'> 5</span>        <span style='text-decoration: underline;'>1</span>586<span style='text-decoration: underline;'>129</span>536 ed21346ef6cb189~ PennController            3              0
-#&gt; <span style='color: #BCBCBC;'> 6</span>        <span style='text-decoration: underline;'>1</span>586<span style='text-decoration: underline;'>129</span>536 ed21346ef6cb189~ PennController            3              0
-#&gt; <span style='color: #BCBCBC;'> 7</span>        <span style='text-decoration: underline;'>1</span>586<span style='text-decoration: underline;'>129</span>536 ed21346ef6cb189~ PennController            3              0
-#&gt; <span style='color: #BCBCBC;'> 8</span>        <span style='text-decoration: underline;'>1</span>586<span style='text-decoration: underline;'>129</span>536 ed21346ef6cb189~ PennController            4              0
-#&gt; <span style='color: #BCBCBC;'> 9</span>        <span style='text-decoration: underline;'>1</span>586<span style='text-decoration: underline;'>129</span>536 ed21346ef6cb189~ PennController            4              0
-#&gt; <span style='color: #BCBCBC;'>10</span>        <span style='text-decoration: underline;'>1</span>586<span style='text-decoration: underline;'>129</span>536 ed21346ef6cb189~ PennController            4              0
-#&gt; <span style='color: #949494;'># ... with 23,292 more rows, and 12 more variables: Type &lt;chr&gt;, Group &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   PennElementType &lt;chr&gt;, PennElementName &lt;chr&gt;, Parameter &lt;chr&gt;, Value &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   EventTime &lt;chr&gt;, Comments &lt;chr&gt;, Item &lt;chr&gt;, Cond &lt;chr&gt;, Group.1 &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   Participant_ID &lt;chr&gt;</span></div><div class='input'><span class='co'># }</span>
+<span class='co'># It takes a few seconds because it's reading from remote</span>
+<span class='co'># but the parsing itself is very fast.</span>
+<span class='co'># Also note that this results file is from the old PCIbex</span>
+<span class='co'># so `exclude_controller_name` is set to `FALSE`</span>
+<span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span>
+  <span class='fu'>read_pcibex</span><span class='op'>(</span>
+    <span class='st'>"https://raw.githubusercontent.com/yjunechoe
+     /Semantic-Persistence/master/data/result.txt"</span>,
+     exclude_controller_name <span class='op'>=</span> <span class='cn'>FALSE</span>
+  <span class='op'>)</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; Rows: 23,302
+#&gt; Columns: 17
+#&gt; $ Time_results_were_received           <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 1586129536, 1586129536, 158612953~
+#&gt; $ MD5_hash_of_participant_s_IP_address <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "ed21346ef6cb189471f1665c27e1065e~
+#&gt; $ Controller_name                      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "PennController", "PennController~
+#&gt; $ Item_number                          <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 0, 0, 2, 2, 3, 3, 3, 4, 4, 4, 5, ~
+#&gt; $ Element_number                       <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+#&gt; $ Type                                 <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "consent", "consent", "intro", "i~
+#&gt; $ Group                                <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "NULL", "NULL", "NULL", "NULL", "~
+#&gt; $ PennElementType                      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "PennController", "PennController~
+#&gt; $ PennElementName                      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "0", "0", "2", "2", "3", "b7dbb12~
+#&gt; $ Parameter                            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "_Trial_", "_Trial_", "_Trial_", ~
+#&gt; $ Value                                <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Start", "End", "Start", "End", "~
+#&gt; $ EventTime                            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "1586129111186", "1586129125480",~
+#&gt; $ Comments                             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "NULL", "NULL", "NULL", "NULL", "~
+#&gt; $ Item                                 <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, N~
+#&gt; $ Cond                                 <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, N~
+#&gt; $ Group_1                              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, N~
+#&gt; $ Participant_ID                       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, N~</div><div class='input'><span class='co'># }</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

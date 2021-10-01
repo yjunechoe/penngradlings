@@ -24,19 +24,20 @@ Construct a list that names itself
 \examples{
 name_self(c(min, mean, max))
 name_self(c(min, mean, max), .fn = ~ toupper(.x))
-name_self(c(min, mean, max), .fn = function(x, y) { paste0(x, y) })
+name_self(c(min, mean, max), .fn = function(x, y) {
+  paste0(x, y)
+})
 
 # Helps when naming produced by from `across()`
-library(dplyr)
+suppressPackageStartupMessages(library(dplyr))
 
-## Without `name_self()`
-mtcars \%>\%
-  group_by(cyl) \%>\%
-  summarize(across(where(~ max(.x) > 100), list(min, mean, max)))
-
-## With `name_self()`
+## With `name_self()`, columns are named after the functions
 mtcars \%>\%
   group_by(cyl) \%>\%
   summarize(across(where(~ max(.x) > 100), name_self(list(min, mean, max))))
 
+## Without `name_self()`, uses position indices
+mtcars \%>\%
+  group_by(cyl) \%>\%
+  summarize(across(where(~ max(.x) > 100), list(min, mean, max)))
 }

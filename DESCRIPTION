@@ -11,7 +11,7 @@ Authors@R: c(
 Description: Assortment of quality-of-life functionalities for common workflows in R,
   centered around data visualization and science communication. Made by and for the
   University of Pennsylvania Graduate Linguistics Society (GradLingS).
-URL: https://github.com/yjunechoe/penngradlings
+URL: https://yjunechoe.github.io/penngradlings, https://github.com/yjunechoe/penngradlings
 BugReports: https://github.com/yjunechoe/penngradlings/issues
 Depends: R (>= 3.3.0)
 License: MIT + file LICENSE

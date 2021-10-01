@@ -16,17 +16,17 @@
 #' })
 #'
 #' # Helps when naming produced by from `across()`
-#' library(dplyr)
+#' suppressPackageStartupMessages(library(dplyr))
 #'
-#' ## Without `name_self()`
-#' mtcars %>%
-#'   group_by(cyl) %>%
-#'   summarize(across(where(~ max(.x) > 100), list(min, mean, max)))
-#'
-#' ## With `name_self()`
+#' ## With `name_self()`, columns are named after the functions
 #' mtcars %>%
 #'   group_by(cyl) %>%
 #'   summarize(across(where(~ max(.x) > 100), name_self(list(min, mean, max))))
+#'
+#' ## Without `name_self()`, uses position indices
+#' mtcars %>%
+#'   group_by(cyl) %>%
+#'   summarize(across(where(~ max(.x) > 100), list(min, mean, max)))
 name_self <- function(list_expr, .fn = function(x, y) {
                         x
                       }) {
