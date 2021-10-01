@@ -148,7 +148,7 @@
     <p>Converts a comma-separated PCIbex results file into rectangular format.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>read_pcibex</span><span class='op'>(</span><span class='va'>file</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>read_pcibex</span><span class='op'>(</span><span class='va'>file</span>, exclude_controller_name <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -156,6 +156,13 @@
     <tr>
       <th>file</th>
       <td><p>Path to the results file</p></td>
+    </tr>
+    <tr>
+      <th>exclude_controller_name</th>
+      <td><p>Whether to skip parsing a column for <code>"Controller name"</code>.
+In the new PCIbex (last checked: September 2021), <code>"Controller name"</code> appears in the column
+specification as the third column but does not have associated values in the results. This is
+<code>TRUE</code> by default but when parsing results files from the old PCIbex, it should be set to <code>FALSE</code>.</p></td>
     </tr>
     </table>
 
@@ -165,10 +172,17 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'># Takes a few seconds because it's reading from remote</span>
-<span class='co'># but the parsing itself is very fast</span>
-<span class='fu'>read_pcibex</span><span class='op'>(</span><span class='st'>"https://raw.githubusercontent.com/yjunechoe
-             /Semantic-Persistence/master/data/result.txt"</span><span class='op'>)</span>
+<span class='co'># It takes a few seconds because it's reading from remote</span>
+<span class='co'># but the parsing itself is very fast.</span>
+<span class='co'># Also note that this results file is from the old PCIbex</span>
+<span class='co'># so `exclude_controller_name` is set to `FALSE`</span>
+<span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span>
+  <span class='fu'>read_pcibex</span><span class='op'>(</span>
+    <span class='st'>"https://raw.githubusercontent.com/yjunechoe
+     /Semantic-Persistence/master/data/result.txt"</span>,
+     exclude_controller_name <span class='op'>=</span> <span class='cn'>FALSE</span>
+  <span class='op'>)</span>
+<span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>
