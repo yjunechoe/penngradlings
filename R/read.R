@@ -20,7 +20,7 @@
 #'   read_pcibex(
 #'     "https://raw.githubusercontent.com/yjunechoe
 #'      /Semantic-Persistence/master/data/result.txt",
-#'      exclude_controller_name = FALSE
+#'     exclude_controller_name = FALSE
 #'   )
 #' )
 #' }
