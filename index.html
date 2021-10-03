@@ -125,7 +125,7 @@
     expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span>,
     labels <span class="op">=</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"$"</span>, <span class="va">.x</span><span class="op">)</span>
   <span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="reference/pgl_pals.html">pgl_pals</a></span><span class="op">(</span><span class="st">"christine"</span>, <span class="st">"blueberry_boba"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="reference/scale_color_pgl_discrete.html">scale_fill_pgl_discrete</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"cat_coaster"</span>, who <span class="op">=</span> <span class="st">"xin"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>
     title <span class="op">=</span> <span class="st">"Price of diamonds by cut quality"</span>,
     subtitle <span class="op">=</span> <span class="st">"This is a bad explanatory plot because carat (size) is a confounding variable"</span>,
@@ -133,7 +133,7 @@
     caption <span class="op">=</span> <span class="st">"diamonds dataset from {ggplot2}"</span>
   <span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="reference/theme_pgl_minimal.html">theme_pgl_minimal</a></span><span class="op">(</span>axis_lines <span class="op">=</span> <span class="st">"x"</span>, grid_lines <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-theme-minimal-1.jpeg" width="100%"></p>
+<p><img src="reference/figures/README-theme-minimal-1.jpg" width="100%"></p>
 <p>More on the <a href="https://yjunechoe.github.io/penngradlings">package website</a>.</p>
 </div>
 </div>
