@@ -43,7 +43,7 @@ ggplot(diamonds, aes(cut, price, fill = cut)) +
     expand = expansion(c(0, 0.1)),
     labels = ~ paste0("$", .x)
   ) +
-  scale_fill_manual(values = pgl_pals("christine", "blueberry_boba")) +
+  scale_fill_pgl_discrete(what = "cat_coaster", who = "xin") +
   labs(
     title = "Price of diamonds by cut quality",
     subtitle = "This is a bad explanatory plot because carat (size) is a confounding variable",
@@ -53,6 +53,6 @@ ggplot(diamonds, aes(cut, price, fill = cut)) +
   theme_pgl_minimal(axis_lines = "x", grid_lines = "y")
 ```
 
-<img src="man/figures/README-theme-minimal-1.jpeg" width="100%" />
+<img src="man/figures/README-theme-minimal-1.jpg" width="100%" />
 
 More on the [package website](https://yjunechoe.github.io/penngradlings).

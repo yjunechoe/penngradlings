@@ -18,6 +18,7 @@ reference:
   contents:
   - theme_pgl_minimal
   - pgl_pals
+  - starts_with("scale_")
 - title: Layers
   desc: ggplot2 layers and helper functions
   contents:
