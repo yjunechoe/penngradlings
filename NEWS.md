@@ -3,6 +3,16 @@
 - More color palettes in `pgl_pals()`
 - `raggsave_auto()` to save any arbitrary plot with `ragg::agg_png()`
 
+# penngradlings 0.2.0
+
+### New functions
+
+- `scale_color/fill_pgl_discrete()`
+
+### Enhancements
+
+- Overhaul of `pgl_pals()`. It's now a function factory
+
 # penngradlings 0.1.1
 
 ### New functions

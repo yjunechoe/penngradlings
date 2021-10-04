@@ -32,9 +32,7 @@ ggsave_auto <- function(..., load_as_magick = FALSE) {
     if (length(saved) == 0) {
       idx <- 1
     } else {
-      idx <- stringr::str_extract(saved, "\\d{3}") |>
-        as.integer() |>
-        max() + 1
+      idx <- max(as.integer(stringr::str_extract(saved, "\\d{3}"))) + 1
     }
   }
 
@@ -111,9 +109,7 @@ raggsave_auto <- function(plot_expr = NULL, ..., load_as_magick = FALSE) {
     if (length(saved) == 0) {
       idx <- 1
     } else {
-      idx <- stringr::str_extract(saved, "\\d{3}") |>
-        as.integer() |>
-        max() + 1
+      idx <- max(as.integer(stringr::str_extract(saved, "\\d{3}"))) + 1
     }
   }
   if (file.exists(".gitignore") && !(".raggsave_auto" %in% readLines(".gitignore"))) {
