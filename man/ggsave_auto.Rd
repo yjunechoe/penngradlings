@@ -15,7 +15,7 @@ ggsave_auto(..., load_as_magick = FALSE)
 A magick object or path to the saved plot.
 }
 \description{
-Wrapper around \code{ggplot2::ggsave()} that saves the rendered output to a special folder
+Wrapper around \code{ggplot2::ggsave()} that renders the last ggplot/grob as an image to a special folder
 and opens it using the system's default app for the graphic type.
 }
 \note{

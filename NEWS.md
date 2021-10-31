@@ -1,7 +1,14 @@
 # penngradlings (development version)
 
-- More color palettes in `pgl_pals()`
+# penngradlings 0.2.1
+
+### New functions
+
 - `raggsave_auto()` to save any arbitrary plot with `ragg::agg_png()`
+
+### Enhancements
+
+- `ggsave_auto()` supports auto rendering of grobs
 
 # penngradlings 0.2.0
 

@@ -1,6 +1,6 @@
 #' Save and open a ggplot
 #'
-#' Wrapper around `ggplot2::ggsave()` that saves the rendered output to a special folder
+#' Wrapper around `ggplot2::ggsave()` that renders the last ggplot/grob as an image to a special folder
 #' and opens it using the system's default app for the graphic type.
 #'
 #' @param ... Passed to `ggplot2::ggsave()`, overriding `path` and `filename`.
@@ -18,9 +18,9 @@
 #' @export
 #'
 ggsave_auto <- function(..., load_as_magick = FALSE) {
-  p <- ggplot2::last_plot()
-  if (is.null(p)) {
-    cli::cli_abort("There is no plot to save.")
+  p <- base::.Last.value
+  if (!"grob" %in% class(p)) {
+    p <- ggplot2::last_plot()
   }
 
   working_dir <- getwd()
@@ -141,7 +141,7 @@ raggsave_auto <- function(plot_expr = NULL, ..., load_as_magick = FALSE) {
     scaling = params$scaling %||% 1,
     bitsize = params$bitsize %||% 8
   )
-  rlang::eval_tidy(plot_expr)
+  print(rlang::eval_tidy(plot_expr))
   grDevices::dev.off()
 
   cli::cli_alert_success("Plot saved at: {.path {img_path}}")
