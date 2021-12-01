@@ -3,6 +3,7 @@
 export("%>%")
 export(.pgl_fonts)
 export(annotation_textbox)
+export(fct_match)
 export(font_exists)
 export(font_hoist)
 export(font_info)
