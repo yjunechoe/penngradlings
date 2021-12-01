@@ -173,90 +173,97 @@ after coercing the element symbols in <code>list_expr</code> to name. Defaults t
     <p>Names of named elements are preserved.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>name_self</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>min</span>, <span class='va'>mean</span>, <span class='va'>max</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $min
-#&gt; function (..., na.rm = FALSE)  .Primitive("min")
-#&gt; 
-#&gt; $mean
-#&gt; function (x, ...) 
-#&gt; UseMethod("mean")
-#&gt; &lt;bytecode: 0x7f9c18814b90&gt;
-#&gt; &lt;environment: namespace:base&gt;
-#&gt; 
-#&gt; $max
-#&gt; function (..., na.rm = FALSE)  .Primitive("max")
-#&gt; </div><div class='input'><span class='fu'>name_self</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>min</span>, <span class='va'>mean</span>, <span class='va'>max</span><span class='op'>)</span>, .fn <span class='op'>=</span> <span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/chartr.html'>toupper</a></span><span class='op'>(</span><span class='va'>.x</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $MIN
-#&gt; function (..., na.rm = FALSE)  .Primitive("min")
-#&gt; 
-#&gt; $MEAN
-#&gt; function (x, ...) 
-#&gt; UseMethod("mean")
-#&gt; &lt;bytecode: 0x7f9c18814b90&gt;
-#&gt; &lt;environment: namespace:base&gt;
-#&gt; 
-#&gt; $MAX
-#&gt; function (..., na.rm = FALSE)  .Primitive("max")
-#&gt; </div><div class='input'><span class='fu'>name_self</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>min</span>, <span class='va'>mean</span>, <span class='va'>max</span><span class='op'>)</span>, .fn <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span>
-<span class='op'>}</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $min1
-#&gt; function (..., na.rm = FALSE)  .Primitive("min")
-#&gt; 
-#&gt; $mean2
-#&gt; function (x, ...) 
-#&gt; UseMethod("mean")
-#&gt; &lt;bytecode: 0x7f9c18814b90&gt;
-#&gt; &lt;environment: namespace:base&gt;
-#&gt; 
-#&gt; $max3
-#&gt; function (..., na.rm = FALSE)  .Primitive("max")
-#&gt; </div><div class='input'><span class='fu'>name_self</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>min</span>, <span class='va'>mean</span>, custom_name <span class='op'>=</span> <span class='va'>max</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $min
-#&gt; function (..., na.rm = FALSE)  .Primitive("min")
-#&gt; 
-#&gt; $mean
-#&gt; function (x, ...) 
-#&gt; UseMethod("mean")
-#&gt; &lt;bytecode: 0x7f9c18814b90&gt;
-#&gt; &lt;environment: namespace:base&gt;
-#&gt; 
-#&gt; $custom_name
-#&gt; function (..., na.rm = FALSE)  .Primitive("max")
-#&gt; </div><div class='input'>
-<span class='co'># Helps when naming produced by from `across()`</span>
-<span class='fu'><a href='https://rdrr.io/r/base/message.html'>suppressPackageStartupMessages</a></span><span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='co'>## With `name_self()`, columns are named after the functions</span>
-<span class='va'>mtcars</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>cyl</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/across.html'>across</a></span><span class='op'>(</span><span class='fu'>where</span><span class='op'>(</span><span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>.x</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>100</span><span class='op'>)</span>, <span class='fu'>name_self</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>min</span>, <span class='va'>mean</span>, <span class='va'>max</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3 × 7</span>
-#&gt;     cyl disp_min disp_mean disp_max hp_min hp_mean hp_max
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>1</span>     4     71.1      105.     147.     52    82.6    113
-#&gt; <span style='color: #BCBCBC;'>2</span>     6    145        183.     258     105   122.     175
-#&gt; <span style='color: #BCBCBC;'>3</span>     8    276.       353.     472     150   209.     335</div><div class='input'>
-<span class='co'>## More specifically, it allows `"{.fn"}` inside `.names` to reference the function names</span>
-<span class='va'>mtcars</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>cyl</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/across.html'>across</a></span><span class='op'>(</span><span class='va'>disp</span>, <span class='fu'>name_self</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>min</span>, avg <span class='op'>=</span> <span class='va'>mean</span>, <span class='va'>max</span><span class='op'>)</span><span class='op'>)</span>, .names <span class='op'>=</span> <span class='st'>"{.col}.{toupper(.fn)}"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3 × 4</span>
-#&gt;     cyl disp.MIN disp.AVG disp.MAX
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>1</span>     4     71.1     105.     147.
-#&gt; <span style='color: #BCBCBC;'>2</span>     6    145       183.     258 
-#&gt; <span style='color: #BCBCBC;'>3</span>     8    276.      353.     472 </div><div class='input'>
-<span class='co'>## Without `name_self()`, column names are suffixed with position indices</span>
-<span class='va'>mtcars</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>cyl</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/across.html'>across</a></span><span class='op'>(</span><span class='fu'>where</span><span class='op'>(</span><span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>.x</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>100</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>min</span>, <span class='va'>mean</span>, <span class='va'>max</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3 × 7</span>
-#&gt;     cyl disp_1 disp_2 disp_3  hp_1  hp_2  hp_3
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>1</span>     4   71.1   105.   147.    52  82.6   113
-#&gt; <span style='color: #BCBCBC;'>2</span>     6  145     183.   258    105 122.    175
-#&gt; <span style='color: #BCBCBC;'>3</span>     8  276.    353.   472    150 209.    335</div></pre>
+    <pre class="examples"><span class='r-in'><span class='fu'>name_self</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>min</span>, <span class='va'>mean</span>, <span class='va'>max</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $min</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> function (..., na.rm = FALSE)  .Primitive("min")</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $mean</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> function (x, ...) </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> UseMethod("mean")</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;bytecode: 0x7fa1eeb26ef8&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;environment: namespace:base&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $max</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> function (..., na.rm = FALSE)  .Primitive("max")</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>name_self</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>min</span>, <span class='va'>mean</span>, <span class='va'>max</span><span class='op'>)</span>, .fn <span class='op'>=</span> <span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/chartr.html'>toupper</a></span><span class='op'>(</span><span class='va'>.x</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $MIN</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> function (..., na.rm = FALSE)  .Primitive("min")</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $MEAN</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> function (x, ...) </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> UseMethod("mean")</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;bytecode: 0x7fa1eeb26ef8&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;environment: namespace:base&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $MAX</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> function (..., na.rm = FALSE)  .Primitive("max")</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>name_self</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>min</span>, <span class='va'>mean</span>, <span class='va'>max</span><span class='op'>)</span>, .fn <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>  <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $min1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> function (..., na.rm = FALSE)  .Primitive("min")</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $mean2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> function (x, ...) </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> UseMethod("mean")</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;bytecode: 0x7fa1eeb26ef8&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;environment: namespace:base&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $max3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> function (..., na.rm = FALSE)  .Primitive("max")</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>name_self</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>min</span>, <span class='va'>mean</span>, custom_name <span class='op'>=</span> <span class='va'>max</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $min</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> function (..., na.rm = FALSE)  .Primitive("min")</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $mean</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> function (x, ...) </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> UseMethod("mean")</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;bytecode: 0x7fa1eeb26ef8&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> &lt;environment: namespace:base&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $custom_name</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> function (..., na.rm = FALSE)  .Primitive("max")</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Helps when naming produced by from `across()`</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/message.html'>suppressPackageStartupMessages</a></span><span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## With `name_self()`, columns are named after the functions</span></span>
+<span class='r-in'><span class='va'>mtcars</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>cyl</span><span class='op'>)</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/across.html'>across</a></span><span class='op'>(</span><span class='fu'>where</span><span class='op'>(</span><span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>.x</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>100</span><span class='op'>)</span>, <span class='fu'>name_self</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>min</span>, <span class='va'>mean</span>, <span class='va'>max</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 3 × 7</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     cyl disp_min disp_mean disp_max hp_min hp_mean hp_max</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span>     4     71.1      105.     147.     52    82.6    113</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span>     6    145        183.     258     105   122.     175</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span>     8    276.       353.     472     150   209.     335</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## More specifically, it allows `"{.fn"}` inside `.names` to reference the function names</span></span>
+<span class='r-in'><span class='va'>mtcars</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>cyl</span><span class='op'>)</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/across.html'>across</a></span><span class='op'>(</span><span class='va'>disp</span>, <span class='fu'>name_self</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>min</span>, avg <span class='op'>=</span> <span class='va'>mean</span>, <span class='va'>max</span><span class='op'>)</span><span class='op'>)</span>, .names <span class='op'>=</span> <span class='st'>"{.col}.{toupper(.fn)}"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 3 × 4</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     cyl disp.MIN disp.AVG disp.MAX</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span>     4     71.1     105.     147.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span>     6    145       183.     258 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span>     8    276.      353.     472 </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Without `name_self()`, column names are suffixed with position indices</span></span>
+<span class='r-in'><span class='va'>mtcars</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>cyl</span><span class='op'>)</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/across.html'>across</a></span><span class='op'>(</span><span class='fu'>where</span><span class='op'>(</span><span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>.x</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>100</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>min</span>, <span class='va'>mean</span>, <span class='va'>max</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 3 × 7</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     cyl disp_1 disp_2 disp_3  hp_1  hp_2  hp_3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span>     4   71.1   105.   147.    52  82.6   113</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span>     6  145     183.   258    105 122.    175</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span>     8  276.    353.   472    150 209.    335</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
