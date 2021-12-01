@@ -77,7 +77,8 @@ pgl_pals <- function(what = NULL, who = NULL) {
 scale_color_pgl_discrete <- function(what = NULL, who = NULL, ...) {
   ggplot2::discrete_scale(
     "color", "pgl_continuous",
-    pgl_pals(what, who)
+    pgl_pals(what, who),
+    ...
   )
 }
 
@@ -86,7 +87,8 @@ scale_color_pgl_discrete <- function(what = NULL, who = NULL, ...) {
 scale_colour_pgl_discrete <- function(what = NULL, who = NULL, ...) {
   ggplot2::discrete_scale(
     "colour", "pgl_continuous",
-    pgl_pals(what, who)
+    pgl_pals(what, who),
+    ...
   )
 }
 
@@ -95,6 +97,7 @@ scale_colour_pgl_discrete <- function(what = NULL, who = NULL, ...) {
 scale_fill_pgl_discrete <- function(what = NULL, who = NULL, ...) {
   ggplot2::discrete_scale(
     "fill", "pgl_continuous",
-    pgl_pals(what, who)
+    pgl_pals(what, who),
+    ...
   )
 }
