@@ -9,8 +9,8 @@ authors:
     href: https://yjunechoe.github.io
 
 template:
-  bootstrap: 4
-  bootswatch: materia
+  bootstrap: 5
+  bootswatch: flatly
 
 reference:
 - title: Themes
@@ -63,7 +63,7 @@ articles:
 
 navbar:
   structure:
-    right: [reference, articles, github]
+    right: [reference, news, articles, github]
     left: []
 
 figures:

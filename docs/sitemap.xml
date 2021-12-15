@@ -1,87 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//index.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/404.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/annotation_textbox.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/articles/annotations.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/compute_position.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/articles/custom-fonts.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/dot-pgl_fonts.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/articles/custom-functions.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/font_exists.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/articles/custom-ggplot2.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/font_hoist.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/articles/figures.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/font_info.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/articles/font-workflow.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/font_path.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/articles/fonts.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/font_pluck.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/geom_text_outline.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/articles/tables.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/ggsave2.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/articles/themes.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/ggsave_auto.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/articles/typography.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/load_pkg_fonts.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/authors.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/mean_se_corrected.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/index.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/name_self.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/pgl_pals.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/pipe.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/news/index.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/raggsave_auto.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/annotate_panel.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/read_pcibex.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/annotation_textbox.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/scale_discrete.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/compute_position.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/theme_pgl_minimal.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/dot-pgl_fonts.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/update_ggplot_defaults.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/fct_match.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//reference/zerowidth_char.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/font_exists.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//articles/annotations.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/font_hoist.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//articles/figures.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/font_info.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//articles/fonts.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/font_path.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//articles/tables.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/font_pluck.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings//articles/themes.html</loc>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/geom_text_outline.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/ggsave2.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/ggsave_auto.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/load_pkg_fonts.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/mean_se_corrected.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/name_self.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/pgl_pals.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/raggsave_auto.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/read_pcibex.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/scale_discrete.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/theme_pgl_minimal.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/theme_plg_basic.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/update_ggplot_defaults.html</loc>
+  </url>
+  <url>
+    <loc>https://yjunechoe.github.io/penngradlings/reference/zerowidth_char.html</loc>
   </url>
 </urlset>
