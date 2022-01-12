@@ -50,6 +50,7 @@ theme_pgl_minimal <- function(base_size = 12,
 
   pad_in_sm <- base_size/200
   pad_in_md <- base_size/100
+  pad_in_lg <- base_size/50
 
   .theme <- ggplot2::theme_minimal(
     base_size = base_size,
@@ -62,11 +63,11 @@ theme_pgl_minimal <- function(base_size = 12,
       title = element_text(color = faded_text_color, family = "Inter-Bold"),
       plot.title = element_text(size = rel(1.2), family = "Inter-ExtraBold", margin = margin(b = pad_in_md, unit = "in")),
       plot.background = element_rect(color = NA, fill = "white"),
-      plot.subtitle = element_text(color = faded_text_color, margin = margin(t = pad_in_sm, b = pad_in_md, unit = "in")),
-      plot.caption = element_text(color = faded_text_color, family = "Inter-Medium", margin = margin(t = pad_in_sm, unit = "in")),
+      plot.subtitle = element_text(color = faded_outline_color, margin = margin(t = 0, b = pad_in_lg, unit = "in")),
+      plot.caption = element_text(color = faded_text_color, family = "Inter-Regular", margin = margin(t = pad_in_md, unit = "in")),
       plot.title.position = "plot",
       plot.caption.position = "plot",
-      plot.tag = element_text(size = 12, family = "Inter-Regular", margin = margin(0, pad_in_sm, pad_in_sm, 0, unit = "in")),
+      plot.tag = element_text(size = 12, family = "Inter-Medium", margin = margin(0, pad_in_sm, pad_in_sm, 0, unit = "in")),
       plot.margin = margin(pad_in_md, pad_in_md, pad_in_md, pad_in_md, "in"),
       axis.text = element_text(family = "Inter-SemiBold"),
       axis.text.x = element_text(size = rel(1)),
@@ -82,7 +83,7 @@ theme_pgl_minimal <- function(base_size = 12,
       panel.grid = element_line(color = "#F2F2F2"),
       panel.spacing = grid::unit(pad_in_sm, "in"),
       legend.title = element_text(family = "Inter-SemiBold"),
-      legend.text = element_text(size = rel(0.9), family = "Inter-SemiBold"),
+      legend.text = element_text(color = faded_text_color, size = rel(0.8), family = "Inter-SemiBold"),
       legend.key = element_blank(),
       strip.placement = "outside",
       strip.background = element_rect(),

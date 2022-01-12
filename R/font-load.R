@@ -58,7 +58,7 @@ load_pkg_fonts <- function(verbose = TRUE) {
     purrr::walk2(
       font_names, font_paths,
       function(name, path) {
-        features <- list("case" = 1, "kern" = 1)
+        features <- list("kern" = 1, "zero" = 0)
         if (stringr::str_detect(name, "^Inter-")) {
           features <- c(features, "numbers" = "tabular")
         } else if (stringr::str_detect(name, "^Piazzolla-")) {
