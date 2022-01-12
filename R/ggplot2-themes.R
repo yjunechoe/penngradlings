@@ -39,12 +39,17 @@
 #'   ) +
 #'   theme_pgl_minimal(axis_lines = "x", grid_lines = "y")
 #' }
-theme_pgl_minimal <- function(base_size = 10,
+theme_pgl_minimal <- function(base_size = 12,
                               axis_lines = "",
                               grid_lines = "xy",
                               grid_lines_minor = FALSE,
                               outline_color = "#1F1C1C") {
+
   faded_outline_color <- colorspace::lighten(outline_color, 0.35)
+  faded_text_color <- colorspace::lighten(outline_color, 0.15)
+
+  pad_in_sm <- base_size/200
+  pad_in_md <- base_size/100
 
   .theme <- ggplot2::theme_minimal(
     base_size = base_size,
@@ -54,21 +59,30 @@ theme_pgl_minimal <- function(base_size = 10,
       rect = element_rect(color = faded_outline_color),
       line = element_line(color = faded_outline_color),
       text = element_text(color = outline_color, family = "Inter-Medium"),
-      title = element_text(family = "Inter-Bold"),
-      plot.title = element_text(size = rel(1.4), family = "Inter-ExtraBold", margin = margin(b = 0.5, unit = "npc")),
-      axis.title.x.bottom = element_text(margin = margin(t = 0.5, unit = "npc")),
-      axis.title.x.top = element_text(margin = margin(b = 0.5, unit = "npc")),
-      axis.title.y.left = element_text(margin = margin(r = 0.5, unit = "npc")),
-      axis.title.y.right = element_text(margin = margin(l = 0.5, unit = "npc")),
+      title = element_text(color = faded_text_color, family = "Inter-Bold"),
+      plot.title = element_text(size = rel(1.2), family = "Inter-ExtraBold", margin = margin(b = pad_in_md, unit = "in")),
       plot.background = element_rect(color = NA, fill = "white"),
-      plot.subtitle = element_text(color = faded_outline_color, margin = margin(t = 0.1, b = 0.8, unit = "npc")),
-      plot.caption = element_text(color = faded_outline_color, family = "Inter-Medium", margin = margin(t = 0.8, unit = "npc")),
+      plot.subtitle = element_text(color = faded_text_color, margin = margin(t = pad_in_sm, b = pad_in_md, unit = "in")),
+      plot.caption = element_text(color = faded_text_color, family = "Inter-Medium", margin = margin(t = pad_in_sm, unit = "in")),
       plot.title.position = "plot",
       plot.caption.position = "plot",
-      plot.margin = margin(0.03, 0.02, 0.03, 0.02, "npc"),
+      plot.tag = element_text(size = 12, family = "Inter-Regular", margin = margin(0, pad_in_sm, pad_in_sm, 0, unit = "in")),
+      plot.margin = margin(pad_in_md, pad_in_md, pad_in_md, pad_in_md, "in"),
+      axis.text = element_text(family = "Inter-SemiBold"),
+      axis.text.x = element_text(size = rel(1)),
+      axis.text.y = element_text(size = rel(0.9)),
+      axis.text.x.bottom = element_text(margin = margin(t = pad_in_sm, unit = "in")),
+      axis.text.x.top = element_text(margin = margin(b = pad_in_sm, unit = "in")),
+      axis.text.y.left = element_text(margin = margin(r = pad_in_sm, unit = "in")),
+      axis.text.y.right = element_text(margin = margin(l = pad_in_sm, unit = "in")),
+      axis.title.x.bottom = element_text(margin = margin(t = pad_in_sm, unit = "in")),
+      axis.title.x.top = element_text(margin = margin(b = pad_in_sm, unit = "in")),
+      axis.title.y.left = element_text(margin = margin(r = pad_in_sm, unit = "in")),
+      axis.title.y.right = element_text(margin = margin(l = pad_in_sm, unit = "in")),
       panel.grid = element_line(color = "#F2F2F2"),
-      panel.spacing = grid::unit(0.015, "npc"),
+      panel.spacing = grid::unit(pad_in_sm, "in"),
       legend.title = element_text(family = "Inter-SemiBold"),
+      legend.text = element_text(size = rel(0.9), family = "Inter-SemiBold"),
       legend.key = element_blank(),
       strip.placement = "outside",
       strip.background = element_rect(),

@@ -5,7 +5,7 @@
 \title{Basic {penngradlings} theme template}
 \usage{
 theme_pgl_minimal(
-  base_size = 10,
+  base_size = 12,
   axis_lines = "",
   grid_lines = "xy",
   grid_lines_minor = FALSE,
