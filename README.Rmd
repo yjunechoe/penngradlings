@@ -5,9 +5,15 @@ output: github_document
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
+ragg_png = function(...) {
+  ragg::agg_png(..., res = 150, units = "in")
+}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
+  dev = "ragg_png",
+  fig.width = 8,
+  fig.height = 5,
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
@@ -34,7 +40,7 @@ devtools::install_github("yjunechoe/penngradlings")
 library(penngradlings)
 ```
 
-```{r theme-minimal, eval = FALSE}
+```{r theme-minimal}
 library(ggplot2)
 
 ggplot(diamonds, aes(cut, price, fill = cut)) +
@@ -46,13 +52,11 @@ ggplot(diamonds, aes(cut, price, fill = cut)) +
   scale_fill_pgl_discrete(what = "cat_coaster", who = "xin") +
   labs(
     title = "Price of diamonds by cut quality",
-    subtitle = "This is a bad explanatory plot because carat (size) is a confounding variable",
+    subtitle = "This is a bad plot because carat (size) is a confounding variable",
     x = NULL, y = NULL,
     caption = "diamonds dataset from {ggplot2}"
   ) +
   theme_pgl_minimal(axis_lines = "x", grid_lines = "y")
 ```
-
-<img src="man/figures/README-theme-minimal-1.jpg" width="100%" />
 
 More on the [package website](https://yjunechoe.github.io/penngradlings).
