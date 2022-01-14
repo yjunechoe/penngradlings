@@ -19,12 +19,12 @@ fct_match <- function(new, old) {
   }
   new <- as.character(new)
   if (length(unique(new)) != nlevels(old)) {
-    stop("Differing length of discrete categories between new and old vectors")
+    stop("Non-equal number of discrete categories between `new` and `old`")
   }
   combos <- table(new, old)
   combo_matches <- which(combos != 0, arr.ind = TRUE)
   if (nrow(combo_matches) != nlevels(old)) {
-    stop("Non-unique pairwise matches between new and old")
+    stop("Non-unique pairwise matches between `new` and `old`")
   }
-  factor(new, levels = names(sort(combo_matches[, 2])))
+  factor(new, levels = names(sort(combo_matches[,2])))
 }

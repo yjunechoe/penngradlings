@@ -3,10 +3,11 @@
 #' Converts a comma-separated PCIbex results file into rectangular format.
 #'
 #' @param file Path to the results file
+#' @param encoding The name of the encoding to be assumed.
 #' @param exclude_controller_name Whether to skip parsing a column for `"Controller name"`.
-#'   In the new PCIbex (last checked: September 2021), `"Controller name"` appears in the column
-#'   specification as the third column but does not have associated values in the results. This is
-#'   `TRUE` by default but when parsing results files from the old PCIbex, it should be set to `FALSE`.
+#'   In a dev version of PCIbex (last checked: September 2021), `"Controller name"` appears in the column
+#'   specification as the third column but does not have associated values in the results. This has
+#'   since been fixed, so the value is set to `FALSE` by default.
 #'
 #' @return A dataframe
 #' @export
@@ -14,8 +15,6 @@
 #' \dontrun{
 #' # It takes a few seconds because it's reading from remote
 #' # but the parsing itself is very fast.
-#' # Also note that this results file is from the old PCIbex
-#' # so `exclude_controller_name` is set to `FALSE`
 #' dplyr::glimpse(
 #'   read_pcibex(
 #'     "https://raw.githubusercontent.com/yjunechoe
@@ -24,8 +23,9 @@
 #'   )
 #' )
 #' }
-read_pcibex <- function(file, exclude_controller_name = TRUE) {
-  results_raw <- readLines(file, warn = FALSE)
+read_pcibex <- function(file, encoding = "UTF-8", exclude_controller_name = FALSE) {
+  con <- base::file(file, encoding = encoding)
+  results_raw <- readLines(con = con, warn = FALSE)
   results_raw <- gsub(",+$", "", results_raw)
 
   blocks <- asplit(matrix(cumsum(rle(grepl("^#", results_raw))$lengths), ncol = 2, byrow = TRUE), 1)
@@ -64,7 +64,9 @@ read_pcibex <- function(file, exclude_controller_name = TRUE) {
   all_colnames <- unique(unlist(block_colnames, use.names = FALSE))
 
   block_data <- lapply(seq_len(length(blocks)), function(i) {
-    utils::read.csv(text = results_raw[block_lines[[i]]$data], header = FALSE, col.names = block_colnames[[i]])
+    out <- as.data.frame(do.call(rbind, strsplit(results_raw[block_lines[[i]]$data], ",")))
+    colnames(out) <- block_colnames[[i]]
+    out
   })
 
   for (i in seq_len(length(block_data))) {
@@ -76,8 +78,10 @@ read_pcibex <- function(file, exclude_controller_name = TRUE) {
 
   result <- do.call(rbind, block_data)
 
-  if ("dplyr" %in% loadedNamespaces()) {
-    dplyr::as_tibble(result)
+  close(con)
+
+  if (rlang::is_installed("tidyverse")) {
+    asNamespace("tibble")$as_tibble(asNamespace("readr")$type_convert(result))
   } else {
     result
   }

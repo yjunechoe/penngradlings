@@ -4,15 +4,17 @@
 \alias{read_pcibex}
 \title{Read the results from a PCIbex experiment}
 \usage{
-read_pcibex(file, exclude_controller_name = TRUE)
+read_pcibex(file, encoding = "UTF-8", exclude_controller_name = FALSE)
 }
 \arguments{
 \item{file}{Path to the results file}
 
+\item{encoding}{The name of the encoding to be assumed.}
+
 \item{exclude_controller_name}{Whether to skip parsing a column for \code{"Controller name"}.
-In the new PCIbex (last checked: September 2021), \code{"Controller name"} appears in the column
-specification as the third column but does not have associated values in the results. This is
-\code{TRUE} by default but when parsing results files from the old PCIbex, it should be set to \code{FALSE}.}
+In a dev version of PCIbex (last checked: September 2021), \code{"Controller name"} appears in the column
+specification as the third column but does not have associated values in the results. This has
+since been fixed, so the value is set to \code{FALSE} by default.}
 }
 \value{
 A dataframe
@@ -24,8 +26,6 @@ Converts a comma-separated PCIbex results file into rectangular format.
 \dontrun{
 # It takes a few seconds because it's reading from remote
 # but the parsing itself is very fast.
-# Also note that this results file is from the old PCIbex
-# so `exclude_controller_name` is set to `FALSE`
 dplyr::glimpse(
   read_pcibex(
     "https://raw.githubusercontent.com/yjunechoe
