@@ -64,18 +64,20 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">read_pcibex</span><span class="op">(</span><span class="va">file</span>, exclude_controller_name <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">read_pcibex</span><span class="op">(</span><span class="va">file</span>, encoding <span class="op">=</span> <span class="st">"UTF-8"</span>, exclude_controller_name <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>file</dt>
 <dd><p>Path to the results file</p></dd>
+<dt>encoding</dt>
+<dd><p>The name of the encoding to be assumed.</p></dd>
 <dt>exclude_controller_name</dt>
 <dd><p>Whether to skip parsing a column for <code>"Controller name"</code>.
-In the new PCIbex (last checked: September 2021), <code>"Controller name"</code> appears in the column
-specification as the third column but does not have associated values in the results. This is
-<code>TRUE</code> by default but when parsing results files from the old PCIbex, it should be set to <code>FALSE</code>.</p></dd>
+In a dev version of PCIbex (last checked: September 2021), <code>"Controller name"</code> appears in the column
+specification as the third column but does not have associated values in the results. This has
+since been fixed, so the value is set to <code>FALSE</code> by default.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -87,8 +89,6 @@ specification as the third column but does not have associated values in the res
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \dontrun{</span></span>
 <span class="r-in"><span class="co"># It takes a few seconds because it's reading from remote</span></span>
 <span class="r-in"><span class="co"># but the parsing itself is very fast.</span></span>
-<span class="r-in"><span class="co"># Also note that this results file is from the old PCIbex</span></span>
-<span class="r-in"><span class="co"># so `exclude_controller_name` is set to `FALSE`</span></span>
 <span class="r-in"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span></span>
 <span class="r-in">  <span class="fu">read_pcibex</span><span class="op">(</span></span>
 <span class="r-in">    <span class="st">"https://raw.githubusercontent.com/yjunechoe</span>
@@ -96,13 +96,34 @@ specification as the third column but does not have associated values in the res
 <span class="r-in">    exclude_controller_name <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span class="r-in">  <span class="op">)</span></span>
 <span class="r-in"><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">--</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">--------------------------------------------------------</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> cols(</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   Time_results_were_received = <span style="color: #00BB00;">col_double()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   MD5_hash_of_participant_s_IP_address = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   Controller_name = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   Item_number = <span style="color: #00BB00;">col_double()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   Element_number = <span style="color: #00BB00;">col_double()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   Type = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   Group = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   PennElementType = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   PennElementName = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   Parameter = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   Value = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   EventTime = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   Comments = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   Item = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   Cond = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   Group_1 = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   Participant_ID = <span style="color: #BB0000;">col_character()</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> )</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 23,302</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ Time_results_were_received           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1586129536, 1586129536, 158612953~</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ Time_results_were_received           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1586129536, 1586129536, 158612953~</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ MD5_hash_of_participant_s_IP_address <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ed21346ef6cb189471f1665c27e1065e~</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ Controller_name                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "PennController", "PennController~</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ Item_number                          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 0, 0, 2, 2, 3, 3, 3, 4, 4, 4, 5, ~</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ Element_number                       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ Item_number                          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 2, 2, 3, 3, 3, 4, 4, 4, 5, ~</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ Element_number                       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ Type                                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "consent", "consent", "intro", "i~</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ Group                                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "NULL", "NULL", "NULL", "NULL", "~</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ PennElementType                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "PennController", "PennController~</span>
