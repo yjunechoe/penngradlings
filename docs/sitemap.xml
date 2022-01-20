@@ -7,19 +7,7 @@
     <loc>https://yjunechoe.github.io/penngradlings/articles/annotations.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings/articles/custom-fonts.html</loc>
-  </url>
-  <url>
-    <loc>https://yjunechoe.github.io/penngradlings/articles/custom-functions.html</loc>
-  </url>
-  <url>
-    <loc>https://yjunechoe.github.io/penngradlings/articles/custom-ggplot2.html</loc>
-  </url>
-  <url>
     <loc>https://yjunechoe.github.io/penngradlings/articles/figures.html</loc>
-  </url>
-  <url>
-    <loc>https://yjunechoe.github.io/penngradlings/articles/font-workflow.html</loc>
   </url>
   <url>
     <loc>https://yjunechoe.github.io/penngradlings/articles/fonts.html</loc>
@@ -32,9 +20,6 @@
   </url>
   <url>
     <loc>https://yjunechoe.github.io/penngradlings/articles/themes.html</loc>
-  </url>
-  <url>
-    <loc>https://yjunechoe.github.io/penngradlings/articles/typography.html</loc>
   </url>
   <url>
     <loc>https://yjunechoe.github.io/penngradlings/authors.html</loc>
@@ -52,9 +37,6 @@
     <loc>https://yjunechoe.github.io/penngradlings/news/index.html</loc>
   </url>
   <url>
-    <loc>https://yjunechoe.github.io/penngradlings/reference/annotate_panel.html</loc>
-  </url>
-  <url>
     <loc>https://yjunechoe.github.io/penngradlings/reference/annotation_textbox.html</loc>
   </url>
   <url>
@@ -65,9 +47,6 @@
   </url>
   <url>
     <loc>https://yjunechoe.github.io/penngradlings/reference/fct_derive.html</loc>
-  </url>
-  <url>
-    <loc>https://yjunechoe.github.io/penngradlings/reference/fct_match.html</loc>
   </url>
   <url>
     <loc>https://yjunechoe.github.io/penngradlings/reference/font_exists.html</loc>
@@ -122,9 +101,6 @@
   </url>
   <url>
     <loc>https://yjunechoe.github.io/penngradlings/reference/theme_pgl_minimal.html</loc>
-  </url>
-  <url>
-    <loc>https://yjunechoe.github.io/penngradlings/reference/theme_plg_basic.html</loc>
   </url>
   <url>
     <loc>https://yjunechoe.github.io/penngradlings/reference/update_ggplot_defaults.html</loc>
