@@ -12,8 +12,8 @@
 #' new <- letters[1:5]
 #' new
 #' factor(new)
-#' fct_match(new, old)
-fct_match <- function(new, old) {
+#' fct_derive(new, old)
+fct_derive <- function(new, old) {
   if (!is.factor(old)) {
     stop("`old` must be a factor")
   }

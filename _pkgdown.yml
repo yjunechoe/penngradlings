@@ -39,6 +39,10 @@ reference:
   contents:
   - ggsave_auto
   - raggsave_auto
+- title: Data wrangling
+  desc: Tidyverse-inspired data wrangling functions
+  contents:
+  - fct_derive
 - title: Metaprogramming
   desc: Utility functions for analyzing/transforming code as data
   contents:

@@ -1,9 +1,15 @@
 # penngradlings (development version)
 
+# penngradlings 0.2.2
+
+### New functions
+
+- `fct_derive()` to derive levels from another factor with unique pair-wise matches
+
 ### Enhancements
 
-- `read_pcibex()` gains an `encoding` argument for specifying the file's character encoding. (#18)
-- `theme_pgl_minimal()` has been re-written for better scaling, default `base_size` changed to 12.
+- `read_pcibex()` gains an `encoding` argument for specifying the file's character encoding (#18)
+- `theme_pgl_minimal()` has been re-written to scale better, default value for `base_size` changed to 12
 
 # penngradlings 0.2.1
 
