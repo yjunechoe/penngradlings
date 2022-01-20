@@ -3,7 +3,6 @@
 #' @param position One of "top-left", "top-right", "bottom-left", "bottom-right", "center".
 #'
 #' @return A list of \code{hjust}, \code{vjust}, \code{x}, and \code{y}
-#'
 compute_position <- function(position) {
   if (!is.character(position)) {
     cli::cli_abort("Invalid {.arg position} value")
