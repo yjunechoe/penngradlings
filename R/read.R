@@ -34,9 +34,9 @@ read_pcibex <- function(file, encoding = "UTF-8", exclude_controller_name = FALS
   block_lines <- lapply(seq_len(length(blocks)), function(i) {
     block <- lapply(blocks[[i]], function(x) {
       if (x == blocks[[i]][1]) {
-        ref_lines[i]:x
+        seq(ref_lines[i], x)
       } else {
-        (blocks[[i]][1] + 1):x
+        seq(blocks[[i]][1] + 1, x)
       }
     })
     names(block) <- c("colnames", "data")

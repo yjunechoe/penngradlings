@@ -12,7 +12,7 @@
 #' @examples
 #' qcut(1:100, c(.2, .4, .6, .8))
 qcut <- function(x, q = c(.25, .50, .75), ...) {
-  vals <- quantile(x, probs = sort(unique(c(0, q))), ...)
+  vals <- stats::quantile(x, probs = sort(unique(c(0, q))), ...)
   cuts <- vapply(x, function(.x) max(which(.x >= vals)), numeric(1))
   labs <- paste0("(", names(vals), c(names(vals)[-1], "100%"), "]")
   names(vals)[cuts]
