@@ -4,17 +4,19 @@
 \alias{read_pcibex}
 \title{Read the results from a PCIbex experiment}
 \usage{
-read_pcibex(file, encoding = "UTF-8", exclude_controller_name = FALSE)
+read_pcibex(file, encoding = "UTF-8", exclude_controller_name = FALSE, ...)
 }
 \arguments{
 \item{file}{Path to the results file}
 
 \item{encoding}{The name of the encoding to be assumed.}
 
-\item{exclude_controller_name}{Whether to skip parsing a column for \code{"Controller name"}.
-In a dev version of PCIbex (last checked: September 2021), \code{"Controller name"} appears in the column
+\item{exclude_controller_name}{For backwards compatibility, whether to skip the column for \code{"Controller name"}.
+In a previous version of PCIbex (last checked: September 2021), \code{"Controller name"} appeared in the column
 specification as the third column but does not have associated values in the results. This has
 since been fixed, so the value is set to \code{FALSE} by default.}
+
+\item{...}{Passed to \code{type.convert()}, or \code{readr::type_convert()} if tidyverse is installed.}
 }
 \value{
 A dataframe

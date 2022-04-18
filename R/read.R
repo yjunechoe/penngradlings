@@ -4,10 +4,11 @@
 #'
 #' @param file Path to the results file
 #' @param encoding The name of the encoding to be assumed.
-#' @param exclude_controller_name Whether to skip parsing a column for `"Controller name"`.
-#'   In a dev version of PCIbex (last checked: September 2021), `"Controller name"` appears in the column
+#' @param exclude_controller_name For backwards compatibility, whether to skip the column for `"Controller name"`.
+#'   In a previous version of PCIbex (last checked: September 2021), `"Controller name"` appeared in the column
 #'   specification as the third column but does not have associated values in the results. This has
 #'   since been fixed, so the value is set to `FALSE` by default.
+#' @param ... Passed to `type.convert()`, or `readr::type_convert()` if tidyverse is installed.
 #'
 #' @return A dataframe
 #' @export
@@ -23,7 +24,7 @@
 #'   )
 #' )
 #' }
-read_pcibex <- function(file, encoding = "UTF-8", exclude_controller_name = FALSE) {
+read_pcibex <- function(file, encoding = "UTF-8", exclude_controller_name = FALSE, ...) {
   con <- base::file(file, encoding = encoding)
   results_raw <- readLines(con = con, warn = FALSE)
   results_raw <- gsub(",+$", "", results_raw)
@@ -80,9 +81,9 @@ read_pcibex <- function(file, encoding = "UTF-8", exclude_controller_name = FALS
 
   close(con)
 
-  if (rlang::is_installed("tidyverse")) {
-    asNamespace("tibble")$as_tibble(asNamespace("readr")$type_convert(result))
+  if (all(c("readr", "tibble") %in% rownames(utils::installed.packages()))) {
+    asNamespace("tibble")$as_tibble(asNamespace("readr")$type_convert(result, ...))
   } else {
-    result
+    utils::type.convert(result, ...)
   }
 }
