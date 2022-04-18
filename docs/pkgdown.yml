@@ -1,4 +1,4 @@
-pandoc: 2.11.4
+pandoc: 2.17.1.1
 pkgdown: 2.0.1
 pkgdown_sha: ~
 articles:
@@ -7,7 +7,7 @@ articles:
   fonts: fonts.html
   tables: tables.html
   themes: themes.html
-last_built: 2022-01-20T03:52Z
+last_built: 2022-04-18T14:33Z
 urls:
   reference: https://yjunechoe.github.io/penngradlings/reference
   article: https://yjunechoe.github.io/penngradlings/articles
