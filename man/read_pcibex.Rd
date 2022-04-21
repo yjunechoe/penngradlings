@@ -4,7 +4,12 @@
 \alias{read_pcibex}
 \title{Read the results from a PCIbex experiment}
 \usage{
-read_pcibex(file, encoding = "UTF-8", exclude_controller_name = FALSE, ...)
+read_pcibex(
+  file,
+  encoding = "UTF-8",
+  exclude_controller_name = FALSE,
+  type_opts = list()
+)
 }
 \arguments{
 \item{file}{Path to the results file}
@@ -16,7 +21,7 @@ In a previous version of PCIbex (last checked: September 2021), \code{"Controlle
 specification as the third column but does not have associated values in the results. This has
 since been fixed, so the value is set to \code{FALSE} by default.}
 
-\item{...}{Passed to \code{type.convert()}, or \code{readr::type_convert()} if tidyverse is installed.}
+\item{type_opts}{A list of arguments passed to \code{type.convert()}, or \code{readr::type_convert()} if tidyverse is installed.}
 }
 \value{
 A dataframe

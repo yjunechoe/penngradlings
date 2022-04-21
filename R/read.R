@@ -8,7 +8,7 @@
 #'   In a previous version of PCIbex (last checked: September 2021), `"Controller name"` appeared in the column
 #'   specification as the third column but does not have associated values in the results. This has
 #'   since been fixed, so the value is set to `FALSE` by default.
-#' @param ... Passed to `type.convert()`, or `readr::type_convert()` if tidyverse is installed.
+#' @param type_opts A list of arguments passed to `type.convert()`, or `readr::type_convert()` if tidyverse is installed.
 #'
 #' @return A dataframe
 #' @export
@@ -24,7 +24,7 @@
 #'   )
 #' )
 #' }
-read_pcibex <- function(file, encoding = "UTF-8", exclude_controller_name = FALSE, ...) {
+read_pcibex <- function(file, encoding = "UTF-8", exclude_controller_name = FALSE, type_opts = list()) {
   con <- base::file(file, encoding = encoding)
   results_raw <- readLines(con = con, warn = FALSE)
   results_raw <- gsub(",+$", "", results_raw)
@@ -32,7 +32,7 @@ read_pcibex <- function(file, encoding = "UTF-8", exclude_controller_name = FALS
   blocks <- asplit(matrix(cumsum(rle(grepl("^#", results_raw))$lengths), ncol = 2, byrow = TRUE), 1)
   ref_lines <- c(1, sapply(blocks, `[`, 2)[-length(blocks)] + 1)
 
-  block_lines <- lapply(seq_len(length(blocks)), function(i) {
+  block_lines <- lapply(seq_along(blocks), function(i) {
     block <- lapply(blocks[[i]], function(x) {
       if (x == blocks[[i]][1]) {
         seq(ref_lines[i], x)
@@ -64,13 +64,13 @@ read_pcibex <- function(file, encoding = "UTF-8", exclude_controller_name = FALS
   })
   all_colnames <- unique(unlist(block_colnames, use.names = FALSE))
 
-  block_data <- lapply(seq_len(length(blocks)), function(i) {
+  block_data <- lapply(seq_along(blocks), function(i) {
     out <- as.data.frame(do.call(rbind, strsplit(results_raw[block_lines[[i]]$data], ",")))
     colnames(out) <- block_colnames[[i]]
     out
   })
 
-  for (i in seq_len(length(block_data))) {
+  for (i in seq_along(block_data)) {
     diff_cols <- setdiff(all_colnames, colnames(block_data[[i]]))
     if (length(diff_cols) > 0) {
       block_data[[i]][, diff_cols] <- NA
@@ -82,8 +82,8 @@ read_pcibex <- function(file, encoding = "UTF-8", exclude_controller_name = FALS
   close(con)
 
   if (all(c("readr", "tibble") %in% rownames(utils::installed.packages()))) {
-    asNamespace("tibble")$as_tibble(asNamespace("readr")$type_convert(result, ...))
+    asNamespace("tibble")$as_tibble(do.call(asNamespace("readr")$type_convert, utils::modifyList(type_opts, list(df = result))))
   } else {
-    utils::type.convert(result, ...)
+    do.call(utils::type.convert, utils::modifyList(type_opts, list(x = result)))
   }
 }
