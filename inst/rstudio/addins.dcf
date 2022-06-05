@@ -2,3 +2,8 @@ Name: ggsave_auto
 Description: Saves and opens the last ggplot
 Binding: ggsave_auto
 Interactive: true
+
+Name: open_last
+Description: Opens .Last.value as path
+Binding: open_last
+Interactive: true

@@ -42,7 +42,7 @@ reference:
 - title: Data wrangling
   desc: Tidyverse-inspired data wrangling functions
   contents:
-  - qcut
+  - rshuffle
   - fct_derive
 - title: Metaprogramming
   desc: Utility functions for analyzing/transforming code as data

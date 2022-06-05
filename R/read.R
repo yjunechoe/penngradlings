@@ -14,13 +14,11 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' # It takes a few seconds because it's reading from remote
-#' # but the parsing itself is very fast.
+#' # Takes a few seconds to read from remote but parsing itself is fast
 #' dplyr::glimpse(
 #'   read_pcibex(
 #'     "https://raw.githubusercontent.com/yjunechoe
-#'      /Semantic-Persistence/master/data/result.txt",
-#'     exclude_controller_name = FALSE
+#'      /Semantic-Persistence/master/data/result.txt"
 #'   )
 #' )
 #' }
@@ -86,4 +84,12 @@ read_pcibex <- function(file, encoding = "UTF-8", exclude_controller_name = FALS
   } else {
     do.call(utils::type.convert, utils::modifyList(type_opts, list(x = result)))
   }
+}
+
+#' Opens .Last.value as path
+#' @export
+open_last <- function() {
+  message(.Last.value)
+  system2("open", .Last.value)
+  invisible(.Last.value)
 }

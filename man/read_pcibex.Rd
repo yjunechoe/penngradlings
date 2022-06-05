@@ -31,13 +31,11 @@ Converts a comma-separated PCIbex results file into rectangular format.
 }
 \examples{
 \dontrun{
-# It takes a few seconds because it's reading from remote
-# but the parsing itself is very fast.
+# Takes a few seconds to read from remote but parsing itself is fast
 dplyr::glimpse(
   read_pcibex(
     "https://raw.githubusercontent.com/yjunechoe
-     /Semantic-Persistence/master/data/result.txt",
-    exclude_controller_name = FALSE
+     /Semantic-Persistence/master/data/result.txt"
   )
 )
 }
