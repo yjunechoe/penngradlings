@@ -52,8 +52,7 @@ read_pcibex <- function(file, encoding = "UTF-8", exclude_controller_name = FALS
   ref_colnames <- parse_colnames(1:blocks[[1]][1])
   block_colnames <- lapply(block_lines, function(block) {
     colnames_list <- utils::modifyList(ref_colnames, parse_colnames(block$colnames))
-    colnames_vec <- make.names(as.character(colnames_list), unique = TRUE)
-    colnames_vec <- gsub("\\.+", "_", colnames_vec)
+    colnames_vec <- make.names(gsub("\\s+", "_", gsub("[^\\w\\s]", "", colnames_list, perl = TRUE)), unique = TRUE)
     if (exclude_controller_name) {
       setdiff(colnames_vec, "Controller_name")
     } else {

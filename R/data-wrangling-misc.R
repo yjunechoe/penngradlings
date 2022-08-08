@@ -26,9 +26,13 @@
 #'
 rshuffle <- function(x, mode = c("squish", "symmetric", "repel"), shuffle_within = FALSE) {
 
-  mode <- match.arg(mode)
   counts <- table(x)
+  if (is.factor(x)) {
+    counts <- counts[levels(x)]
+  }
+
   max_n <- max(counts)
+  mode <- match.arg(mode)
 
   tm <- switch(mode,
     "squish" = {
@@ -62,7 +66,7 @@ rshuffle <- function(x, mode = c("squish", "symmetric", "repel"), shuffle_within
     }
   )
 
-  v <- as.integer(tm)
+  v <- as.vector(tm)
   v[v > 0]
 
 }
@@ -75,9 +79,6 @@ rshuffle <- function(x, mode = c("squish", "symmetric", "repel"), shuffle_within
 #'   `x` is cut from left-to-right, filling up the smallest bin first. For example, `c(.25, .50, .75)`
 #'   returns a factor of 4 levels - 0%-25%, 25%-50%, 50%-75%, 75%-100%. Bins are left-inclusive and right-exclusive.
 #' @param ... Passed to `stats::quantile`
-#'
-#' @return
-#' @export
 #'
 #' @examples
 #' qcut(1:100, c(.2, .4, .6, .8))

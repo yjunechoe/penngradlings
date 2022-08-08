@@ -15,9 +15,6 @@ returns a factor of 4 levels - 0\%-25\%, 25\%-50\%, 50\%-75\%, 75\%-100\%. Bins 
 
 \item{...}{Passed to \code{stats::quantile}}
 }
-\value{
-
-}
 \description{
 Discretize a continuous variable into quantiles
 }
