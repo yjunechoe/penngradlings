@@ -49,8 +49,9 @@ ggsave_auto <- function(..., load_as_magick = FALSE) {
   }
 
   img_path <- withVisible(do.call(ggplot2::ggsave, params))$value
-  cli::cli_alert_success("Plot saved at: {.path {img_path}}")
-  system2("open", img_path)
+  img_path <- fs::path_abs(img_path)
+  cli_inform_write(img_path)
+  fs::file_show(img_path)
 
   if (file.exists(".gitignore") && !(".ggsave_auto" %in% readLines(".gitignore"))) {
     writeLines(c(readLines(".gitignore"), ".ggsave_auto", ""), ".gitignore")

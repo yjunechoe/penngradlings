@@ -80,6 +80,7 @@ rshuffle <- function(x, mode = c("squish", "symmetric", "repel"), shuffle_within
 #'   returns a factor of 4 levels - 0%-25%, 25%-50%, 50%-75%, 75%-100%. Bins are left-inclusive and right-exclusive.
 #' @param ... Passed to `stats::quantile`
 #'
+#' @export
 #' @examples
 #' qcut(1:100, c(.2, .4, .6, .8))
 qcut <- function(x, q = c(.25, .50, .75), ...) {
