@@ -27,3 +27,8 @@ cli_inform_write <- function(x, start = ".") {
   nav_expr <- sprintf('penngradlings::nav("%s")', path)
   cli::cli_inform('Saved to {.run [{relpath}]({nav_expr})}')
 }
+
+path_norm_copypaste <- function(x) {
+  path <- fs::path_norm(readClipboard())
+  writeClipboard(path)
+}

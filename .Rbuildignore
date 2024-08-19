@@ -9,3 +9,4 @@
 ^vignettes/
 ^data-raw$
 ^\.ggsave_auto
+^codecov\.yml$
