@@ -29,14 +29,3 @@ A dataframe
 \description{
 Converts a comma-separated PCIbex results file into rectangular format.
 }
-\examples{
-\dontrun{
-# Takes a few seconds to read from remote but parsing itself is fast
-dplyr::glimpse(
-  read_pcibex(
-    "https://raw.githubusercontent.com/yjunechoe
-     /Semantic-Persistence/master/data/result.txt"
-  )
-)
-}
-}

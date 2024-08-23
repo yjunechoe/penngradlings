@@ -29,6 +29,6 @@ cli_inform_write <- function(x, start = ".") {
 }
 
 path_norm_copypaste <- function(x) {
-  path <- fs::path_norm(readClipboard())
-  writeClipboard(path)
+  path <- fs::path_norm(utils::readClipboard())
+  utils::writeClipboard(path)
 }

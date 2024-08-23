@@ -30,7 +30,12 @@ Imports:
     cli,
     stringr,
     textshaping,
+    tinytable,
     magick,
     ggfx,
     colorspace,
-    fs
+    fs,
+    generics
+Suggests:
+    broom,
+    broom.mixed
