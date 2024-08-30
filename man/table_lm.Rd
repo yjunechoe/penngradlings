@@ -23,5 +23,5 @@ Quick table of regression model output
 }
 \examples{
 x <- lm(mpg ~ hp, mtcars)
-table_lm(x) # `write = ".docx"` to write to Word as you render
+table_lm(x) # `write = ".docx"` to also write out to a Word file
 }
