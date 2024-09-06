@@ -1,8 +1,9 @@
 #' Quick table of regression model output
 #'
 #' @param x A model with a `broom::tidy()` method defined, or pre-tidied data.
-#' @param beta_digits Digits to approximate on the estimate. This also controls
-#'   digits printed for the S.E. and t-statistic columns. Defaults to `2`.
+#' @param base_digits Digits to approximate on the estimate. This also controls
+#'   digits printed for the S.E. and t-statistic columns. Defaults to `2`. To
+#'   set digits for all 3 numbers, pass a length-3 vector.
 #' @param write Whether to write to a temporary file and open it in Viewer.
 #'   Defaults to `FALSE`. Can specify a format for `tinytable::save_tt()`.
 #'
@@ -12,7 +13,7 @@
 #' @examples
 #' x <- lm(mpg ~ hp, mtcars)
 #' table_lm(x) # `write = ".docx"` to also write out to a Word file
-table_lm <- function(x, beta_digits = 2, write = FALSE) {
+table_lm <- function(x, base_digits = 2, write = FALSE) {
 
   if (!is.data.frame(x)) {
     requireNamespace("broom", quietly = TRUE)
@@ -20,7 +21,12 @@ table_lm <- function(x, beta_digits = 2, write = FALSE) {
     x <- tidy(x, effects = "fixed")
   }
 
-  digits <- pmax(1, beta_digits + c(0, -1, 1))
+  stopifnot(length(base_digits) %in% c(1, 3))
+  if (length(base_digits) == 1) {
+    digits <- pmax(1, base_digits + c(0, -1, 1))
+  } else {
+    digits <- base_digits
+  }
 
   tbl <- x %>%
     `colnames<-`(c("", "estimate", "S.E.", "t-statistic", "p-value")) %>%

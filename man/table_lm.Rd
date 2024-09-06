@@ -4,13 +4,14 @@
 \alias{table_lm}
 \title{Quick table of regression model output}
 \usage{
-table_lm(x, beta_digits = 2, write = FALSE)
+table_lm(x, base_digits = 2, write = FALSE)
 }
 \arguments{
 \item{x}{A model with a \code{broom::tidy()} method defined, or pre-tidied data.}
 
-\item{beta_digits}{Digits to approximate on the estimate. This also controls
-digits printed for the S.E. and t-statistic columns. Defaults to \code{2}.}
+\item{base_digits}{Digits to approximate on the estimate. This also controls
+digits printed for the S.E. and t-statistic columns. Defaults to \code{2}. To
+set digits for all 3 numbers, pass a length-3 vector.}
 
 \item{write}{Whether to write to a temporary file and open it in Viewer.
 Defaults to \code{FALSE}. Can specify a format for \code{tinytable::save_tt()}.}
