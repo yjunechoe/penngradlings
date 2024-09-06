@@ -1,6 +1,6 @@
 #' Navigate to a file
 #'
-#' When used interactively, opens the file/ folder.
+#' When used interactively, opens the file/folder.
 #'
 #' @param x A path.
 #'
@@ -9,9 +9,9 @@
 #'
 #' @examples
 #' \dontrun{
-#' library(fs)
-#' file_create(fs::file_temp(ext = "txt")) |> nav()
-#' dir_temp() |> nav()
+#' if (interactive()) {
+#'   nav(getwd())
+#'  }
 #' }
 nav <- function(x) {
   path <- fs::path_tidy(x)
